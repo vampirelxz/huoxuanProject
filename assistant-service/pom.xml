@@ -16,12 +16,12 @@
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
     </properties>
 
-    <parent>
-        <groupId>com.lxz</groupId>
-        <artifactId>HXAssistant</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+    <!--<parent>-->
+        <!--<groupId>com.lxz</groupId>-->
+        <!--<artifactId>HXAssistant</artifactId>-->
+        <!--<version>1.0-SNAPSHOT</version>-->
+        <!--<relativePath>../pom.xml</relativePath>-->
+    <!--</parent>-->
 
     <dependencies>
         <dependency>

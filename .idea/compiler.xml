@@ -7,10 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="assistant-service" />
-        <module name="assistants-service" />
+        <module name="forecast" />
+        <module name="HXAssistant" />
+        <module name="news-service" />
+        <module name="register" />
+        <module name="stock" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="assistants-service" target="1.8" />
       <module name="HXAssistantService" target="1.5" />
     </bytecodeTargetLevel>
   </component>

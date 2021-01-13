@@ -2,7 +2,9 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/assistant-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/assistants-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../HXAssistantService" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/forecast-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/news-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/register-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stock-service" charset="UTF-8" />
   </component>
 </project>

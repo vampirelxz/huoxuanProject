@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4de12d73-0415-46fe-9ee0-d5a1578944db" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-=======
       <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/config/RestTemplateConfig.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/entity/AmapPosition.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/utils/PositionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forecast-service/src/test/java/com/lxz/forecast/ForecastServiceApplicationTests.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/register-server/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/register-server/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/register-server/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
@@ -23,6 +30,17 @@
       <change afterPath="$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/register-server/src/main/resources/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/register-server/src/test/java/com/lxz/register/RegisterServiceApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/StockServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -31,15 +49,14 @@
       <change beforePath="$PROJECT_DIR$/HXAssistant.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/assistant-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assistant-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
     </list>
     <ignored path="$PROJECT_DIR$/../HXAssistantService/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/assistants-service/target/" />
     <ignored path="$PROJECT_DIR$/assistant-service/target/" />
-    <ignored path="$PROJECT_DIR$/register-service/target/" />
     <ignored path="$PROJECT_DIR$/register-server/target/" />
     <ignored path="$PROJECT_DIR$/forecast-service/target/" />
+    <ignored path="$PROJECT_DIR$/news-service/target/" />
     <ignored path="$PROJECT_DIR$/stock-service/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,31 +64,32 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
   <component name="FUSProjectUsageTrigger">
     <session id="1201493234">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="2" />
-          <entry key="xml" value="4" />
+          <entry key="java" value="6" />
+          <entry key="xml" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="2" />
-          <entry key="XML" value="4" />
+          <entry key="JAVA" value="6" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -88,66 +106,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../HXAssistantService/pom.xml">
-=======
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forecast-service/pom.xml">
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/register-server/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-              </folding>
-            </state>
+            <state relative-caret-position="-342" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="209">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-23">
+              <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+              <folding>
+                <element signature="e#1110#1132#1" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,38 +152,28 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../HXAssistantService/pom.xml" />
-        <option value="$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java" />
-        <option value="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java" />
-        <option value="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/utils/PositionUtil.java" />
-        <option value="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/config/RestTemplateConfig.java" />
-        <option value="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java" />
-        <option value="$PROJECT_DIR$/stock-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/StockServiceApplication.java" />
-        <option value="$PROJECT_DIR$/forecast-service/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/register-server/pom.xml" />
-        <option value="$PROJECT_DIR$/stock-service/pom.xml" />
         <option value="$PROJECT_DIR$/assistant-service/pom.xml" />
-        <option value="$PROJECT_DIR$/forecast-service/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/register-server/src/main/resources/application.properties" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="userSettingsFile" value="X:\apache-maven-3.6.1\conf\settings.xml" />
+        <option name="userSettingsFile" value="D:\maven3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -200,92 +181,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="register" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -294,29 +197,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610532044710" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610552534212" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/stock-service/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.lxz.forecast.config" />
-      <recent name="com.lxz.forecast.controller" />
-      <recent name="com.lxz.forecast.entity" />
-      <recent name="com.lxz.forecast.utils" />
-    </key>
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -339,7 +229,7 @@
       </method>
     </configuration>
     <configuration name="ForecastServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="forecast-service" />
+      <module name="forecast" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.forecast.ForecastServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -352,15 +242,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NewsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="news-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.news.NewsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="register-server" />
+      <module name="register" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.register.RegisterServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="StockServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="stock-service" />
+      <module name="stock" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.stock.StockServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -371,6 +268,7 @@
       <item itemvalue="Spring Boot.HxAssistantsServiceApplication" />
       <item itemvalue="Spring Boot.RegisterServiceApplication" />
       <item itemvalue="Spring Boot.ForecastServiceApplication" />
+      <item itemvalue="Spring Boot.NewsServiceApplication" />
       <item itemvalue="Spring Boot.StockServiceApplication" />
     </list>
   </component>
@@ -389,32 +287,19 @@
       <workItem from="1610468526062" duration="1063000" />
       <workItem from="1610469620870" duration="404000" />
       <workItem from="1610470100766" duration="77000" />
-<<<<<<< HEAD
       <workItem from="1610539679170" duration="723000" />
-=======
-      <workItem from="1610525828876" duration="4065000" />
-      <workItem from="1610530469785" duration="666000" />
-      <workItem from="1610531193967" duration="859000" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
+      <workItem from="1610541343457" duration="644000" />
+      <workItem from="1610542043274" duration="3762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="2524000" />
-=======
-    <option name="totallyTimeSpent" value="7391000" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
+    <option name="totallyTimeSpent" value="6930000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-<<<<<<< HEAD
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2660858" />
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2707889" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2727882" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -424,24 +309,18 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Spring" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
-<<<<<<< HEAD
-=======
-      <window_info anchor="bottom" id="FindBugs-IDEA" order="14" />
-      <window_info anchor="bottom" id="Analysis" order="15" />
-      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -452,20 +331,39 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
-      <window_info anchor="right" id="Maven" order="10" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/assistants-service/src/main/java/com/lxz/assistantservice/HxAssistantsServiceApplication.java" />
     <entry file="file://$PROJECT_DIR$/assistants-service/pom.xml" />
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-=======
-    <entry file="file://$PROJECT_DIR$/../HXAssistantService/pom.xml" />
     <entry file="file://$PROJECT_DIR$/HXAssistant.iml" />
+    <entry file="file://$PROJECT_DIR$/../HXAssistantService/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assistant-service/src/main/java/com/lxz/assistant/AssistantServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -473,169 +371,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistants-service/assistants-service.iml" />
-    <entry file="file://$PROJECT_DIR$/register-server/register-server.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/mvnw">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/mvnw.cmd">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/entity/AmapPosition.java">
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
+    <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="247">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/assistant-service/src/main/java/com/lxz/assistant/AssistantServiceApplication.java">
-=======
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/config/RestTemplateConfig.java">
+    <entry file="file://$PROJECT_DIR$/register-server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114" />
+        <state relative-caret-position="228">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/utils/PositionUtil.java">
+    <entry file="file://$PROJECT_DIR$/forecast-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-          <folding>
-            <element signature="e#1268#1290#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="-342" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="-23">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
           <folding>
             <element signature="e#1110#1132#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/StockServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stock-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.10.7/eureka-client-1.10.7.jar!/com/netflix/discovery/shared/transport/decorator/RetryableEurekaHttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stock-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/resources/application.properties">
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HXAssistant.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-152">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-<<<<<<< HEAD
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../HXAssistantService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-=======
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register-server/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
->>>>>>> 4108eceec7c807ce532f73b56ca3db2acba88ef4
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
           <last-edited>scala-sdk-2.11.8</last-edited>
@@ -660,6 +461,18 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>assistant-service</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -674,6 +487,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
