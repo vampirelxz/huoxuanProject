@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4de12d73-0415-46fe-9ee0-d5a1578944db" name="Default Changelist" comment="" />
+    <list default="true" id="4de12d73-0415-46fe-9ee0-d5a1578944db" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/assistant-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assistant-service/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/../HXAssistantService/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/assistants-service/target/" />
@@ -22,14 +24,14 @@
         <counts>
           <entry key="iml" value="1" />
           <entry key="java" value="6" />
-          <entry key="xml" value="9" />
+          <entry key="xml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
           <entry key="JAVA" value="6" />
-          <entry key="XML" value="9" />
+          <entry key="XML" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -77,6 +79,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news-service/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
@@ -115,8 +126,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../HXAssistantService/pom.xml" />
-        <option value="$PROJECT_DIR$/assistant-service/pom.xml" />
         <option value="$PROJECT_DIR$/news-service/pom.xml" />
+        <option value="$PROJECT_DIR$/assistant-service/pom.xml" />
       </list>
     </option>
   </component>
@@ -157,6 +168,11 @@
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="assistant-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
               <item name="news-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -172,7 +188,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610552749744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610553688235" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/stock-service/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -263,7 +279,7 @@
       <workItem from="1610470100766" duration="77000" />
       <workItem from="1610539679170" duration="723000" />
       <workItem from="1610541343457" duration="644000" />
-      <workItem from="1610542043274" duration="4550000" />
+      <workItem from="1610542043274" duration="4637000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'dev' of https://github.com/vampirelxz/huoxuanProject&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
       <created>1610552522887</created>
@@ -283,7 +299,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7718000" />
+    <option name="totallyTimeSpent" value="7805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -341,13 +357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -410,6 +419,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
