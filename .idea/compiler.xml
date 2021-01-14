@@ -17,7 +17,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HXAssistantService" target="1.5" />
-      <module name="register-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
