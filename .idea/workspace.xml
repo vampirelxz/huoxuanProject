@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4de12d73-0415-46fe-9ee0-d5a1578944db" name="Default Changelist" comment="">
-<<<<<<< HEAD
+    <list default="true" id="4c9ee3c0-c38e-42de-b312-d90deeb9edfa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/BuyStock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/Stock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/StockInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/impl/StockInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/JsonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/assistant-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assistant-service/pom.xml" afterDir="false" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java" beforeDir="false" afterPath="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stock-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stock-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/../HXAssistantService/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/assistants-service/target/" />
-    <ignored path="$PROJECT_DIR$/assistant-service/target/" />
-    <ignored path="$PROJECT_DIR$/register-server/target/" />
     <ignored path="$PROJECT_DIR$/forecast-service/target/" />
     <ignored path="$PROJECT_DIR$/news-service/target/" />
+    <ignored path="$PROJECT_DIR$/register-server/target/" />
+    <ignored path="$PROJECT_DIR$/assistant-service/target/" />
     <ignored path="$PROJECT_DIR$/stock-service/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,129 +32,137 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1201493234">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="iml" value="1" />
-          <entry key="java" value="6" />
-          <entry key="xml" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="6" />
-          <entry key="XML" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register-server/pom.xml">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/StockInfoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forecast-service/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-<<<<<<< HEAD
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-=======
-              <caret line="22" column="13" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register-server/src/main/resources/application.properties">
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/forecast-service/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state>
-              <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
-=======
-            <state relative-caret-position="209">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="58" column="40" lean-forward="true" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+            <state relative-caret-position="323">
+              <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
               <folding>
-                <element signature="e#1110#1132#1" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/JsonUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSON.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="376" column="63" selection-start-line="376" selection-start-column="36" selection-end-line="376" selection-end-column="63" />
+              <folding>
+                <element signature="e#15505#15506#0" expanded="true" />
+                <element signature="e#15552#15553#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/impl/StockInfoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1465#1489#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/HttpUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#912#920#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="22" />
+              <folding>
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#487#488#0" expanded="true" />
+                <element signature="e#530#531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/BuyStock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1752">
+              <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,42 +170,50 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../HXAssistantService/pom.xml" />
-        <option value="$PROJECT_DIR$/news-service/pom.xml" />
-        <option value="$PROJECT_DIR$/assistant-service/pom.xml" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/config/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/BuyStock.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/Stock.java" />
+        <option value="$PROJECT_DIR$/stock-service/pom.xml" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/JsonUtil.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/impl/StockInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/StockInfoService.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java" />
+        <option value="$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="userSettingsFile" value="D:\maven3\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="HXAssistant" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="HXAssistant" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1050" />
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-=======
       <pane id="Scope" />
-      <pane id="PackagesPane" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,7 +224,6 @@
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-<<<<<<< HEAD
               <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -237,56 +262,151 @@
               <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="forecast" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-=======
-              <item name="assistant-service" type="462c0819:PsiDirectoryNode" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="stock-service" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="stock" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610532439010" />
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610553688235" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
-    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/stock-service/pom.xml" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610606816588" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lxz.stock.config" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -300,7 +420,39 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RegisterServiceApplication">
+  <component name="RunManager" selected="JUnit.StockServiceApplicationTests.contextLoads2">
+    <configuration name="StockServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lxz.stock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lxz.stock" />
+      <option name="MAIN_CLASS_NAME" value="com.lxz.stock.StockServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StockServiceApplicationTests.contextLoads2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stock-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lxz.stock.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lxz.stock" />
+      <option name="MAIN_CLASS_NAME" value="com.lxz.stock.StockServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AssistantServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="assistant-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.assistant.AssistantServiceApplication" />
@@ -309,289 +461,308 @@
       </method>
     </configuration>
     <configuration name="ForecastServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="forecast" />
+      <module name="forecast-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.forecast.ForecastServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HxAssistantsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="assistants-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.assistantservice.HxAssistantsServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NewsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="news-service" />
+      <module name="news" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.news.NewsServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="RegisterServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="register" />
+      <module name="register-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.register.RegisterServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="StockServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="stock" />
+      <module name="stock-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.stock.StockServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Spring Boot.AssistantServiceApplication" />
-      <item itemvalue="Spring Boot.HxAssistantsServiceApplication" />
-      <item itemvalue="Spring Boot.RegisterServiceApplication" />
-      <item itemvalue="Spring Boot.ForecastServiceApplication" />
-      <item itemvalue="Spring Boot.NewsServiceApplication" />
-      <item itemvalue="Spring Boot.StockServiceApplication" />
-    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StockServiceApplicationTests.contextLoads2" />
+        <item itemvalue="JUnit.StockServiceApplicationTests.contextLoads" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4de12d73-0415-46fe-9ee0-d5a1578944db" name="Default Changelist" comment="" />
-      <created>1610468041312</created>
+      <changelist id="4c9ee3c0-c38e-42de-b312-d90deeb9edfa" name="Default Changelist" comment="" />
+      <created>1610586942999</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1610468041312</updated>
-      <workItem from="1610468048580" duration="67000" />
-      <workItem from="1610468140677" duration="360000" />
-      <workItem from="1610468526062" duration="1063000" />
-      <workItem from="1610469620870" duration="404000" />
-      <workItem from="1610470100766" duration="77000" />
-<<<<<<< HEAD
-      <workItem from="1610525828876" duration="4065000" />
-      <workItem from="1610530469785" duration="666000" />
-      <workItem from="1610531193967" duration="859000" />
-      <workItem from="1610532389709" duration="215000" />
-=======
-      <workItem from="1610539679170" duration="723000" />
-      <workItem from="1610541343457" duration="644000" />
-      <workItem from="1610542043274" duration="4637000" />
+      <updated>1610586942999</updated>
+      <workItem from="1610586946738" duration="17115000" />
     </task>
-    <task id="LOCAL-00001" summary="Merge branch 'dev' of https://github.com/vampirelxz/huoxuanProject&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1610552522887</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1610552522888</updated>
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
-    </task>
-    <task id="LOCAL-00002" summary="Merge branch 'dev' of https://github.com/vampirelxz/huoxuanProject&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <created>1610552652458</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1610552652458</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 11h 50m 23s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 11h 50m 40s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 12h 22m 34s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 14h 08m 12s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 14h 10m 04s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 14h 13m 31s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 14h 25m 07s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StockServiceApplicationTests_contextLoads - 2021.01.14 at 14h 40m 42s.xml">
+      <configuration name="StockServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="7606000" />
+    <option name="totallyTimeSpent" value="17115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27345416" />
-=======
-    <option name="totallyTimeSpent" value="7805000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2727882" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" />
+      <window_info anchor="bottom" id="Analysis" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
-      <window_info anchor="bottom" id="Spring" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="Maven" weight="0.32995737" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'dev' of https://github.com/vampirelxz/huoxuanProject&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'dev' of https://github.com/vampirelxz/huoxuanProject&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assistants-service/src/main/java/com/lxz/assistantservice/HxAssistantsServiceApplication.java" />
-    <entry file="file://$PROJECT_DIR$/assistants-service/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/HXAssistant.iml" />
-    <entry file="file://$PROJECT_DIR$/../HXAssistantService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/src/main/java/com/lxz/assistant/AssistantServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/StockServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stock-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/netflix/eureka/eureka-client/1.10.7/eureka-client-1.10.7.jar!/com/netflix/discovery/shared/transport/decorator/RetryableEurekaHttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stock-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="20" lean-forward="true" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/src/main/resources/application.properties">
-=======
-    <entry file="file://$PROJECT_DIR$/register-server/pom.xml">
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="209">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/ForecastServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="58" column="40" lean-forward="true" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-          <folding>
-            <element signature="e#1110#1132#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="764">
+          <caret line="44" column="10" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/entity/AmapPosition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="47" column="66" selection-start-line="47" selection-start-column="66" selection-end-line="47" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/forecast-service/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-<<<<<<< HEAD
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-=======
-          <caret line="22" column="13" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
+        <state relative-caret-position="342">
+          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="28" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/pom.xml">
+    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/utils/PositionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state>
-          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="342">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+          <folding>
+            <element signature="e#1268#1290#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
+    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/java/com/lxz/forecast/controller/ForecastController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="406">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/Stock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="95" column="17" selection-start-line="95" selection-start-column="17" selection-end-line="95" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
           </folding>
-=======
-        <state relative-caret-position="326">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
->>>>>>> e0357fa0ec3f0482f4512646574b84c90664d5ef
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assistant-service/pom.xml">
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="18" selection-start-line="18" selection-end-line="23" selection-end-column="13" />
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forecast-service/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/entity/BuyStock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="1752">
+          <caret line="147" column="7" selection-start-line="147" selection-start-column="7" selection-end-line="147" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#912#920#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/utils/JsonUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSON.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="376" column="63" selection-start-line="376" selection-start-column="36" selection-end-line="376" selection-end-column="63" />
+          <folding>
+            <element signature="e#15505#15506#0" expanded="true" />
+            <element signature="e#15552#15553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/impl/StockInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1465#1489#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/StockInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stock-service/src/test/java/com/lxz/stock/StockServiceApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#487#488#0" expanded="true" />
+            <element signature="e#530#531#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -624,7 +795,6 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>scala-sdk-2.11.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -636,7 +806,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>1.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -653,18 +823,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

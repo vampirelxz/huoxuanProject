@@ -46,6 +46,7 @@ public class ForecastController {
         String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=all";
         System.out.println(url);
         //String json =restTemplate.getForObject(url,Object.class);
+
         ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
         String json = results.getBody();
         return json;

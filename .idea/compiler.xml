@@ -2,16 +2,21 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="assistant-service" />
         <module name="forecast" />
+        <module name="forecast-service" />
         <module name="HXAssistant" />
+        <module name="news" />
         <module name="news-service" />
         <module name="register" />
+        <module name="register-server" />
         <module name="stock" />
+        <module name="stock-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
