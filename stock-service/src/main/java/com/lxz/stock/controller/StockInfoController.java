@@ -12,6 +12,7 @@ package com.lxz.stock.controller;/**********************************************
 
 import com.lxz.stock.entity.BuyStock;
 import com.lxz.stock.entity.Stock;
+import com.lxz.stock.service.StockInfoService;
 import com.lxz.stock.service.impl.StockInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StockInfoController {
     @Autowired
-    StockInfoServiceImpl stockInfoService;
+    StockInfoService stockInfoService;
 
     @GetMapping("/realtimeStock")
     public BuyStock listRealTimeStock(Integer code){
