@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c9ee3c0-c38e-42de-b312-d90deeb9edfa" name="Default Changelist" comment="股票业务">
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/config/RestTemplateConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/controller/NewsInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/entity/New.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/NewsInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/utils/TranChannelUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/config/RestTemplateConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/controller/ExpressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/Express.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/ExpressInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/ExpressService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/impl/ExpressServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/utils/ExpressUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/news-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/NewsServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/NewsServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/news-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/news-service/src/test/java/com/lxz/news/NewsServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/news-service/src/test/java/com/lxz/news/NewsServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/controller/StockInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/forecast-service/target/" />
@@ -21,6 +21,7 @@
     <ignored path="$PROJECT_DIR$/register-server/target/" />
     <ignored path="$PROJECT_DIR$/assistant-service/target/" />
     <ignored path="$PROJECT_DIR$/stock-service/target/" />
+    <ignored path="$PROJECT_DIR$/lifetools-service/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,19 +31,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/NewsServiceApplication.java">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/utils/ExpressUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="1691">
+              <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/utils/TranChannelUtil.java">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/ExpressService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="25" column="44" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="44" />
+            <state relative-caret-position="342">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/controller/NewsInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            <state relative-caret-position="285">
+              <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,36 +64,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/test/java/com/lxz/news/NewsServiceApplicationTests.java">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/impl/ExpressServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-              <folding>
-                <element signature="e#765#766#0" expanded="true" />
-                <element signature="e#845#846#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+            <state relative-caret-position="1159">
+              <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1220#1240#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/NewsInfoService.java">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/controller/ExpressController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="493">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,10 +88,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/entity/ClassifyNew.java">
+        <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="114">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/test/java/com/lxz/lifetools/LifetoolsServiceApplicationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.6.3/junit-platform-commons-1.6.3.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="363" selection-start-line="363" selection-end-line="363" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="115" column="9" selection-start-line="105" selection-start-column="8" selection-end-line="115" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,19 +132,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/news-service/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/config/RestTemplateConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSON.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="284">
+              <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -132,6 +145,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -169,7 +183,26 @@
         <option value="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/controller/NewsInfoController.java" />
         <option value="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/NewsInfoService.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/pom.xml" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/LifetoolsServiceApplication.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/ExpressInfo.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/config/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/Express.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/test/java/com/lxz/lifetools/LifetoolsServiceApplicationTests.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/ExpressService.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/impl/ExpressServiceImpl.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/utils/ExpressUtil.java" />
+        <option value="$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/controller/ExpressController.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="X:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -199,7 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -211,88 +243,25 @@
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="forecast-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -300,84 +269,33 @@
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -385,16 +303,52 @@
             <path>
               <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
               <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
-              <item name="news-service" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools-service" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
+              <item name="lifetools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HXAssistant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HXAssistant" type="462c0819:PsiDirectoryNode" />
+              <item name="register-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="register" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,14 +358,16 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610699463132" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1610962342281" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="show.run.dashboard.notification" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lxz.lifetools.config" />
       <recent name="com.lxz.news.config" />
       <recent name="com.lxz.stock.config" />
     </key>
@@ -428,7 +384,37 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.NewsServiceApplication">
+  <component name="RunManager" selected="Spring Boot.LifetoolsServiceApplication">
+    <configuration name="LifetoolsServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lifetools-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lxz.lifetools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lxz.lifetools" />
+      <option name="MAIN_CLASS_NAME" value="com.lxz.lifetools.LifetoolsServiceApplicationTests" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LifetoolsServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lifetools-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lxz.lifetools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lxz.lifetools" />
+      <option name="MAIN_CLASS_NAME" value="com.lxz.lifetools.LifetoolsServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NewsServiceApplicationTests.ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="news" />
       <extension name="coverage">
@@ -455,22 +441,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lxz.news" />
       <option name="MAIN_CLASS_NAME" value="com.lxz.news.NewsServiceApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StockServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="stock-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lxz.stock.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lxz.stock" />
-      <option name="MAIN_CLASS_NAME" value="com.lxz.stock.StockServiceApplicationTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -507,6 +477,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LifetoolsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lifetools-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.lifetools.LifetoolsServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NewsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="news" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.lxz.news.NewsServiceApplication" />
@@ -530,10 +507,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LifetoolsServiceApplicationTests" />
+        <item itemvalue="JUnit.LifetoolsServiceApplicationTests.contextLoads" />
         <item itemvalue="JUnit.NewsServiceApplicationTests.ServiceTest" />
         <item itemvalue="JUnit.NewsServiceApplicationTests.contextLoads" />
         <item itemvalue="JUnit.StockServiceApplicationTests.contextLoads2" />
-        <item itemvalue="JUnit.StockServiceApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -549,6 +527,7 @@
       <updated>1610586942999</updated>
       <workItem from="1610586946738" duration="19791000" />
       <workItem from="1610673058717" duration="16399000" />
+      <workItem from="1610950314134" duration="9663000" />
     </task>
     <task id="LOCAL-00001" summary="股票业务">
       <created>1610606905178</created>
@@ -561,45 +540,45 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NewsServiceApplicationTests_contextLoads - 2021.01.15 at 14h 06m 52s.xml">
-      <configuration name="NewsServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 16h 54m 48s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_contextLoads - 2021.01.15 at 14h 07m 24s.xml">
-      <configuration name="NewsServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 16h 56m 11s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_contextLoads - 2021.01.15 at 14h 08m 28s.xml">
-      <configuration name="NewsServiceApplicationTests.contextLoads" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 06m 12s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 34m 18s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 11m 46s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 37m 06s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 17m 10s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 41m 43s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 17m 37s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 44m 32s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 19m 55s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 49m 19s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 21m 56s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 15h 49m 53s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 22m 41s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NewsServiceApplicationTests_ServiceTest - 2021.01.15 at 16h 05m 10s.xml">
-      <configuration name="NewsServiceApplicationTests.ServiceTest" configurationId="JUnit" />
+    <history-entry file="LifetoolsServiceApplicationTests_contextLoads - 2021.01.18 at 17h 24m 17s.xml">
+      <configuration name="LifetoolsServiceApplicationTests.contextLoads" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36190000" />
+    <option name="totallyTimeSpent" value="45853000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -608,7 +587,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -656,13 +635,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="764">
@@ -777,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stock-service/src/main/java/com/lxz/stock/service/impl/StockInfoServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -859,13 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSON.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSONObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -880,76 +838,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/resources/application.properties">
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/utils/TranChannelUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/NewsServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="475">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news-service/src/test/java/com/lxz/news/NewsServiceApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-          <folding>
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-          </folding>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/utils/TranChannelUtil.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.62/fastjson-1.2.62.jar!/com/alibaba/fastjson/JSON.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="25" column="44" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/controller/NewsInfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="37" column="50" lean-forward="true" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1220#1240#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/NewsInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="380">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/entity/ClassifyNew.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="646">
+          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/NewsServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="74" lean-forward="true" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/LifetoolsServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/ExpressInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/NewsInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/entity/Express.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/config/RestTemplateConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.6.3/junit-platform-commons-1.6.3.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="363" selection-start-line="363" selection-end-line="363" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/service/impl/NewsInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="115" column="9" selection-start-line="105" selection-start-column="8" selection-end-line="115" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/test/java/com/lxz/lifetools/LifetoolsServiceApplicationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="15" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/ExpressService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/utils/ExpressUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1691">
+          <caret line="89" column="30" lean-forward="true" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/service/impl/ExpressServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news-service/src/main/java/com/lxz/news/controller/NewsInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="36" column="32" lean-forward="true" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lifetools-service/src/main/java/com/lxz/lifetools/controller/ExpressController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register-server/src/main/java/com/lxz/register/RegisterServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
