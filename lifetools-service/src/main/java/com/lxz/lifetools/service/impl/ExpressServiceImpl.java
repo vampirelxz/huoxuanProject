@@ -52,7 +52,7 @@ public class ExpressServiceImpl implements ExpressService {
     public Express listExpress(String num, String com) {
         try {
             String url;
-            if(com == null){
+            if(com == null || com.equals("null")){
                 url = "https://v1.alapi.cn/api/kd?number=" + num;
                 System.out.println(url);
             }else {
@@ -82,4 +82,6 @@ public class ExpressServiceImpl implements ExpressService {
         express.setCom("请输入正确的快递编码和公司全称");
         return express;
     }
+
+
 }

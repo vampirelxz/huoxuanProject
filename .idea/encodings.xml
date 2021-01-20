@@ -3,6 +3,7 @@
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
     <file url="file://$PROJECT_DIR$/assistant-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/forecast-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lifetools-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/news-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-server" charset="UTF-8" />

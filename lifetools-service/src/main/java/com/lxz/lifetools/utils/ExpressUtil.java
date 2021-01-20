@@ -47,46 +47,46 @@ public class ExpressUtil {
      * @Date:  2021/1/18/15:52
      */
     public String companyTran(String company){
-        if(company == zto){
+        if(company.equals(zto)){
             return "zto";
         }
-        if(company == sto){
+        if(company.equals(sto)){
             return "sto";
         }
-        if(company == yto){
+        if(company.equals(yto)){
             return "yto";
         }
-        if(company == tiantian){
+        if(company.equals(tiantian)){
             return "tiantian";
         }
-        if(company == ems){
+        if(company.equals(ems)){
             return "ems";
         }
-        if(company == yunda){
+        if(company.equals(yunda)){
             return "yunda";
         }
-        if(company == yousu){
+        if(company.equals(yousu)){
             return "yousu";
         }
-        if(company == best){
+        if(company.equals(best)){
             return "800best";
         }
-        if(company == huitong){
+        if(company.equals(huitong)){
             return "huitong";
         }
-        if(company == zhaijisong){
+        if(company.equals(zhaijisong)){
             return "zhaijisong";
         }
-        if(company == longbang){
+        if(company.equals(longbang)){
             return "longbang";
         }
-        if(company == suning){
+        if(company.equals(suning)){
             return "suning";
         }
-        if(company == guotong){
+        if(company.equals(guotong)){
             return "guotong";
         }
-        if(company == jingdong){
+        if(company.equals(jingdong)){
             return "jingdong";
         }
         return null;

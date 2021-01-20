@@ -14,7 +14,7 @@ class LifetoolsServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println(expressService.listExpress("ESL83584691743223","京东快递").toString());
+        System.out.println(expressService.listExpress("ESL83584691743223",null).toString());
     }
 
 }

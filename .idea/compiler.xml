@@ -10,6 +10,7 @@
         <module name="assistant-service" />
         <module name="forecast" />
         <module name="forecast-service" />
+        <module name="gateway-server" />
         <module name="HXAssistant" />
         <module name="lifetools-service" />
         <module name="news" />
