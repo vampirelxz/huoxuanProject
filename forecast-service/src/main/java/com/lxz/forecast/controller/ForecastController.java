@@ -10,14 +10,17 @@ package com.lxz.forecast.controller;/*******************************************
  *
  ********************************************************/
 
+import com.lxz.forecast.entity.Forecast;
+import com.lxz.forecast.entity.Weather;
+import com.lxz.forecast.service.impl.WeatherServiceImpl;
 import com.lxz.forecast.utils.PositionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 
 /**
@@ -37,28 +40,33 @@ public class ForecastController {
     @Autowired
     private PositionUtil positionUtil;
 
+    @Autowired
+    WeatherServiceImpl weatherService;
+
     @Value("${amap.forecast.key}")
     private String key;
 
     @GetMapping("/forecast")
-    public String getForecast(){
+    public List<Forecast> getForecast(){
 
-        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=all";
-        System.out.println(url);
-        //String json =restTemplate.getForObject(url,Object.class);
-
-        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-        String json = results.getBody();
-        return json;
+//        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=all";
+//        System.out.println(url);
+//        //String json =restTemplate.getForObject(url,Object.class);
+//
+//        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+//        String json = results.getBody();
+//        return json;
+        return weatherService.getForecast();
     }
 
     @GetMapping("/weather")
-    public String getWeather(){
-        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=base";
-        //String json =restTemplate.getForObject(url,Object.class);
-        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-        String json = results.getBody();
-        return json;
+    public Weather getWeather(){
+//        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=base";
+//        //String json =restTemplate.getForObject(url,Object.class);
+//        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+//        String json = results.getBody();
+//        return json;
+        return weatherService.getWeather();
     }
 
 
