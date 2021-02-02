@@ -13,13 +13,11 @@ package com.lxz.forecast.controller;/*******************************************
 import com.lxz.forecast.entity.Forecast;
 import com.lxz.forecast.entity.Weather;
 import com.lxz.forecast.service.impl.WeatherServiceImpl;
-import com.lxz.forecast.utils.PositionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -31,15 +29,10 @@ import java.util.List;
  * 创建人：@author liuxuanzhi
  * 创建时间：2021/1/12/13:49
  */
-
+@CrossOrigin(origins="*",maxAge=3600)
 @RestController
 public class ForecastController {
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
-    private PositionUtil positionUtil;
 
     @Autowired
     WeatherServiceImpl weatherService;
@@ -47,7 +40,7 @@ public class ForecastController {
     @Value("${amap.forecast.key}")
     private String key;
 
-    @CrossOrigin
+
     @GetMapping("/forecast")
     public List<Forecast> getForecast(){
 
