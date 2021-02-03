@@ -42,7 +42,6 @@ public class WeatherController {
  */
     @RequestMapping("/weather")
     public Weather feign(){
-
         return weatherFeign.weather();
     }
 }

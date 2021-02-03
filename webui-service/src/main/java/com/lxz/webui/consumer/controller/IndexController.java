@@ -29,6 +29,11 @@ public class IndexController {
     WeatherController weatherController;
 
     @RequestMapping("/")
+    public String login(){
+        return "/login";
+    }
+
+    @RequestMapping("/index")
     public String index(Model model){
         model.addAttribute("weather",weatherController.feign());
 

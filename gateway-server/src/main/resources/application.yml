@@ -161,6 +161,29 @@ spring:
               redis-rate-limiter.replenishRate: 1
               redis-rate-limiter.burstCapacity: 3
 
+        ##用户信息
+      - id: user
+        uri: http://liuxuanzhi:1006/
+        predicates:
+          - Path=/user/**
+
+        filters:
+          - StripPrefix=1
+          - name: Hystrix
+            args:
+              name: fallbackcmd
+              fallbackUri: forward:/fallback
+              timeout:
+                file-upload-convert: 8000
+                file-upload-: 8000
+                file-download-: 8000
+                course-file-upload-local-: 8000
+          - name: RequestRateLimiter
+            args:
+              key-resolver: '#{@uriKeyResolver}'
+              redis-rate-limiter.replenishRate: 1
+              redis-rate-limiter.burstCapacity: 3
+
 # 暴露端点
 management:
   endpoints:
