@@ -23,6 +23,11 @@
 
     <!-- 加入依赖 -->
     <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
         <!-- 提供者消费者 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -66,6 +71,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.1</version>
+            <scope>compile</scope>
         </dependency>
 
 

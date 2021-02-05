@@ -1,6 +1,6 @@
 package com.lxz.user.service;
 
-import com.lxz.user.entity.User;
+import com.lxz.user.vo.ResultVO;
 
 /****************************************************
  * 创建人：     @author liuxuanzhi    
@@ -23,5 +23,5 @@ public interface LoginService {
      * @author: liuxuanzhi
      * @Date:  2021/2/2/16:57
      */
-    User login(String email);
+    ResultVO login(String email,String pwd);
 }

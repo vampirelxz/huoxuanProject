@@ -281,6 +281,11 @@ function dateInfo() {
     url: "http://192.168.13.71:2001/forecast/forecast",
     async: false,
     dataType: 'json',
+    beforeSend: function(head) {
+
+      head.setRequestHeader("Authorization", token);
+
+    },
     success : function (res) {
 
         var data =res;
@@ -300,11 +305,17 @@ function dayInfo() {
   var arr=[];
   $.ajax({
     type: "get",
+    // headers:{"Authorization":localStorage.getItem('token')}, //请求头类型
     url: "http://192.168.13.71:2001/forecast/forecast",
     async: false,
     dataType: 'json',
-    success : function (res) {
+    beforeSend: function(head) {
 
+      head.setRequestHeader("Authorization", token);
+
+    },
+
+    success : function (res) {
       var data =res;
       var len = eval(data).length;
 
@@ -325,6 +336,7 @@ function nightInfo() {
     url: "http://192.168.13.71:2001/forecast/forecast",
     async: false,
     dataType: 'json',
+    headers:{"Authorization":token}, //请求头类型
     success : function (res) {
 
       var data =res;
@@ -339,6 +351,7 @@ function nightInfo() {
   });
   return arr;
 }
+var token=localStorage.getItem('token')
 // console.log(dateInfo())
 // console.log(dayInfo())
 // console.log(nightInfo())

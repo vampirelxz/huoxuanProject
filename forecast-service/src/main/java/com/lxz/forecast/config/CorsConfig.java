@@ -18,14 +18,13 @@ package com.lxz.forecast.config;/***********************************************
  * 创建时间：2021/2/1/13:32
  */
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 解决异步访问跨域
  */
-@Configuration
+//@Configuration
 public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {

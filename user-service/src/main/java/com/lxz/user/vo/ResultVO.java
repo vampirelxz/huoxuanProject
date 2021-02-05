@@ -10,6 +10,7 @@ package com.lxz.user.vo;/****************************************************
  *
  ********************************************************/
 
+import com.lxz.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -30,7 +31,11 @@ public class ResultVO implements Serializable {
 
     private String message;
 
-    private Object object;
+    private String token;
+
+    private String refreshToken;
+
+    private User user;
 
     public  ResultVO(){
     }
@@ -38,5 +43,18 @@ public class ResultVO implements Serializable {
     public  ResultVO(boolean success,String message){
         this.success=success;
         this.message=message;
+    }
+
+    public  ResultVO(boolean success,String message,User user){
+        this.success=success;
+        this.message=message;
+        this.user=user;
+    }
+
+    public  ResultVO(boolean success,String message,String token,String refreshToken){
+        this.success=success;
+        this.message=message;
+        this.token=token;
+        this.refreshToken=refreshToken;
     }
 }

@@ -15,7 +15,6 @@ import com.lxz.forecast.entity.Weather;
 import com.lxz.forecast.service.impl.WeatherServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +28,7 @@ import java.util.List;
  * 创建人：@author liuxuanzhi
  * 创建时间：2021/1/12/13:49
  */
-@CrossOrigin(origins="*",maxAge=3600)
+//@CrossOrigin(origins="*",maxAge=3600)
 @RestController
 public class ForecastController {
 

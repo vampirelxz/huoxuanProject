@@ -69,7 +69,7 @@ jwt:
 #token过期时间：1min
 token:
   expire:
-    time: 60000
+    time: 3600000
 
 #refreshToken过期时间：2min
 refresh:

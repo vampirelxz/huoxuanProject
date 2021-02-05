@@ -11,11 +11,14 @@ package com.lxz.user.controller;
  *
  ********************************************************/
 
+import com.lxz.user.annotation.CurrentUser;
 import com.lxz.user.entity.User;
 import com.lxz.user.service.LoginService;
 import com.lxz.user.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 包名称： com.lxz.user.controller
@@ -25,7 +28,7 @@ import org.springframework.web.bind.annotation.*;
  * 创建时间：2021/2/2/17:05
  */
 
-@CrossOrigin(origins="*",maxAge=3600)
+//@CrossOrigin(origins="*",maxAge=3600)
 @RestController
 public class LoginController {
     @Autowired
@@ -33,16 +36,13 @@ public class LoginController {
 
     @PostMapping(value="/login" )
     public ResultVO login(@RequestParam String email,@RequestParam String pwd) {
-        User user = loginService.login(email);
-
-        if (user.equals(null)) {
-            return new ResultVO(false,"此邮箱未注册");
-        } else if (user.getPwd().equals(pwd)) {
-
-            return new ResultVO(true,"http://192.168.13.71:80/index");
-        }
-        return new ResultVO(false,"密码错误");
+        ResultVO resultVO = loginService.login(email,pwd);
+        System.out.println(resultVO);
+        return resultVO;
     }
 
+    public String addJwt(@CurrentUser User user){
+        return "添加成功, 名字：" + user.getName();
+    }
 
 }

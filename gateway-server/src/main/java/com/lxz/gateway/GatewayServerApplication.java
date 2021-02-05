@@ -1,5 +1,6 @@
 package com.lxz.gateway;
 
+import com.lxz.gateway.config.AuthFilter;
 import com.lxz.gateway.config.TokenFilter;
 import com.lxz.gateway.config.UriKeyResolver;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +16,7 @@ public class GatewayServerApplication {
         SpringApplication.run(GatewayServerApplication.class, args);
     }
 
-    /*
+    /**
      * @ClassName SpringcloudGatewayMasterServiceApplication
      * @Desc TODO   配置限流 Bean
      * @Date 2019/6/29 17:12
@@ -26,7 +27,7 @@ public class GatewayServerApplication {
         return new UriKeyResolver();
     }
 
-    /*
+    /**
      * @ClassName SpringcloudGatewayMasterServiceApplication
      * @Desc TODO   配置认证过滤器 Bean
      * @Date 2019/6/29 17:58
@@ -36,4 +37,16 @@ public class GatewayServerApplication {
     public TokenFilter tokenFilter() {
         return new TokenFilter();
     }
+
+    /**
+     * @ClassName SpringcloudGatewayMasterServiceApplication
+     * @Desc TODO   配置jwt认证过滤器 Bean
+     * @Date 2019/6/29 17:58
+     * @Version 1.0
+     */
+    @Bean(name = "authFilter")
+    public AuthFilter authFilter() {
+        return new AuthFilter();
+    }
+
 }

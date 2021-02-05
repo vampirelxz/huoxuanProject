@@ -13,6 +13,7 @@ package com.lxz.user.service.impl;/*********************************************
 import com.lxz.user.dao.UserMapper;
 import com.lxz.user.entity.User;
 import com.lxz.user.service.LoginService;
+import com.lxz.user.vo.ResultVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,11 +31,14 @@ public class LoginServiceImpl implements LoginService {
     UserMapper userMapper;
 
     @Override
-    public User login(String email) {
+    public ResultVO login(String email,String pwd) {
         User user=userMapper.getUserByEmail(email);
-        if(user == null){
-            return null;
+        if (user.equals(null)) {
+            return new ResultVO(false,"此邮箱未注册");
+        } else if (user.getPwd().equals(pwd)) {
+            return new ResultVO(true,"http://192.168.13.71:80/index",user);
         }
-        return user;
+        return new ResultVO(false,"密码错误");
+
     }
 }
