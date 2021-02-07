@@ -5,9 +5,23 @@ import com.lxz.gateway.config.TokenFilter;
 import com.lxz.gateway.config.UriKeyResolver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * @Title: GatewayServerApplication
+ * @Description: 启动类
+ *
+ * @param null
+ * @return:
+ * @throws
+ * @author: liuxuanzhi
+ * @Date:  2021/2/7/11:26
+ */
+
+
+@ServletComponentScan
 @SpringBootApplication
 @EnableEurekaClient
 public class GatewayServerApplication {
@@ -48,5 +62,6 @@ public class GatewayServerApplication {
     public AuthFilter authFilter() {
         return new AuthFilter();
     }
+
 
 }

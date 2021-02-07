@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
  * 创建时间：2021/2/2/17:05
  */
 
-//@CrossOrigin(origins="*",maxAge=3600)
 @RestController
 public class LoginController {
     @Autowired

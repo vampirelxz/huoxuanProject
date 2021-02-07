@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-//@CrossOrigin(origins="*",maxAge=3600)
 @RestController
 public class AuthController {
 

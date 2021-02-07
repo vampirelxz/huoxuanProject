@@ -27,7 +27,7 @@ $("#apply_link_form").submit(function(){
             success: function (data) {
                 if(data.success){
                     if (!window.localStorage) {
-                        alsert(" 当浏览器不支持 localStorage ...")
+                        alert(" 当浏览器不支持 localStorage ...")
                     } else {
                         localStorage.setItem("token",data.token);
                         localStorage.refreshToken = data.refreshToken;

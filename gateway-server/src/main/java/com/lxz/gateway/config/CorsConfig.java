@@ -31,6 +31,7 @@ public class CorsConfig {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         //在生产环境上最好指定域名，以免产生跨域安全问题
         corsConfiguration.addAllowedOrigin("http://192.168.13.71");
+        corsConfiguration.setAllowCredentials(true);
         corsConfiguration.addAllowedHeader("*");
         corsConfiguration.addAllowedMethod("OPTIONS");
         corsConfiguration.addAllowedMethod("POST");
