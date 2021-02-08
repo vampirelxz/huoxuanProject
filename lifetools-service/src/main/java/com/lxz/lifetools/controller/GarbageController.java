@@ -28,6 +28,7 @@ import java.util.List;
  */
 @RestController
 public class GarbageController {
+
     @Autowired
     GarbageService garbageService;
 

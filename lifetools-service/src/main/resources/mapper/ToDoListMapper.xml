@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lxz.user.dao.UserMapper">
+<mapper namespace="com.lxz.lifetools.dao.ToDoListMapper">
 
-	<resultMap id="BaseResultMap" type="com.lxz.user.entity.User" >
+	<resultMap id="BaseResultMap" type="com.lxz.lifetools.entity.ToDoList" >
 		<result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="pwd" property="pwd" />
-        <result column="email" property="email" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
         <result column="delete_flag" property="deleteFlag" />
+        <result column="end_time" property="endTime" />
     </resultMap>
 
-    <resultMap id="User" type="com.lxz.user.entity.User" >
+    <resultMap id="ToDoList" type="com.lxz.lifetools.entity.ToDoList" >
         <result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="pwd" property="pwd" />
-        <result column="email" property="email" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
+        <result column="end_time" property="endTime" />
 	</resultMap>
 
-    <select id="getUserByEmail" parameterType="java.lang.String" resultMap="User" >
-        select id,user_information.name,pwd,email from user_information where  delete_flag=0 and email = #{email}
+    <select id="listToDoList"  resultMap="ToDoList">
+        select id,information,end_time from daily_list where  delete_flag=0 and create_id = #{createId} and create_time= #{createTime}
     </select>
 
     <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->

@@ -30,8 +30,13 @@ $("#apply_link_form").submit(function(){
                         alert(" 当浏览器不支持 localStorage ...")
                     } else {
                         localStorage.setItem("token",data.token);
+                        localStorage.setItem("uname",data.user.name);
+                        localStorage.setItem("uid",data.user.id);
                         localStorage.refreshToken = data.refreshToken;
-                        alert(localStorage.getItem('token'))
+                        getUid();
+                        // alert(localStorage.getItem('token'))
+                        // alert(localStorage.getItem('uname'))
+                        // alert($.cookie('uid'))
                         return window.location.href= data.message;
                     }
 
@@ -49,5 +54,12 @@ $("#apply_link_form").submit(function(){
                 console.log("respon error");
             }
         });
+function getUid() {
+    $.ajax({
+        url: "getUid/" + localStorage.getItem('uid'), //提价的路径
+        type: "get",       //提交方式
+        dataType: "JSON",       //规定请求成功后返回的数据
 
+    });
+}
 });

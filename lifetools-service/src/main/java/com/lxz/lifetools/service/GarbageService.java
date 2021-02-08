@@ -1,9 +1,10 @@
 package com.lxz.lifetools.service;
 
+
 import com.lxz.lifetools.entity.Garbage;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 /****************************************************
  * 创建人：     @author liuxuanzhi    
@@ -16,7 +17,8 @@ import java.util.List;
  * @Copyright:2016-2021
  *
  ********************************************************/
-@Service
+
 public interface GarbageService {
     List<Garbage> garbageSorting(String garbage);
+
 }

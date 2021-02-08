@@ -1,7 +1,7 @@
 package com.lxz.lifetools.service;
 
+
 import com.lxz.lifetools.entity.Express;
-import org.springframework.stereotype.Service;
 
 /****************************************************
  * 创建人：     @author liuxuanzhi    
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @Copyright:2016-2021
  *
  ********************************************************/
-@Service
+
 public interface ExpressService {
 
     Express listExpress(String num, String com);

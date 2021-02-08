@@ -28,7 +28,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     name: mysql
-    url: jdbc:mysql://localhost:3306/huoxuan?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/huoxuan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
     username: root
     password: 123456
   #redis配置

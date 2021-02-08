@@ -33,3 +33,15 @@ logging:
 spring:
   application:
     name: lifetools
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: mysql
+    url: jdbc:mysql://localhost:3306/huoxuan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+    username: root
+    password: 123456
+
+#指定Mybatis的Mapper文件
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,40 @@
+package com.lxz.lifetools.dao;/****************************************************
+ * 创建人：     @author liuxuanzhi    
+ * 创建时间: 2021/2/7/16:16
+ * 项目名称：  HXAssistant
+ * 文件名称: com.lxz.lifetools.dao
+ * 文件描述: @Description: 每日清单数据层
+ *
+ * All rights Reserved, Designed By 投资交易团队
+ * @Copyright:2016-2021
+ *
+ ********************************************************/
+
+import com.lxz.lifetools.entity.ToDoList;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.sql.Date;
+import java.util.List;
+
+/**
+ * 包名称： com.lxz.lifetools.dao
+ * 类名称：ToDoListMapper
+ * 类描述：每日清单数据层
+ * 创建人：@author liuxuanzhi
+ * 创建时间：2021/2/7/16:16
+ */
+@Mapper
+public interface ToDoListMapper {
+    /**
+     * @Title: listToDoList
+     * @Description:  列举每日清单
+     * @param createId   创建人ID
+     * @param createTime 当天时间
+     * @return:    List<ToDoList>
+     * @throws
+     * @author: liuxuanzhi
+     * @Date:  2021/2/7/16:13
+     */
+    List<ToDoList> listToDoList(@Param("createId") int createId,@Param("createTime") Date createTime);
+}

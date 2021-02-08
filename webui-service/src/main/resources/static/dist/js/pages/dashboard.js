@@ -6,6 +6,15 @@
  **/
 
 /* global moment:false, Chart:false, Sparkline:false */
+// $(document).ready(function () {
+//   $.ajax({
+//         url: "getUid/" + localStorage.getItem('uid'), //提价的路径
+//         type: "get",       //提交方式
+//         dataType: "JSON",       //规定请求成功后返回的数据
+//
+//     });
+// })
+
 
 $(function () {
   'use strict'
@@ -412,3 +421,6 @@ var salesChart = new Chart(forecastChartCanvas, { // lgtm[js/unused-local-variab
   data: weatherChartData,
   options: forecastChartOptions
 })
+
+$('#user-name').html(localStorage.getItem('uname'));
+
