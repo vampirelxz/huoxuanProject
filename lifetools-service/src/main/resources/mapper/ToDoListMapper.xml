@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxz.lifetools.dao.ToDoListMapper">
+
+	<resultMap id="BaseResultMap" type="com.lxz.lifetools.entity.ToDoList" >
+		<result column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="end_time" property="endTime" />
+    </resultMap>
+
+    <resultMap id="ToDoList" type="com.lxz.lifetools.entity.ToDoList" >
+        <result column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
+        <result column="end_time" property="endTime" />
+	</resultMap>
+
+    <select id="listToDoList"  resultMap="ToDoList">
+        select id,information,end_time from daily_list where  delete_flag=0 and create_id = #{createId} and create_time= #{createTime}
+    </select>
+
+    <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->
+          <!--select id,prod_code,prod_name,remark,max_ratio,create_user_id,create_time,update_user_id,update_time from ipo_new_stock_max_ratio-->
+          <!--<where>-->
+          <!--delete_flag=0-->
+		      <!--<if test="prodCode != null">-->
+			    <!--and prod_code like concat('%',#{prodCode},'%')-->
+		      <!--</if>-->
+          <!--</where>-->
+          <!--ORDER BY update_time DESC-->
+    <!--</select>-->
+
+
+
+    <!--<insert id="save">-->
+        <!--INSERT INTO ipo_new_stock_max_ratio-->
+        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+
+            <!--<if test="id != null ">-->
+                <!--id,-->
+            <!--</if>-->
+            <!--<if test="prodCode != null and prodCode.length() > 0">-->
+                <!--prod_code,-->
+            <!--</if>-->
+            <!--<if test="prodName != null and prodName.length() > 0">-->
+                <!--prod_name,-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--create_time,-->
+            <!--</if>-->
+            <!--<if test="createUserId != null">-->
+                <!--create_user_id,-->
+            <!--</if>-->
+            <!--<if test="updateTime != null">-->
+                <!--update_time,-->
+            <!--</if>-->
+            <!--<if test="updateUserId != null">-->
+                <!--update_user_id,-->
+            <!--</if>-->
+
+
+            <!--<if test="maxRatio != null">-->
+                <!--max_ratio,-->
+            <!--</if>-->
+
+            <!--remark,-->
+
+        <!--</trim>-->
+        <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
+
+            <!--<if test="id != null">-->
+                <!--#{id},-->
+            <!--</if>-->
+            <!--<if test="prodCode != null and prodCode.length() > 0">-->
+                <!--#{prodCode},-->
+            <!--</if>-->
+            <!--<if test="prodName != null and prodName.length() > 0">-->
+                <!--#{prodName},-->
+            <!--</if>-->
+            <!--<if test="createTime != null">-->
+                <!--#{createTime},-->
+            <!--</if>-->
+            <!--<if test="createUserId != null">-->
+                <!--#{createUserId},-->
+            <!--</if>-->
+            <!--<if test="updateTime != null">-->
+                <!--#{updateTime},-->
+            <!--</if>-->
+            <!--<if test="updateUserId != null">-->
+                <!--#{updateUserId},-->
+            <!--</if>-->
+
+            <!--<if test="maxRatio != null ">-->
+                <!--#{maxRatio},-->
+            <!--</if>-->
+
+            <!--remark,-->
+        <!--</trim>-->
+
+    <!--</insert>-->
+
+    <!--<update id="update" parameterType="com.win.dfbp.newstock.entity.IpoMaxPurchaseRate">-->
+        <!--UPDATE ipo_new_stock_max_ratio-->
+        <!--<set>-->
+            <!--<if test ='null != prodCode'>prod_code = #{prodCode},</if>-->
+            <!--<if test ='null != prodName'>prod_name = #{prodName},</if>-->
+            <!--<if test ='null != maxRatio'>max_ratio = #{maxRatio},</if>-->
+            <!--<if test ='null != remark'>remark = #{remark},</if>-->
+            <!--<if test ='null != updateUserId'>update_user_id = #{updateUserId},</if>-->
+            <!--<if test ='null != updateTime'>update_time = #{updateTime}</if>-->
+        <!--</set>-->
+        <!--WHERE prod_code = #{prodCode}  AND delete_flag = 0-->
+    <!--</update>-->
+
+
+
+    
+
+</mapper>

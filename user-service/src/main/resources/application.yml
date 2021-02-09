@@ -1,0 +1,79 @@
+
+# 端口
+server:
+  port: 1006
+
+
+eureka:
+  instance:
+    # 使用 ip 代替实例名
+    prefer-ip-address: true
+    # 实例的主机名
+    hostname: ${spring.cloud.client.ip-address}
+    # 实例的 ID 规则
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      # 注册中心地址
+      defaultZone: http://${eureka.instance.hostname}:1001/eureka/
+
+logging:
+  level:
+    # log 级别
+    org.springframework.cloud: debug
+
+spring:
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: mysql
+    url: jdbc:mysql://localhost:3306/huoxuan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+    username: root
+    password: 123456
+  #redis配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+    timeout: 60s
+    jedis:
+      pool:
+        max-active: -1
+        max-idle: 15
+        max-wait: -1s
+        min-idle: 5
+
+#指定Mybatis的Mapper文件
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
+
+#jwt生成密钥
+jwt:
+  secret:
+    key: xuanzhi
+  #refreshToken 存储key
+  refresh:
+    token:
+      key:
+        format: JWT_REFRESH_TOKEN::%s
+  #token黑名单 存储key
+  blacklist:
+    key:
+      format: JWT_BLACKLIST::%s
+
+#token过期时间：1min
+token:
+  expire:
+    time: 3600000
+
+#refreshToken过期时间：2min
+refresh:
+  token:
+    expire:
+      time: 120000
+

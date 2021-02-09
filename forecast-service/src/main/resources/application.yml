@@ -1,0 +1,39 @@
+## 应用名称
+#spring.application.name=forecast
+## 应用服务 WEB 访问端口
+#server.port=1002
+##注册中心地址
+#eureka.client.serviceUrl.defaultZone=http://localhost:1001/eureka/
+#
+#amap.forecast.key=d868e9894a079ffb24f5703afd952be0
+
+# 端口
+server:
+  port: 1002
+
+
+eureka:
+  instance:
+    # 使用 ip 代替实例名
+    prefer-ip-address: true
+    # 实例的主机名
+    hostname: ${spring.cloud.client.ip-address}
+    # 实例的 ID 规则
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+  client:
+    serviceUrl:
+      # 注册中心地址
+      defaultZone: http://${eureka.instance.hostname}:1001/eureka/
+
+logging:
+  level:
+    # log 级别
+    org.springframework.cloud: debug
+
+spring:
+  application:
+    name: forecast
+
+amap:
+  forecast:
+    key: d868e9894a079ffb24f5703afd952be0
