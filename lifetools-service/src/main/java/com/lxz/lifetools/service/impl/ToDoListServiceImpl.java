@@ -36,21 +36,40 @@ public class ToDoListServiceImpl implements ToDoListService {
        //sql的当前时间
         java.util.Date creatDate = new java.util.Date();
         java.sql.Date date = new java.sql.Date(creatDate.getTime());
-        System.out.println("当前时间："+date);
+
+        java.util.Date currentDate=new java.util.Date(System.currentTimeMillis());
+
+//        System.out.println("当前时间："+date);
+//        System.out.println("当前时间 ："+currentDate);
         //获取信息
-        List<ToDoList> toDoLists = toDoListMapper.listToDoList(createId, date);
+        List<ToDoList> toDoLists = toDoListMapper.listToDoList(createId, currentDate);
         System.out.println(toDoLists);
         //添加属性duration
         toDoLists.forEach((toDoList ->
                 toDoList.setDurationTime(toDoList.getEndTime().getTime()-date.getTime())
         ));
         System.out.println(toDoLists);
-        long diff = toDoLists.get(0).getDurationTime();
-        long days = diff / (1000 * 60 * 60 * 24);
+        if(toDoLists.isEmpty()){
+            return null;
+        }
+        for(int i=0;i < toDoLists.size();i++) {
+            long diff = toDoLists.get(i).getDurationTime();
+            long days = diff / (1000 * 60 * 60 * 24);
 
-        long hours = (diff-days*(1000 * 60 * 60 * 24))/(1000* 60 * 60);
-        long minutes = (diff-days*(1000 * 60 * 60 * 24)-hours*(1000* 60 * 60))/(1000* 60);
-        System.out.println(""+days+"天"+hours+"小时"+minutes+"分");
+            long hours = (diff - days * (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
+            long minutes = (diff - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60)) / (1000 * 60);
+            System.out.println("" + days + "天" + hours + "小时" + minutes + "分");
+            toDoLists.get(i).setDurationTime(diff);
+            toDoLists.get(i).setDuration("" + days + "天" + hours + "小时" + minutes + "分");
+        }
         return toDoLists;
+    }
+
+    @Override
+    public int save(int createId, String endTime, String information) {
+        java.util.Date createTime = new java.util.Date();
+        System.out.println(createTime);
+        int save = toDoListMapper.save(createId, endTime, createTime, information);
+        return save;
     }
 }

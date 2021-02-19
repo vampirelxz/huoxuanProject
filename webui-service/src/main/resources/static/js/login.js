@@ -22,7 +22,7 @@ $("#apply_link_form").submit(function(){
             type: "POST",
             data: {email: username,pwd: password},
             contentType : "application/x-www-form-urlencoded; charset=utf-8",
-            url: "http://192.168.13.71:2001/user/auth" ,
+            url: "http://localhost:2001/user/auth" ,
             dataType: "JSON",
             success: function (data) {
                 if(data.success){

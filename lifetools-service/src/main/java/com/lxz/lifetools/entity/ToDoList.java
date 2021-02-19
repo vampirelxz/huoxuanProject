@@ -30,6 +30,7 @@ public class ToDoList implements Serializable {
     private String information;
     private Timestamp endTime;
     private Long durationTime;
+    private String duration;
 
-    ToDoList(){ };
+    ToDoList(){ }
 }

@@ -11,6 +11,7 @@ package com.lxz.webui.consumer.controller;/*************************************
  ********************************************************/
 
 import com.lxz.webui.entity.ToDoList;
+import com.lxz.webui.entity.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +37,7 @@ public class IndexController {
     @Autowired
     LifetoolsController lifetoolsController;
 
-    int iuid=0;
+    private int iuid=0;
 
     @RequestMapping("/")
     public String login(){
@@ -45,8 +46,19 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(Model model){
-        model.addAttribute("weather",weatherController.feign());
-        model.addAttribute("toDoList",toDoListfeign(iuid));
+        Weather weather = weatherController.feign();
+        List<ToDoList> toDoLists = toDoListfeign(iuid);
+        if(weather != null) {
+            model.addAttribute("weather", weather);
+        }
+        if(toDoLists != null) {
+            model.addAttribute("toDoList", toDoLists);
+        }else{
+            ToDoList toDoList = new ToDoList();
+            toDoList.setId(0);
+            toDoList.setInformation("今日暂无安排");
+            model.addAttribute("toDoList",toDoList);
+        }
         return "/index";
     }
 

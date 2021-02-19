@@ -13,6 +13,8 @@ package com.lxz.webui.consumer.controller;/*************************************
 import com.lxz.webui.consumer.api.feign.LifetoolsFeign;
 import com.lxz.webui.entity.ToDoList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -31,6 +33,7 @@ public class LifetoolsController {
     @Autowired(required = false)
     private LifetoolsFeign lifetoolsFeign;
 
+
 /**
  * @Title:
  * @Description:
@@ -41,8 +44,26 @@ public class LifetoolsController {
  * @author: liuxuanzhi
  * @Date:  2021/2/1/16:13
  */
-
     public List<ToDoList> feign(int uid){
-        return lifetoolsFeign.toDoList(uid);
+        List<ToDoList> toDoLists;
+        try {
+            toDoLists = lifetoolsFeign.toDoList(uid);
+        }catch (Exception e1){
+            toDoLists=null;
+            e1.printStackTrace();
+        }
+        return toDoLists;
+    }
+
+    @PostMapping("/saveInfo")
+    public String save(@RequestParam("information") String information,@RequestParam("endTime") String endTime ,@RequestParam("createId") String createId){
+        System.out.println(createId);
+        System.out.println(endTime);
+        System.out.println(information);
+        endTime=endTime.replace('T',' ');
+        endTime=endTime+":00";
+        int uid=Integer.parseInt(createId);
+        lifetoolsFeign.save(uid, information, endTime);
+        return "localhost:80/index";
     }
 }

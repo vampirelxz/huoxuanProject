@@ -43,6 +43,12 @@ public class WeatherController {
  */
     @RequestMapping("/weather")
     public Weather feign(){
-        return weatherFeign.weather();
+        Weather weather = null;
+        try {
+            weather = weatherFeign.weather();
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }
+        return weather;
     }
 }

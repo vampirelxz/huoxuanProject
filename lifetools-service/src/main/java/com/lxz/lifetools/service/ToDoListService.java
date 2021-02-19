@@ -21,10 +21,12 @@ public interface ToDoListService {
      * @Title: listToDoList
      * @Description: 列举每日清单
      * @param createId   创建人ID
-     * @return:    List<ToDoList>
+     * @return:    int
      * @throws
      * @author: liuxuanzhi
      * @Date:  2021/2/7/16:13
      */
     List<ToDoList> listToDoList(int createId) throws ParseException;
+
+    int save (int createId, String endTime, String information );
 }

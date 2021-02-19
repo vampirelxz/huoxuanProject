@@ -14,10 +14,12 @@ import com.lxz.lifetools.entity.ToDoList;
 import com.lxz.lifetools.service.ToDoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,5 +45,16 @@ public class ToDoListController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @PostMapping("/save")
+    public int save(@RequestParam int createId, String information, String endTime){
+        try {
+            int save = toDoListService.save(createId,endTime,information);
+            return save;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 }

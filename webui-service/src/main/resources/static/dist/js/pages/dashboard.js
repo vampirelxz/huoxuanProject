@@ -19,6 +19,12 @@
 $(function () {
   'use strict'
 
+  $('#datetimepicker2').datetimepicker({
+    format: 'YYYY-MM-DD hh:mm',
+    locale: moment.locale('zh-cn')
+  })
+
+
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
     placeholder: 'sort-highlight',
@@ -287,7 +293,7 @@ function dateInfo() {
     var arr=[];
   $.ajax({
     type: "get",
-    url: "http://192.168.13.71:2001/forecast/forecast",
+    url: "http://localhost:2001/forecast/forecast",
     async: false,
     dataType: 'json',
     beforeSend: function(head) {
@@ -315,7 +321,7 @@ function dayInfo() {
   $.ajax({
     type: "get",
     // headers:{"Authorization":localStorage.getItem('token')}, //请求头类型
-    url: "http://192.168.13.71:2001/forecast/forecast",
+    url: "http://localhost:2001/forecast/forecast",
     async: false,
     dataType: 'json',
     beforeSend: function(head) {
@@ -342,7 +348,7 @@ function nightInfo() {
   var arr=[];
   $.ajax({
     type: "get",
-    url: "http://192.168.13.71:2001/forecast/forecast",
+    url: "http://localhost:2001/forecast/forecast",
     async: false,
     dataType: 'json',
     headers:{"Authorization":token}, //请求头类型
@@ -424,3 +430,41 @@ var salesChart = new Chart(forecastChartCanvas, { // lgtm[js/unused-local-variab
 
 $('#user-name').html(localStorage.getItem('uname'));
 
+document.getElementById("createId").value=localStorage.getItem("uid")
+
+
+$("#form_data").submit(function(){
+  var information = $("#information").val();
+  var endTime = $("#endTime").val();
+  var createId = $("#createId").val();
+  $.ajax({
+    type: "POST",
+    data: {information: information ,endTime: endTime ,createId: createId},
+    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+    url: "http://localhost:80/saveInfo" ,
+    dataType: "JSON",
+    success: function (data) {
+          alert(data)
+
+          return window.location.href= data;
+        },
+    error: function () {
+      console.log("respon error");
+    }
+  })
+})
+
+  /* $.post("/saveInfo",{information: information ,endTime: endTime ,createId: createId},function (data) {
+        alert(1)
+        // if(data.success){
+        //     alert(data.message);
+        //    return window.location.href= data.message;
+        // }
+        // else {
+        //     $("#loginInfor").css({ "display": "block", "opacity": "1" });
+        //     $("#loginInfor").animate({ opacity: 0 }, 2000);
+        //     $("#loginInfor").html(data.message);
+        //     console.log("respon success, but the password is worry!");
+        // }
+
+    },'json');*/

@@ -1,0 +1,15 @@
+.set-auditing-edit .warning-choose{letter-spacing: 3px;}
+.set-auditing-edit .warning-choose input{width: 20%;margin: 0 5px;}
+.set-content{margin-bottom: 30px;}
+.set-content th{font-weight:normal;text-align:right;color:#65737e;}
+.set-content td{height:42px;padding-left:20px;}
+.set-content .star{padding-right:4px;color:#ff6c6c;}
+.set-content input{width:280px;height:30px;line-height:30px;padding:0 5px;border:1px solid #ddd;border-radius:4px;color:#666;}
+.set-content select{width:292px;height:32px;line-height:32px;border:1px solid #ddd;border-radius:4px;color:#a0abbf;}
+.set-auditing-edit .set-content select{color:#333;}
+.set-content textarea{vertical-align: middle; width:280px;padding:0 5px;margin: 5px 0; border:1px solid #ddd;border-radius:4px;color:#a0abbf;resize: none;}
+.set-content .save-btn {display: inline-block;width: 100px;height: 32px;line-height: 32px;margin: 10px 0 30px 0;background-color: #feb32f;border-radius: 4px; color: #fff;text-align: center;text-decoration: none;}
+
+.set-content .tr-time{display: none;}
+
+.contrast_v3{position: fixed;left: 50%;top:50%;z-index: 9999;width: 600px;margin-left: -300px;margin-top: -143px;border-radius: 5px;background-color: #fff;}

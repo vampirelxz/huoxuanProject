@@ -25,4 +25,7 @@ import java.util.List;
 public interface LifetoolsFeign {
     @RequestMapping(value = "/toDoList",method = RequestMethod.GET)
     List<ToDoList> toDoList(@RequestParam("createId") int createId);
+
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    int save(@RequestParam("createId") int createId,@RequestParam("information") String information,@RequestParam("endTime") String endTime);
 }

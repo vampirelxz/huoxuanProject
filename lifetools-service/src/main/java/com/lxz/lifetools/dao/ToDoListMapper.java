@@ -14,7 +14,7 @@ import com.lxz.lifetools.entity.ToDoList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,11 +30,25 @@ public interface ToDoListMapper {
      * @Title: listToDoList
      * @Description:  列举每日清单
      * @param createId   创建人ID
-     * @param createTime 当天时间
+     * @param endTime 计划结束时间
      * @return:    List<ToDoList>
      * @throws
      * @author: liuxuanzhi
      * @Date:  2021/2/7/16:13
      */
-    List<ToDoList> listToDoList(@Param("createId") int createId,@Param("createTime") Date createTime);
+    List<ToDoList> listToDoList(@Param("createId") int createId,@Param("endTime") Date endTime);
+
+    /**
+     * @Title: save
+     * @Description:  添加每日清单数据
+     * @param createId
+     * @param endTime
+     * @param createTime
+     * @param information
+     * @return:   List<ToDoList>
+     * @throws
+     * @author: liuxuanzhi
+     * @Date:  2021/2/18/17:30
+     */
+    int save(@Param("createId") int createId,@Param("endTime")String endTime,@Param("createTime")Date createTime,@Param("information") String information);
 }
