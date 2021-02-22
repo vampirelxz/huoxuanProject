@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-//@CrossOrigin(origins="*",maxAge=3600)
 public class WeatherController {
 
     @Autowired(required = false)
@@ -50,5 +49,16 @@ public class WeatherController {
             e1.printStackTrace();
         }
         return weather;
+    }
+
+    @RequestMapping("/getCity")
+    public String getCity(){
+        String city="长沙";
+        try{
+            city=weatherFeign.getCity();
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }
+        return city;
     }
 }

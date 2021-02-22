@@ -37,6 +37,7 @@ $("#apply_link_form").submit(function(){
                         // alert(localStorage.getItem('token'))
                         // alert(localStorage.getItem('uname'))
                         // alert($.cookie('uid'))
+
                         return window.location.href= data.message;
                     }
 

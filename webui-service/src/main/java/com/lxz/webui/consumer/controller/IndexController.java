@@ -57,6 +57,8 @@ public class IndexController {
             ToDoList toDoList = new ToDoList();
             toDoList.setId(0);
             toDoList.setInformation("今日暂无安排");
+            long defaultTime=100000;
+            toDoList.setDurationTime(defaultTime);
             model.addAttribute("toDoList",toDoList);
         }
         return "/index";

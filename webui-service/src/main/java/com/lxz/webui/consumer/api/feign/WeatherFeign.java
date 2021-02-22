@@ -21,4 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface WeatherFeign {
     @RequestMapping("/weather")
     Weather weather();
+
+    @RequestMapping("/getCity")
+    String getCity();
 }
