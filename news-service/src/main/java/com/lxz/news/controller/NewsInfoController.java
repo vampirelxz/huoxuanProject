@@ -10,10 +10,8 @@ package com.lxz.news.controller;/***********************************************
  *
  ********************************************************/
 
-import com.lxz.news.entity.ClassifyNew;
 import com.lxz.news.entity.New;
 import com.lxz.news.service.NewsInfoService;
-import com.lxz.news.utils.TranChannelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,17 +31,31 @@ public class NewsInfoController {
     @Autowired
     NewsInfoService newsInfoService;
 
+    /*
+    社会 体育 娱乐 时尚
+     */
     @GetMapping("/listNews")
-    public List<New> listNews(){
-        List<New> news = newsInfoService.listNewsInfo();
+    public List<New> listNews(@RequestParam String name){
+        List<New> news = newsInfoService.listNewsInfo(name);
         return  news;
     }
 
+    /*
+    财经 军事 国际 科技
+     */
     @GetMapping("/listClassifyNews")
-    public List<ClassifyNew> listClassifyNews(@RequestParam String name){
-        List<ClassifyNew> classifyNews = newsInfoService.listNewByClassify(name);
+    public List<New> listClassifyNews(@RequestParam String name){
+        List<New> classifyNews = newsInfoService.listNewByClassify(name);
         return classifyNews;
     }
 
+    /*
+    头条
+     */
+    @GetMapping("/listNewsInfo")
+    public  List<New> listNewsInfo(){
+        List<New> news = newsInfoService.listNew();
+        return news;
+    }
 
 }

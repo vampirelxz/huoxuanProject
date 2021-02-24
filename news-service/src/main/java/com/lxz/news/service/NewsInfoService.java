@@ -1,6 +1,5 @@
 package com.lxz.news.service;
 
-import com.lxz.news.entity.ClassifyNew;
 import com.lxz.news.entity.New;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +43,8 @@ public interface NewsInfoService {
      */
     List<New> listNewsInfo();
 
-    List<ClassifyNew> listNewByClassify(String channel);
+    List<New> listNewByClassify(String channel);
+
+    List<New> listNew();
 
 }
