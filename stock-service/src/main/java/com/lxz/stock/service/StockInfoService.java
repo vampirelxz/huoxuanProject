@@ -1,7 +1,12 @@
 package com.lxz.stock.service;
 
+import com.lxz.stock.entity.BaseStock;
 import com.lxz.stock.entity.BuyStock;
+import com.lxz.stock.entity.PersonalStock;
 import com.lxz.stock.entity.Stock;
+
+import java.io.IOException;
+import java.util.List;
 
 /****************************************************
  * 创建人：     @author liuxuanzhi    
@@ -15,9 +20,11 @@ import com.lxz.stock.entity.Stock;
  *
  ********************************************************/
 public interface StockInfoService {
-    BuyStock infoRealTime(int code);
+    BuyStock infoRealTime(String code);
 
-    Stock infoToday(int code);
+    Stock infoToday(String code);
 
+    List<PersonalStock> selfStock(int createId) throws IOException;
 
+    List<BaseStock> baseStock() throws IOException;
 }

@@ -28,5 +28,5 @@ public interface ToDoListService {
      */
     List<ToDoList> listToDoList(int createId) throws ParseException;
 
-    int save (int createId, String endTime, String information );
+    int save (String createId, String endTime, String information );
 }

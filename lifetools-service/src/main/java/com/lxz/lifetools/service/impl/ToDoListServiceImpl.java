@@ -66,10 +66,11 @@ public class ToDoListServiceImpl implements ToDoListService {
     }
 
     @Override
-    public int save(int createId, String endTime, String information) {
+    public int save(String createId, String endTime, String information) {
         java.util.Date createTime = new java.util.Date();
-        System.out.println(createTime);
-        int save = toDoListMapper.save(createId, endTime, createTime, information);
+        System.out.println("save"+createTime);
+        int uid=Integer.parseInt(createId);
+        int save = toDoListMapper.save(uid, endTime, createTime, information);
         return save;
     }
 }

@@ -10,6 +10,7 @@ package com.lxz.webui.consumer.controller;/*************************************
  *
  ********************************************************/
 
+import com.lxz.webui.consumer.api.feign.StockFeign;
 import com.lxz.webui.entity.ToDoList;
 import com.lxz.webui.entity.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,9 @@ public class IndexController {
     WeatherController weatherController;
     @Autowired
     LifetoolsController lifetoolsController;
+    @Autowired
+    private StockFeign stockFeign;
+
 
     private int iuid=0;
 
@@ -46,10 +50,22 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(Model model){
-        Weather weather = weatherController.feign();
-        List<ToDoList> toDoLists = toDoListfeign(iuid);
+        Weather weather=null;
+        List<ToDoList> toDoLists=null;
+        try {
+            weather = weatherController.feign();
+        }catch (Exception e){
+            e.printStackTrace();
+            weather = null;
+        }
         if(weather != null) {
             model.addAttribute("weather", weather);
+        }
+        try {
+            toDoLists = toDoListfeign(iuid);
+        }catch (Exception e){
+            e.printStackTrace();
+            toDoLists = null;
         }
         if(toDoLists != null) {
             model.addAttribute("toDoList", toDoLists);
@@ -61,6 +77,7 @@ public class IndexController {
             toDoList.setDurationTime(defaultTime);
             model.addAttribute("toDoList",toDoList);
         }
+
         return "/index";
     }
 

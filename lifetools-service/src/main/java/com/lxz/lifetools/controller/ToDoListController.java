@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,7 +47,7 @@ public class ToDoListController {
     }
 
     @PostMapping("/save")
-    public int save(@RequestParam int createId, String information, String endTime){
+    public int save(@RequestParam String createId, String information, String endTime){
         try {
             int save = toDoListService.save(createId,endTime,information);
             return save;

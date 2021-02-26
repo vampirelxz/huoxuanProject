@@ -35,6 +35,19 @@ logging:
 spring:
   application:
     name: stock
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: mysql
+    url: jdbc:mysql://localhost:3306/huoxuan?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
+    username: root
+    password: 123456
+
+#指定Mybatis的Mapper文件
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/*.xml
+
 
 
 baidu:
@@ -42,3 +55,9 @@ baidu:
     AppCode: e48b8f17825b4d45a4ad807ed501b391
     AccessKey: 6ba0c951319840f8a8f7f4656b5dc4dc
     AppSecret: e119f9c84a8246518a35c32ce1f64952
+
+
+wanwei:
+  stock:
+    key: 986324c42ad044e692e6a3e8fc1e51cd
+    appId: 514404

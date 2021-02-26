@@ -10,13 +10,16 @@ package com.lxz.stock.controller;/**********************************************
  *
  ********************************************************/
 
+import com.lxz.stock.entity.BaseStock;
 import com.lxz.stock.entity.BuyStock;
 import com.lxz.stock.entity.Stock;
 import com.lxz.stock.service.StockInfoService;
-import com.lxz.stock.service.impl.StockInfoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * 包名称： com.lxz.stock.controller
@@ -32,20 +35,27 @@ public class StockInfoController {
     StockInfoService stockInfoService;
 
     @GetMapping("/realtimeStock")
-    public BuyStock listRealTimeStock(Integer code){
+    public BuyStock listRealTimeStock(String code){
         if (code == null){
-            code=300377;
+            code ="300377";
         }
-        System.out.println(stockInfoService.infoRealTime(code).getCode());
-        return stockInfoService.infoRealTime(code);
+        BuyStock buyStock = stockInfoService.infoRealTime(code);
+        System.out.println(buyStock.getCode());
+        return buyStock;
     }
 
     @GetMapping("/todayStock")
-    public  Stock listTodayStock(Integer code){
+    public  Stock listTodayStock(String code){
         if(code == null){
-            code=300377;
+            code ="300377";
         }
         System.out.println(stockInfoService.infoRealTime(code).getCode());
         return stockInfoService.infoToday(code);
+    }
+
+    @GetMapping("/baseStock")
+    public List<BaseStock> baseStock() throws IOException {
+        List<BaseStock> baseStocks = stockInfoService.baseStock();
+        return baseStocks;
     }
 }

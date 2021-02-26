@@ -29,7 +29,7 @@ public class Stock implements Serializable {
     /**
      * 编号
      */
-    int code;
+    String code;
     /**
      * 股票名字
      */

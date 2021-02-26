@@ -448,3 +448,8 @@ $("#form_data").submit(function(){
 
     },'json');*/
 
+$.get("/getToken",{
+  "token":localStorage.getItem("token")
+},function(date){
+
+})

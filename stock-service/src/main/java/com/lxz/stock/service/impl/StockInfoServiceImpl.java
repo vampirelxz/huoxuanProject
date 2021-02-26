@@ -10,22 +10,28 @@ package com.lxz.stock.service.impl;/********************************************
  *
  ********************************************************/
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.lxz.stock.config.RestTemplateConfig;
-import com.lxz.stock.entity.BuyStock;
-import com.lxz.stock.entity.Stock;
+import com.lxz.stock.dao.StockListMapper;
+import com.lxz.stock.entity.*;
 import com.lxz.stock.service.StockInfoService;
 import com.lxz.stock.utils.HttpUtil;
 import com.lxz.stock.utils.JsonUtil;
+import com.lxz.stock.utils.StockUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import javax.annotation.Resource;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * 包名称： com.lxz.stock.service.impl
@@ -45,11 +51,23 @@ public class StockInfoServiceImpl implements StockInfoService {
     @Autowired
     private JsonUtil jsonUtil;
 
+    @Autowired
+    private StockUtil stockUtil;
+
+    @Resource
+    private StockListMapper stockListMapper;
+
     @Value("${baidu.stock.AppCode}")
     public String appcode;
 
+    @Value("${wanwei.stock.key}")
+    public String key;
+
+    @Value("${wanwei.stock.appId}")
+    public String appId;
+
     @Override
-    public BuyStock infoRealTime(int code) {
+    public BuyStock infoRealTime(String code) {
         String url="http://gwgp-5bmrebmatbr.n.bdcloudapi.com/realtime/?symbols="+code;
         System.out.println(url);
         HttpEntity<String> requestEntity = httpUtil.InsertBaiduApiAppCode(appcode);
@@ -59,13 +77,42 @@ public class StockInfoServiceImpl implements StockInfoService {
     }
 
     @Override
-    public Stock infoToday(int code) {
+    public Stock infoToday(String code) {
         String url="http://gwgp-5bmrebmatbr.n.bdcloudapi.com/today?symbols="+code;
         System.out.println(url);
         HttpEntity<String> requestEntity = httpUtil.InsertBaiduApiAppCode(appcode);
         ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, requestEntity, String.class);
         Stock stock=jsonUtil.jsonToObject(results,Stock.class);
         return stock;
+    }
+
+    @Override
+    public List<PersonalStock> selfStock(int createId) throws IOException {
+        String stringCode=null;
+        List<StockBO> strings = stockListMapper.listPersonalStock(createId);
+        for(int i=0;i<strings.size();i++){
+
+            stringCode += strings.get(i).getStockId()+",";
+        }
+        URL u = new URL("http://route.showapi.com/131-46?showapi_appid=514404&stocks="+stringCode+"&needIndex=0&showapi_sign=986324c42ad044e692e6a3e8fc1e51cd");
+        String stockInfo = stockUtil.getStockInfo(u);
+        System.out.println(stockInfo);
+
+        return null;
+    }
+
+    @Override
+    public List<BaseStock> baseStock() throws IOException {
+        URL u = new URL("http://route.showapi.com/131-46?showapi_appid="+appId+"&stocks=0&needIndex=1&showapi_sign="+key);
+        String stockInfo = stockUtil.getStockInfo(u);
+        JSONArray jsonArray = JSONObject.parseObject(stockInfo).getJSONObject("showapi_res_body").getJSONArray("indexList");
+        List<BaseStock> baseStockInfo = new ArrayList<>();
+        for (Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
+            JSONObject jsonObject1 = (JSONObject) iterator.next();
+            BaseStock content = jsonObject1.toJavaObject(BaseStock.class);
+            baseStockInfo.add(content);
+        }
+        return baseStockInfo;
     }
 
 

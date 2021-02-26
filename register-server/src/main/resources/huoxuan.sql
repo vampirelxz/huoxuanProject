@@ -39,3 +39,26 @@ CREATE TABLE `user_information` (
 INSERT INTO huoxuan.user_information
 (id, name, pwd, email, delete_flag)
 VALUES(10001, 'admin', 'admin', 'admin@qq.com', 0);
+
+
+-- huoxuan.stock_info definition
+
+CREATE TABLE `stock_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `create_id` int(11) NOT NULL,
+  `stock_id` varchar(100) NOT NULL,
+  `delete_flag` int(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `stock_info_FK` (`create_id`),
+  CONSTRAINT `stock_info_FK` FOREIGN KEY (`create_id`) REFERENCES `user_information` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=utf8;
+
+INSERT INTO huoxuan.stock_info
+(id, create_id, stock_id, delete_flag)
+VALUES(10000, 10001, '300377', 0);
+INSERT INTO huoxuan.stock_info
+(id, create_id, stock_id, delete_flag)
+VALUES(10001, 10001, '002714', 0);
+INSERT INTO huoxuan.stock_info
+(id, create_id, stock_id, delete_flag)
+VALUES(10002, 10001, '300892', 0);
