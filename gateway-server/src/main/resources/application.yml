@@ -176,7 +176,7 @@ spring:
         uri: http://liuxuanzhi:1005/
         predicates:
           - Path=/lifetools/**
-          - Method=GET
+          - Method=GET,POST
         filters:
           - StripPrefix=1
           - name: Hystrix
