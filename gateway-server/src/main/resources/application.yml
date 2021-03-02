@@ -130,7 +130,7 @@ spring:
         uri: http://liuxuanzhi:1003/
         predicates:
           - Path=/stock/**
-          - Method=GET
+#          - Method=GET,POST
         filters:
           - StripPrefix=1
           - name: Hystrix

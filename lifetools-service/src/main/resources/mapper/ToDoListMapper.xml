@@ -55,8 +55,6 @@
                 end_time,
             </if>
 
-
-
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
 

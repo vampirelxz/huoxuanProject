@@ -611,7 +611,6 @@
             <div class="card2" style=" overflow-x:auto; width: 59% ;height: auto">
                 <div id="baseStock" th:fragment="baseStock">
                 <div style="display: flex" >
-
                     <div class="small-box bg-info" style="width: 20%">
                     <div class="inner">
                         <h3 th:text="${baseStock0.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
@@ -673,74 +672,90 @@
 
                 <div class="card-header">
                     <h3 class="card-title">关注股票</h3>
+                    &nbsp
+                    <button type="button" class="btn btn-default btn-sm" onclick="flush()">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#addStockModal"><i class="fas fa-plus"></i> 新增关注</button>
+
+                    <!-- 模态框（Modal） -->
+                    <form method="post" action="##" class="form-horizontal" role="form" id="form_data"  onsubmit="return false" style="margin: 20px;">
+                        <div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" role="form">
+                                            <label for="exampleInputPassword1">股票编号</label>
+                                            <input class="form-control" onkeyup="this.value=this.value.replace(/[^0-9-]+.[^0-9-]+/,'');" type="text"   placeholder="例：300377" id="stockId" name="stockId">
+                                            <input type="text" id="createId" name="createId" style="display:none"/>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                                        </button>
+                                        <button type="submit" class="btn btn-primary" >
+                                            提交
+                                        </button><span id="tip"> </span>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal -->
+                        </div>
+                    </form>
+
+
                 </div>
+
                 <!-- /.card-header -->
-                <div class="card-body p-0">
-                    <table class="table table-striped">
+                <div class="card-body p-0" id="selfStock" th:fragment="selfStock">
+                    <table class="table table-striped" id="self-table">
                         <thead>
                         <tr>
-                            <th nowrap>编码</th>
+                            <th>编码</th>
                             <th nowrap>名字</th>
-                            <th nowrap>时间</th>
-                            <th nowrap>交易价格</th>
-                            <th nowrap>翻车指数</th>
-                            <th nowrap>翻车率</th>
-                            <th nowrap>价格变动</th>
-                            <th nowrap>变动指数</th>
-                            <th nowrap>买入价格</th>
-                            <th nowrap>卖出价格</th>
-                            <th nowrap>昨日收盘价</th>
-                            <th nowrap>开盘价</th>
-                            <th nowrap>最高价</th>
-                            <th nowrap>最低价</th>
-                            <th nowrap>成交额</th>
-                            <th nowrap>成交数量</th>
+                            <th nowrap>价格</th>
+                            <th nowrap>涨跌幅度</th>
+                            <th nowrap>涨跌金额</th>
+                            <th nowrap>换手率</th>
+                            <th nowrap>总市值</th>
+                            <th nowrap>流通市值</th>
+                            <th nowrap>总股本</th>
+                            <th nowrap>流通股本</th>
                             <th nowrap>市盈率</th>
                             <th nowrap>市净率</th>
-                            <th nowrap>市场价值</th>
-                            <th nowrap>流通市值</th>
+                            <th> </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1.</td>
-                            <td>Update software</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-danger">55%</span></td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Clean database</td>
-                            <td>
-                                <div class="progress progress-xs">
-                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-warning">70%</span></td>
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td>Cron job running</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar bg-primary" style="width: 30%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-primary">30%</span></td>
-                        </tr>
-                        <tr>
-                            <td>4.</td>
-                            <td>Fix and squish bugs</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar bg-success" style="width: 90%"></div>
-                                </div>
-                            </td>
-                            <td><span class="badge bg-success">90%</span></td>
+                        <tr th:each="s : ${selfStock}">
+                            <td th:text="${s.code}" role="button" style="color: #0000C0" id="code" onclick="findInInfo(this)">- -</td>
+                            <td th:text="${s.name}">- -</td>
+                            <!--<td th:text="${s.code}">-->
+                                <!--<div class="progress progress-xs">-->
+                                    <!--<div class="progress-bar progress-bar-danger" style="width: 55%"></div>-->
+                                <!--</div>-->
+                            <!--</td>-->
+                            <td th:text="${s.nowPrice}">- -</td>
+                            <td ><span class="" th:classappend="
+                                ${s.diff_rate <= -2} ? 'badge bg-success' : (
+                                ${s.diff_rate <= 0} ? 'badge bg-primary' : (
+                                ${s.diff_rate <= 2} ? 'badge bg-warning' : 'badge bg-danger'))
+                                " th:text="${s.diff_rate}+'%'">--</span></td>
+                            <td th:text="${s.diff_money}">- -</td>
+                            <td ><span class="badge bg-danger" th:text="${s.turnover}">--</span></td>
+                            <td th:text="${s.all_value}">- -</td>
+                            <td th:text="${s.circulation_value}">- -</td>
+                            <td th:text="${s.totalcapital}">- -</td>
+                            <td th:text="${s.currcapital}">- -</td>
+                            <td th:text="${s.pe}+'%'" style="color: red">- -</td>
+                            <td th:text="${s.pb}+'%'" style="color: red">- -</td>
+                            <td><button type="button" class="btn btn-default btn-sm" onclick="deleteStock()">
+                                <i class="far fa-trash-alt"></i>
+                            </button></td>
                         </tr>
                         </tbody>
                     </table>

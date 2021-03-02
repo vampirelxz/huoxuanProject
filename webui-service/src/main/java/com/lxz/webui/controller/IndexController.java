@@ -1,4 +1,4 @@
-package com.lxz.webui.consumer.controller;/****************************************************
+package com.lxz.webui.controller;/****************************************************
  * 创建人：     @author liuxuanzhi    
  * 创建时间: 2021/2/1/15:58
  * 项目名称：  HXAssistant

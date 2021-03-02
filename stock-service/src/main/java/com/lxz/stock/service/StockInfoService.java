@@ -27,4 +27,8 @@ public interface StockInfoService {
     List<PersonalStock> selfStock(int createId) throws IOException;
 
     List<BaseStock> baseStock() throws IOException;
+
+    void insertSelfStock(int createId ,String stockId);
+
+    void deleteSelfStock(int createId, String stockId);
 }

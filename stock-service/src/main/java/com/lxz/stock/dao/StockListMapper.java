@@ -12,6 +12,7 @@ package com.lxz.stock.dao;/****************************************************
 
 import com.lxz.stock.entity.StockBO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -31,4 +32,22 @@ public interface StockListMapper {
      * @return
      */
     List<StockBO> listPersonalStock(int createId);
+
+    /**
+     * 删除关注股票
+     * @param createId
+     * @param stockId
+     * @return
+     */
+    void deleteStockById(@Param("createId")int createId, @Param("stockId") String stockId);
+
+    /**
+     * 新增关注股票
+     * @param createId
+     * @param stockId
+     * @return
+     */
+    void insertStockById(@Param("createId") int createId, @Param("stockId") String stockId);
+
+    List<StockBO> checkPersonalStock(@Param("createId") int createId, @Param("stockId") String stockId);
 }

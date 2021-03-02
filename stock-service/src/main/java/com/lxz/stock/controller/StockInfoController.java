@@ -12,11 +12,11 @@ package com.lxz.stock.controller;/**********************************************
 
 import com.lxz.stock.entity.BaseStock;
 import com.lxz.stock.entity.BuyStock;
+import com.lxz.stock.entity.PersonalStock;
 import com.lxz.stock.entity.Stock;
 import com.lxz.stock.service.StockInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -57,5 +57,25 @@ public class StockInfoController {
     public List<BaseStock> baseStock() throws IOException {
         List<BaseStock> baseStocks = stockInfoService.baseStock();
         return baseStocks;
+    }
+
+    @GetMapping("/selfStock")
+    public List<PersonalStock> personalStock(@RequestParam("createId") Integer createId) throws IOException {
+        System.out.println(createId);
+        List<PersonalStock> personalStocks = stockInfoService.selfStock(createId);
+        return personalStocks;
+    }
+
+    @PostMapping("/insertSelfStock")
+    public void insertSelfStock(@RequestParam("createId") String createId, @RequestParam("stockId") String stockId){
+        System.out.println("11"+createId+stockId);
+        Integer uid = Integer.valueOf(createId);
+        stockInfoService.insertSelfStock(uid,stockId);
+    }
+
+    @PostMapping("/deleteSelfStock")
+    public void deleteSelfStock(@RequestParam("createId") String createId, @RequestParam("stockId") String stockId){
+        Integer uid = Integer.valueOf(createId);
+        stockInfoService.deleteSelfStock(uid,stockId);
     }
 }

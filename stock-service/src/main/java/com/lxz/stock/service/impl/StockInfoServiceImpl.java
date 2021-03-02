@@ -18,6 +18,7 @@ import com.lxz.stock.service.StockInfoService;
 import com.lxz.stock.utils.HttpUtil;
 import com.lxz.stock.utils.JsonUtil;
 import com.lxz.stock.utils.StockUtil;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -32,6 +33,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 包名称： com.lxz.stock.service.impl
@@ -88,17 +90,34 @@ public class StockInfoServiceImpl implements StockInfoService {
 
     @Override
     public List<PersonalStock> selfStock(int createId) throws IOException {
-        String stringCode=null;
         List<StockBO> strings = stockListMapper.listPersonalStock(createId);
-        for(int i=0;i<strings.size();i++){
-
-            stringCode += strings.get(i).getStockId()+",";
-        }
+        List<String> idList = strings.stream().map(StockBO::getStockId).collect(Collectors.toList());
+        String stringCode = StringUtils.join(idList.toArray(), ",");
         URL u = new URL("http://route.showapi.com/131-46?showapi_appid=514404&stocks="+stringCode+"&needIndex=0&showapi_sign=986324c42ad044e692e6a3e8fc1e51cd");
+        System.out.println(u.toString());
         String stockInfo = stockUtil.getStockInfo(u);
-        System.out.println(stockInfo);
 
-        return null;
+        JSONArray jsonArray = JSONObject.parseObject(stockInfo).getJSONObject("showapi_res_body").getJSONArray("list");
+        List<PersonalStock> personalStocks = new ArrayList<>();
+        for (Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
+            JSONObject jsonObject1 = (JSONObject) iterator.next();
+            PersonalStock personalStock = new PersonalStock();
+            personalStock.setCode(jsonObject1.getString("code"));
+            personalStock.setName(jsonObject1.getString("name"));
+            personalStock.setNowPrice(jsonObject1.getString("nowPrice"));
+            personalStock.setTurnover(jsonObject1.getString("turnover"));
+            personalStock.setDiff_money(jsonObject1.getString("diff_money"));
+            personalStock.setDiff_rate(jsonObject1.getFloat("diff_rate"));
+            personalStock.setAll_value(jsonObject1.getString("all_value"));
+            personalStock.setCirculation_value(jsonObject1.getString("circulation_value"));
+            personalStock.setTotalcapital(jsonObject1.getString("totalcapital"));
+            personalStock.setCurrcapital(jsonObject1.getString("currcapital"));
+            personalStock.setPe(jsonObject1.getString("pe"));
+            personalStock.setPb(jsonObject1.getString("pb"));
+            personalStocks.add(personalStock);
+        }
+
+        return personalStocks;
     }
 
     @Override
@@ -114,6 +133,26 @@ public class StockInfoServiceImpl implements StockInfoService {
         }
         return baseStockInfo;
     }
+
+    @Override
+    public void insertSelfStock(int createId, String stockId) {
+        if(stockId == null || stockId.isEmpty() || createId == 0 ){
+            return;
+        }
+        if(stockListMapper.checkPersonalStock(createId,stockId).isEmpty()){
+            stockListMapper.insertStockById(createId,stockId);
+        }
+
+    }
+
+    @Override
+    public void deleteSelfStock(int createId, String stockId) {
+        if(stockId == null || stockId.isEmpty() || createId == 0){
+            return;
+        }
+        stockListMapper.deleteStockById(createId,stockId);
+    }
+
 
 
 }

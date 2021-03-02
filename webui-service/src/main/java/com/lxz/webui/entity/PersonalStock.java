@@ -1,4 +1,4 @@
-package com.lxz.stock.entity;/****************************************************
+package com.lxz.webui.entity;/****************************************************
  * 创建人：     @author liuxuanzhi    
  * 创建时间: 2021/2/26/16:57
  * 项目名称：  HXAssistant

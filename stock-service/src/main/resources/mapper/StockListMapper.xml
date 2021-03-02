@@ -23,6 +23,10 @@
         select stock_id from stock_info where  delete_flag=0 and create_id = #{createId}
     </select>
 
+    <select id="checkPersonalStock"  resultMap="personalStock">
+        select stock_id from stock_info where  delete_flag=0 and create_id = #{createId} and stock_id = #{stockId}
+    </select>
+
     <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->
           <!--select id,prod_code,prod_name,remark,max_ratio,create_user_id,create_time,update_user_id,update_time from ipo_new_stock_max_ratio-->
           <!--<where>-->
@@ -36,25 +40,16 @@
 
 
 
-    <insert id="save">
-        INSERT INTO daily_list
+    <insert id="insertStockById">
+        INSERT INTO stock_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
 
             <if test="createId != null ">
                 create_id,
             </if>
-
-            <if test="information != null">
-                information,
+            <if test="stockId != null">
+                stock_id,
             </if>
-            <if test="createTime != null">
-                create_time,
-            </if>
-            <if test="endTime != null">
-                end_time,
-            </if>
-
-
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -62,33 +57,21 @@
             <if test="createId != null">
                 #{createId},
             </if>
-
-            <if test="information != null">
-                #{information},
-            </if>
-            <if test="createTime != null">
-                #{createTime},
-            </if>
-            <if test="endTime != null ">
-                #{endTime},
+            <if test="stockId != null ">
+                #{stockId},
             </if>
 
         </trim>
 
     </insert>
 
-    <!--<update id="update" parameterType="com.win.dfbp.newstock.entity.IpoMaxPurchaseRate">-->
-        <!--UPDATE ipo_new_stock_max_ratio-->
-        <!--<set>-->
-            <!--<if test ='null != prodCode'>prod_code = #{prodCode},</if>-->
-            <!--<if test ='null != prodName'>prod_name = #{prodName},</if>-->
-            <!--<if test ='null != maxRatio'>max_ratio = #{maxRatio},</if>-->
-            <!--<if test ='null != remark'>remark = #{remark},</if>-->
-            <!--<if test ='null != updateUserId'>update_user_id = #{updateUserId},</if>-->
-            <!--<if test ='null != updateTime'>update_time = #{updateTime}</if>-->
-        <!--</set>-->
-        <!--WHERE prod_code = #{prodCode}  AND delete_flag = 0-->
-    <!--</update>-->
+    <update id="deleteStockById" >
+        UPDATE stock_info
+        <set>
+            delete_flag = 1
+        </set>
+        WHERE stock_id = #{stockId}  AND create_id = #{createId}
+    </update>
 
 
 

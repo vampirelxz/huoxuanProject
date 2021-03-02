@@ -1,4 +1,4 @@
-package com.lxz.webui.consumer.controller;/****************************************************
+package com.lxz.webui.controller;/****************************************************
  * 创建人：     @author liuxuanzhi    
  * 创建时间: 2021/2/25/12:00
  * 项目名称：  HXAssistant
@@ -27,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UtilController {
     String t=null;
 
+    /*
+    获取token
+     */
     @RequestMapping(value = "/getToken" ,method = RequestMethod.GET)
     public String getToken(@RequestParam("token") String token){
         System.out.println(token);
