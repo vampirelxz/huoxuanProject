@@ -16,6 +16,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.regex.Pattern;
 
 /**
  * 包名称： com.lxz.stock.utils
@@ -27,6 +28,9 @@ import java.net.URL;
 
 @Component
 public class StockUtil {
+    Pattern pattern = Pattern.compile("[0-9]*");
+    Pattern pattern1 = Pattern.compile("[\\u4E00-\\u9FA5|\\\\！|\\\\，|\\\\。|\\\\（|\\\\）|\\\\《|\\\\》|\\\\“|\\\\”|\\\\？|\\\\：|\\\\；|\\\\【|\\\\】]");
+    Pattern pattern2 = Pattern.compile("^[a-zA-Z]*");
 
     public String getStockInfo(URL url) throws IOException {
         InputStream in = url.openStream();
@@ -47,5 +51,51 @@ public class StockUtil {
         return s;
     }
 
+    public String FundTypeTo(String type){
+        if(type.equals("fj")){
+            return "分级基金";
+        }else if(type.equals("currency")){
+            return "货币基金";
+        }else if(type.equals("stock")){
+            return "股票型基金";
+        }else if(type.equals("bond")){
+            return "债券型基金";
+        }else if(type.equals("mix")){
+            return "混合型基金";
+        }else if(type.equals("qdii")){
+            return "QDII基金";
+        }else if(type.equals("lof")){
+            return "LOF基金";
+        }else if(type.equals( "fof")){
+            return "FOF基金";
+        }else if(type.equals("index")){
+            return "指数基金";
+        }else if(type.equals("etf")){
+            return "ETF基金";
+        }
+        return type;
+    }
+
+    public String FundInOutTo(String inOut){
+        if(inOut.equals("in")){
+            return "场内";
+        }else if(inOut.equals("out")){
+            return "场外";
+        }
+        return inOut;
+    }
+
+
+    public String charJudgment(String code){
+        String substring = code.substring(0, 1);
+        if(pattern.matcher(substring).matches()){
+            return "code";
+        }else if(pattern1.matcher(substring).matches()){
+            return "chinese";
+        }else if(pattern2.matcher(substring).matches()){
+            return "english";
+        }
+        return null;
+    }
 
 }

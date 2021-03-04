@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxz.stock.dao.FundListMapper">
+
+	<resultMap id="BaseResultMap" type="com.lxz.stock.entity.PersonalFund" >
+		<result column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="end_time" property="endTime" />
+    </resultMap>
+
+    <resultMap id="personalFund" type="com.lxz.stock.entity.FundBO" >
+        <result column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="fund_id" property="fundId" />
+        <result column="delete_flag" property="deleteFlag" />
+	</resultMap>
+
+    <select id="listPersonalFund"  resultMap="personalFund">
+        select fund_id from fund_info where  delete_flag=0 and create_id = #{createId}
+    </select>
+
+    <select id="checkPersonalFund"  resultMap="personalFund">
+        select fund_id from fund_info where  delete_flag=0 and create_id = #{createId} and fund_id = #{fundId}
+    </select>
+
+    <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->
+          <!--select id,prod_code,prod_name,remark,max_ratio,create_user_id,create_time,update_user_id,update_time from ipo_new_stock_max_ratio-->
+          <!--<where>-->
+          <!--delete_flag=0-->
+		      <!--<if test="prodCode != null">-->
+			    <!--and prod_code like concat('%',#{prodCode},'%')-->
+		      <!--</if>-->
+          <!--</where>-->
+          <!--ORDER BY update_time DESC-->
+    <!--</select>-->
+
+
+
+    <insert id="insertFundById">
+        INSERT INTO fund_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="createId != null ">
+                create_id,
+            </if>
+            <if test="fundId != null">
+                fund_id,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="createId != null">
+                #{createId},
+            </if>
+            <if test="fundId != null ">
+                #{fundId},
+            </if>
+
+        </trim>
+
+    </insert>
+
+    <update id="deleteFundById" >
+        UPDATE fund_info
+        <set>
+            delete_flag = 1
+        </set>
+        WHERE fund_id = #{fundId}  AND create_id = #{createId}
+    </update>
+
+</mapper>

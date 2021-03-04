@@ -10,9 +10,7 @@ package com.lxz.webui.consumer.api.feign;/**************************************
  *
  ********************************************************/
 
-import com.lxz.webui.entity.BaseStock;
-import com.lxz.webui.entity.BuyStock;
-import com.lxz.webui.entity.Stock;
+import com.lxz.webui.entity.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,4 +38,13 @@ public interface StockFeign {
 
     @RequestMapping(value = "/baseStock",method = RequestMethod.GET)
     List<BaseStock> baseStock() throws IOException ;
+
+    @RequestMapping(value = "/rankFund",method = RequestMethod.GET)
+    List<Fund> listRankFund() throws IOException ;
+
+    @RequestMapping(value = "/detailFund",method = RequestMethod.GET)
+    BaseFund listDetailFund(@RequestParam("code") String code) throws IOException;
+
+    @RequestMapping(value = "/listFund",method = RequestMethod.GET)
+    List<BaseFund> listFund(@RequestParam("code") String code) throws IOException;
 }

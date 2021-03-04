@@ -2,14 +2,20 @@ package com.lxz.stock;
 
 import com.lxz.stock.controller.StockInfoController;
 import com.lxz.stock.dao.StockListMapper;
-import com.lxz.stock.entity.PersonalStock;
-import com.lxz.stock.entity.StockBO;
+import com.lxz.stock.entity.*;
+import com.lxz.stock.service.FundInfoService;
 import com.lxz.stock.service.StockInfoService;
+import com.lxz.stock.utils.StockUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @SpringBootTest
@@ -20,6 +26,12 @@ class StockServiceApplicationTests {
     StockInfoService stockInfoService;
     @Autowired
     StockListMapper stockListMapper;
+    @Autowired
+    StockUtil stockUtil;
+    @Autowired
+    RestTemplate restTemplate;
+    @Autowired
+    FundInfoService fundInfoService;
 
     @Test
     void contextLoads() {
@@ -51,5 +63,49 @@ class StockServiceApplicationTests {
     void checkPersonStock(){
         List<StockBO> stockBOS = stockListMapper.checkPersonalStock(10002, "300377");
         System.out.println(stockBOS);
+    }
+
+    @Test
+    void TestFundUrl() {
+        String u ="http://fundgz.1234567.com.cn/js/110011.js?rt=1463558676006";
+        restTemplate.getMessageConverters().set(1, new StringHttpMessageConverter(StandardCharsets.UTF_8));
+        ResponseEntity<String> exchange = restTemplate.exchange(u, HttpMethod.GET, null, String.class);
+        String body = exchange.getBody();
+        System.out.println(body);
+        String substring = body.substring(7,body.length()-1);
+        substring=substring.replace("(","");
+        substring=substring.replace(")","");
+        System.out.println(substring);
+    }
+
+    @Test
+    void TestRankFund() throws IOException {
+        List<Fund> fundList = fundInfoService.rankFund();
+        System.out.println(fundList.toArray().toString());
+    }
+
+    @Test
+    void TestDetailFund() throws IOException {
+        BaseFund baseFund = fundInfoService.detailFund("110011");
+        System.out.println(baseFund.toString());
+    }
+
+    @Test
+    void TestChar(){
+        System.out.println(stockUtil.charJudgment("110011"));
+        System.out.println(stockUtil.charJudgment("yifanda"));
+        System.out.println(stockUtil.charJudgment("易方达"));
+    }
+
+    @Test
+    void TestInfoFund() throws IOException {
+        List<BaseFund> baseFunds = fundInfoService.listFund("110011");
+        System.out.println(baseFunds.toString());
+    }
+
+    @Test
+    void TestSelfFund() throws IOException {
+        List<PersonalFund> personalFunds = fundInfoService.selfFund(10001);
+        System.out.println(personalFunds);
     }
 }

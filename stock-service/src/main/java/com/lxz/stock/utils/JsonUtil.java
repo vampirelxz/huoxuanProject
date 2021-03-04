@@ -11,7 +11,6 @@ package com.lxz.stock.utils;/***************************************************
  ********************************************************/
 
 import com.alibaba.fastjson.JSON;
-import com.lxz.stock.entity.BuyStock;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -42,4 +41,12 @@ public  class JsonUtil {
         T t= JSON.parseObject(json, clazz);
         return t;
     }
+
+    public  <T> T jsonToObject(String jsonArray, Class<T> clazz){
+        String json=null;
+        json=jsonArray.substring(1,jsonArray.length()-1);
+        T t= JSON.parseObject(json, clazz);
+        return t;
+    }
+
 }
