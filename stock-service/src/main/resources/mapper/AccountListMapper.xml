@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lxz.stock.dao.AccountListMapper">
+
+	<resultMap id="BaseResultMap" type="com.lxz.stock.entity.PersonalFund" >
+		<result column="id" property="id" />
+        <result column="create_id" property="createId" />
+        <result column="information" property="information" />
+        <result column="create_time" property="createTime" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="end_time" property="endTime" />
+    </resultMap>
+
+    <resultMap id="account" type="com.lxz.stock.entity.AccountBO" >
+        <result column="create_id" property="createId" />
+        <result column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="time" property="time" />
+        <result column="money" property="money" />
+        <result column="remark" property="remark" />
+	</resultMap>
+
+    <resultMap id="MonthModel" type="com.lxz.stock.entity.AccountMonthVO">
+        <result column="create_id" property="createId" />
+        <result column="all_in" property="allIn" />
+        <result column="all_out" property="allOut" />
+        <result column="month_in" property="monthIn" />
+        <result column="month_out" property="monthOut" />
+    </resultMap>
+
+    <resultMap id="WeekModel" type="com.lxz.stock.entity.AccountWeekVO">
+        <result column="create_id" property="createId" />
+        <result column="week_all" property="weekAll" />
+        <result column="type_all" property="typeAll" />
+    </resultMap>
+
+    <resultMap id="weekInfo" type="com.lxz.stock.entity.AccountWeekDate">
+        <result column="create_id" property="createId" />
+        <result column="value" property="value" />
+    </resultMap>
+
+    <resultMap id="monthInfo" type="com.lxz.stock.entity.AccountMonthDate">
+        <result column="create_id" property="createId" />
+        <result column="value" property="value" />
+    </resultMap>
+
+    <resultMap id="PieInfo" type="com.lxz.stock.entity.AccountPieData">
+        <result column="create_id" property="createId" />
+        <result column="value" property="value" />
+        <result column="type" property="type" />
+    </resultMap>
+
+
+    <select id="listAccount"  resultMap="account">
+        select id,create_id,account_info.time,money,remark,account_info.type from account_info where  delete_flag=0 and create_id = #{createId}
+    </select>
+
+    <select id="getMonthModel" resultMap="MonthModel">
+        select ss.month_in,uu.month_out,aa.all_out,oo.all_in from
+        (select sum(s.money) month_in  from (select money from huoxuan.account_info where DATE_FORMAT(`time` ,'%Y%m')=DATE_FORMAT(CURDATE(),'%Y%m')  and delete_flag=0 and create_id= #{createId}) s where money &gt; 0) ss
+        join (select sum(u.money) month_out  from (select money from huoxuan.account_info where DATE_FORMAT(`time` ,'%Y%m')=DATE_FORMAT(CURDATE(),'%Y%m')  and delete_flag=0 and create_id=#{createId}) u where money 	&lt; 0) uu
+        join (select sum(a.money) all_out  from (select money from huoxuan.account_info where money &lt; 0  and delete_flag=0 and create_id=#{createId}) a) aa
+        join (select sum(o.money) all_in  from (select money from huoxuan.account_info where money &gt; 0  and delete_flag=0 and create_id=#{createId}) o) oo;
+    </select>
+
+    <select id="getWeekModel" resultMap="WeekModel">
+        select a1.type ,a1.type_all,a2.week_all from
+        (select ai.`type`,abs(sum(money)) type_all from huoxuan.account_info ai where YEARWEEK(DATE_FORMAT(time,'%Y-%m-%d'),1)=YEARWEEK(NOW(),1) and create_id=#{createId} and delete_flag =0 group by `type` order by sum(money) asc limit 4) a1
+        join
+        (select abs(sum(money))week_all from huoxuan.account_info  where  YEARWEEK(DATE_FORMAT(time,'%Y-%m-%d'),1)=YEARWEEK(NOW(),1) and create_id=#{createId} and delete_flag =0) a2 ;
+    </select>
+
+    <select id="getThisWeekDate" resultMap="weekInfo">
+        select abs(ifnull(t1.all_money,0)) as value from
+        (select sum(ai.money) all_money ,ai.`time` as time from huoxuan.account_info ai where money &lt; 0 and create_id=#{createId} and delete_flag =0 and YEARWEEK(DATE_FORMAT(time,'%Y-%m-%d'),1)=YEARWEEK(NOW(),1) group by time ) t1
+        right join
+        (select DATE_SUB(subdate(curdate(),date_format(curdate(),'%w')-7), INTERVAL n.num DAY) as `time` from huoxuan.date_week n) t2 on t1.`time`=t2.time order by t2.time asc;
+    </select>
+
+    <select id="getLastWeekDate" resultMap="weekInfo">
+        select abs(ifnull(t1.all_money,0)) as value  from
+        (select sum(ai.money) all_money ,ai.`time` as time from huoxuan.account_info ai where money &lt; 0 and create_id=#{createId} and delete_flag =0 and YEARWEEK(DATE_FORMAT(time,'%Y-%m-%d'),1)=YEARWEEK(NOW(),1)-1 group by time ) t1
+        right join
+        (select DATE_SUB(subdate(curdate()-7,date_format(curdate(),'%w')-7), INTERVAL n.num DAY) as `time` from huoxuan.date_week n) t2 on t1.`time`=t2.time order by t2.time asc;
+    </select>
+
+    <select id="getThisMonthDate" resultMap="monthInfo">
+        select ifnull(a1.type_all,0) value from
+		huoxuan.date_type a2
+		left outer join
+        (select ai.`type`,abs(sum(money)) type_all from huoxuan.account_info ai
+       where DATE_FORMAT( time, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) and create_id=#{createId} and delete_flag =0 group by `type`   ) a1 on a1.type=a2.type order by a2.type;
+    </select>
+
+    <select id="getLastMonthDate" resultMap="monthInfo">
+        select ifnull(a1.type_all,0) value from
+		huoxuan.date_type a2
+		left outer join
+        (select ai.`type`,abs(sum(money)) type_all from huoxuan.account_info ai
+       where PERIOD_DIFF( date_format( now( ) , '%Y%m' ) , date_format( `time` , '%Y%m' ) ) =1 and create_id=#{createId} and delete_flag =0 group by `type`   ) a1 on a1.type=a2.type order by a2.type;
+    </select>
+
+    <select id="getMonthPie" resultMap="PieInfo">
+       select ai.`type`,abs(sum(money)) value from huoxuan.account_info ai where DATE_FORMAT( time, '%Y%m' ) = DATE_FORMAT( CURDATE( ) , '%Y%m' ) and create_id=#{createId} and delete_flag =0 group by `type` order by sum(money) asc limit 6;
+    </select>
+
+    <select id="getYearPie" resultMap="PieInfo">
+       select ai.`type`,abs(sum(money)) value from huoxuan.account_info ai where YEAR(time)=YEAR(NOW()) and create_id=#{createId} and delete_flag =0 group by `type` order by sum(money) asc limit 6;
+    </select>
+    <!--<select id="checkPersonalFund"  resultMap="personalFund">-->
+        <!--select fund_id from fund_info where  delete_flag=0 and create_id = #{createId} and fund_id = #{fundId}-->
+    <!--</select>-->
+
+    <!--<select id="listAccount" resultMap="account" >-->
+          <!--select id,create_id,account_info.time,money,remark,account_info.type from account_info-->
+          <!--<where>-->
+          <!--delete_flag=0-->
+		      <!--<if test="prodCode != null">-->
+			    <!--and prod_code like concat('%',#{prodCode},'%')-->
+		      <!--</if>-->
+          <!--</where>-->
+          <!--ORDER BY update_time DESC-->
+    <!--</select>-->
+
+
+
+    <insert id="insertAccountById">
+        INSERT INTO account_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+
+            <if test="createId != null ">
+                create_id,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="money != null">
+                money,
+            </if>
+            <if test="time != null">
+                time,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+            <if test="createId != null">
+                #{createId},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="money != null">
+                #{money},
+            </if>
+            <if test="time != null">
+                #{time},
+            </if>
+            <if test="remark != null">
+                #{remark},
+            </if>
+
+        </trim>
+
+    </insert>
+
+    <update id="deleteAccountById" >
+        UPDATE account_info
+        <set>
+            delete_flag = 1
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>

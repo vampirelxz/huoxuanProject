@@ -15,6 +15,14 @@
 //     });
 // })
 
+$('.toastsDefaultSuccess').click(function() {
+  $(document.getElementById('todo-list')).Toasts('create', {
+    class: 'bg-success',
+    title: '每日清单',
+    subtitle: '成功',
+    body: '每日清单添加成功！！！'
+  })
+});
 
 $(function () {
   'use strict'
@@ -198,67 +206,67 @@ $(function () {
     options: pieOptions
   })
 
-  // Sales graph chart
-  var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
-  // $('#revenue-chart').get(0).getContext('2d');
-
-  var salesGraphChartData = {
-    labels: ['1/29 Q1', '1/30 Q2', '1/31 Q3'],
-    datasets: [
-      {
-        label: 'Digital Goods',
-        fill: false,
-        borderWidth: 2,
-        lineTension: 0,
-        spanGaps: true,
-        borderColor: '#efefef',
-        pointRadius: 3,
-        pointHoverRadius: 7,
-        pointColor: '#efefef',
-        pointBackgroundColor: '#efefef',
-        data: [12,13,14]
-      }
-    ]
-  }
-
-  var salesGraphChartOptions = {
-    maintainAspectRatio: false,
-    responsive: true,
-    legend: {
-      display: false
-    },
-    scales: {
-      xAxes: [{
-        ticks: {
-          fontColor: '#efefef'
-        },
-        gridLines: {
-          display: false,
-          color: '#efefef',
-          drawBorder: false
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          stepSize: 5000,
-          fontColor: '#efefef'
-        },
-        gridLines: {
-          display: true,
-          color: '#efefef',
-          drawBorder: false
-        }
-      }]
-    }
-  }
-
-  // This will get the first returned node in the jQuery collection.
-  // eslint-disable-next-line no-unused-vars
-  var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'line',
-    data: salesGraphChartData,
-    options: salesGraphChartOptions
-  })
+  // // Sales graph chart
+  // var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
+  // // $('#revenue-chart').get(0).getContext('2d');
+  //
+  // var salesGraphChartData = {
+  //   labels: ['1/29 Q1', '1/30 Q2', '1/31 Q3'],
+  //   datasets: [
+  //     {
+  //       label: 'Digital Goods',
+  //       fill: false,
+  //       borderWidth: 2,
+  //       lineTension: 0,
+  //       spanGaps: true,
+  //       borderColor: '#efefef',
+  //       pointRadius: 3,
+  //       pointHoverRadius: 7,
+  //       pointColor: '#efefef',
+  //       pointBackgroundColor: '#efefef',
+  //       data: [12,13,14]
+  //     }
+  //   ]
+  // }
+  //
+  // var salesGraphChartOptions = {
+  //   maintainAspectRatio: false,
+  //   responsive: true,
+  //   legend: {
+  //     display: false
+  //   },
+  //   scales: {
+  //     xAxes: [{
+  //       ticks: {
+  //         fontColor: '#efefef'
+  //       },
+  //       gridLines: {
+  //         display: false,
+  //         color: '#efefef',
+  //         drawBorder: false
+  //       }
+  //     }],
+  //     yAxes: [{
+  //       ticks: {
+  //         stepSize: 5000,
+  //         fontColor: '#efefef'
+  //       },
+  //       gridLines: {
+  //         display: true,
+  //         color: '#efefef',
+  //         drawBorder: false
+  //       }
+  //     }]
+  //   }
+  // }
+  //
+  // // This will get the first returned node in the jQuery collection.
+  // // eslint-disable-next-line no-unused-vars
+  // var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
+  //   type: 'line',
+  //   data: salesGraphChartData,
+  //   options: salesGraphChartOptions
+  // })
 })
 
 
@@ -453,3 +461,84 @@ $.get("/getToken",{
 },function(date){
 
 })
+
+//-------------------------------------------------------------------------
+var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
+
+var chartDom = document.getElementById('gl1');
+var myChart = echarts.init(chartDom);
+var option;
+
+option = {
+  backgroundColor: '#000',
+  globe: {
+    baseTexture: ROOT_PATH + '/data-gl/asset/earth.jpg',
+    heightTexture: ROOT_PATH + '/data-gl/asset/bathymetry_bw_composite_4k.jpg',
+
+    displacementScale: 0.1,
+
+    shading: 'lambert',
+
+    environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+
+    light: {
+      ambient: {
+        intensity: 0.1
+      },
+      main: {
+        intensity: 1.5
+      }
+    },
+
+    layers: [{
+      type: 'blend',
+      blendTo: 'emission',
+      texture: ROOT_PATH + '/data-gl/asset/night.jpg'
+    }, {
+      type: 'overlay',
+      texture: ROOT_PATH + '/data-gl/asset/clouds.png',
+      shading: 'lambert',
+      distance: 5
+    }]
+  },
+  series: []
+}
+
+option && myChart.setOption(option);
+
+//------------------------------------------
+
+var chartDom1 = document.getElementById('gl2');
+var myChart1 = echarts.init(chartDom1);
+var option1;
+
+
+option1 = {
+  backgroundColor: '#000',
+  globe: {
+    baseTexture: ROOT_PATH + "/data-gl/asset/world.topo.bathy.200401.jpg",
+    heightTexture: ROOT_PATH + "/data-gl/asset/world.topo.bathy.200401.jpg",
+    displacementScale: 0.04,
+    shading: 'realistic',
+    environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+    realisticMaterial: {
+      roughness: 0.9
+    },
+    postEffect: {
+      enable: true
+    },
+    light: {
+      main: {
+        intensity: 5,
+        shadow: true
+      },
+      ambientCubemap: {
+        texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
+        diffuseIntensity: 0.2
+      }
+    }
+  }
+};
+
+
+option1 && myChart1.setOption(option1);

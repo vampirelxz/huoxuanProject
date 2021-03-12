@@ -4,6 +4,15 @@ $.get("/getToken",{
 
 })
 
+$('.toastsDefaultSuccess').click(function() {
+    $(document.getElementById('selfStock')).Toasts('create', {
+        class: 'bg-success',
+        title: '关注股票',
+        subtitle: '成功',
+        body: '添加成功！！！'
+    })
+});
+
 $('#user-name').html(localStorage.getItem('uname'));
 
 
@@ -65,6 +74,8 @@ $("#form_data").submit(function(){
     //         flush()
     //     }
     // })
+    $('.toastrDefaultError').attr('disabled','disabled');
+    setTimeout('myfunction()',2000);
     $.ajax({
         type: "POST",
         data: {stockId: stockId ,createId: createId},
@@ -86,15 +97,24 @@ $("#form_data").submit(function(){
     })
 })
 
-function deleteStock() {
+function deleteStock(r) {
     $("#self-table tbody").on("click","tr",function() {
         var td = $(this).find("td");
         var code = td.eq(0).text();
         $.post("/deleteSelfStock",{"createId":localStorage.getItem("uid"),
             "stockId":code
         },function(){
-            $("#self-table tr:last").remove();
+            var i=r.parentNode.parentNode.rowIndex;
+            document.getElementById('self-table').deleteRow(i);
+            // $("#self-table tr").remove();
         })
     });
 }
 
+$('.toastrDefaultError').click(function() {
+    toastr.success('删除成功！！')
+});
+
+function myfunction() {
+    $('#addBottom').removeAttr('disabled')
+}

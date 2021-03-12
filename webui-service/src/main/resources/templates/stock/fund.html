@@ -29,6 +29,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
     <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
 
 </head>
 <head><s:head theme="ajax" /></head>
@@ -191,15 +193,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./gold.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>黄金汇率</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="./account.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>会计分录</p>
+                                    <p>资金账簿</p>
                                 </a>
                             </li>
 
@@ -781,7 +777,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                                         </button>
-                                        <button type="submit" class="btn btn-primary" >
+                                        <button type="submit"  class="btn btn-primary toastsDefaultSuccess" >
                                             提交
                                         </button><span id="tip"> </span>
                                     </div>
@@ -893,7 +889,7 @@
                             <td th:text="${s.sell5_n}" style="color: darkgreen">- -</td>
                             <td th:text="${s.sell5_m}" style="color: #0c525d">- -</td>
 
-                            <td><button type="button" class="btn btn-default btn-sm" onclick="deleteFund()">
+                            <td><button type="button" id="addBottom" class="btn btn-default btn-sm toastrDefaultError" onclick="deleteFund(this)">
                                 <i class="far fa-trash-alt"></i>
                             </button></td>
                         </tr>
@@ -959,7 +955,8 @@
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="../dist/js/pages/dashboard.js"></script>-->
-
+<!-- Toastr -->
+<script src="../plugins/toastr/toastr.min.js"></script>
 <script src="../js/fund.js"></script>
 
 

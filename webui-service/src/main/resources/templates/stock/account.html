@@ -6,7 +6,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HuoXuan | Stock</title>
+    <title>HuoXuan | Account</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,10 +28,13 @@
     <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- Toastr -->
     <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
-
+    <script src="../dist/js/echarts.min.js/"></script>
 </head>
 <head><s:head theme="ajax" /></head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -181,7 +184,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./stock.html" class="nav-link active">
+                                <a href="./stock.html" class="nav-link ">
                                     <i class="far fa-circle nav-icon "></i>
                                     <p>股票</p>
                                 </a>
@@ -193,12 +196,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./account.html" class="nav-link">
+                                <a href="./account.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>资金账簿</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -453,313 +455,253 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">股票信息</h1>
+                        <h1 class="m-0">个人账簿</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">个人主页</a></li>
-                            <li class="breadcrumb-item active">股票信息</li>
+                            <li class="breadcrumb-item active">个人账簿</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-        <section style="display: flex;">
-
-
-        <!-- Main content -->
-            <div style="width: 1%"></div>
-
-            <div class="card1" style="width: 36%"  >
+        <section style="display: flex; ">
+            <div class="card" style="width: 25%; margin-left: 1%">
                 <div class="card-header">
-                    <h3 class="card-title">股票实时数据</h3>
-
+                    <h3 class="card-title">
+                        数据表盘
+                    </h3>
                     <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right" id="stock-code" placeholder="股票编码">
-
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default" onclick="findInfo()">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <ul class="nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#month-chart" data-toggle="tab">本月</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#year-chart" data-toggle="tab">本年</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <div class="active chart tab-pane" id="month-chart">
+                        <canvas id="month-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
+                        <div id="year-chart" class="chart tab-pane">
+                        <canvas id="year-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
                     </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" id="timeStock"  th:fragment="timeStock">
-                    <table class="table table-hover text-nowrap">
-                        <thead>
-                        <tr>
-                            <th>Attribute</th>
-                            <th>Value</th>
-                            <th>Attribute</th>
-                            <th>Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>股票名字</td>
-                            <td th:text="${timeStock.name}" style="font-weight: 700">- -</td>
-                            <td>编码</td>
-                            <td th:text="${timeStock.code}" style="font-weight: 700">- -</td>
-                        </tr>
-                        <tr>
-                            <td>今日开盘价</td>
-                            <td th:text="${timeStock.open}" style="font-weight: 700;color: red">- -</td>
-                            <td>昨日收盘价</td>
-                            <td th:text="${timeStock.pre_close}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>当前价格</td>
-                            <td th:text="${timeStock.price}" style="font-weight: 700;color: red">- -</td>
-                            <td>时间</td>
-                            <td th:text="${timeStock.time}" style="font-weight: 700;">- -</td>
-                        </tr>
-                        <tr>
-                            <td>今日最高价</td>
-                            <td th:text="${timeStock.high}" style="font-weight: 700;color: red">- -</td>
-                            <td>今日最低价</td>
-                            <td th:text="${timeStock.low}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
+            </div>
 
-                        <tr>
-                            <td>竞买价（买一报价）</td>
-                            <td th:text="${timeStock.bid}" style="font-weight: 700;color: red">- -</td>
-                            <td>竞卖价（卖一报价）</td>
-                            <td th:text="${timeStock.ask}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>成交量</td>
-                            <td th:text="${timeStock.volume}" style="font-weight: 700;color: red">- -</td>
-                            <td>成交金额（元）</td>
-                            <td th:text="${timeStock.amount}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委买一（笔数）</td>
-                            <td th:text="${timeStock.b1_v}" style="font-weight: 700;color: #28a745">- -</td>
-                            <td>委买一（价格）</td>
-                            <td th:text="${timeStock.b1_p}" style="font-weight: 700;color: #28a745">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委买二（笔数）</td>
-                            <td th:text="${timeStock.b2_v}" style="font-weight: 700;color: #28a745">- -</td>
-                            <td>委买二（价格）</td>
-                            <td th:text="${timeStock.b2_p}" style="font-weight: 700;color: #28a745">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委买三（笔数）</td>
-                            <td th:text="${timeStock.b3_v}" style="font-weight: 700;color: #28a745">- -</td>
-                            <td>委买三（价格）</td>
-                            <td th:text="${timeStock.b3_p}" style="font-weight: 700;color: #28a745">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委买四（笔数）</td>
-                            <td th:text="${timeStock.b4_v}" style="font-weight: 700;color: #28a745">- -</td>
-                            <td>委买四（价格）</td>
-                            <td th:text="${timeStock.b4_p}" style="font-weight: 700;color: #28a745">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委买五（笔数）</td>
-                            <td th:text="${timeStock.b5_v}" style="font-weight: 700;color: #28a745">- -</td>
-                            <td>委买五（价格）</td>
-                            <td th:text="${timeStock.b5_p}" style="font-weight: 700;color: #28a745">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委卖一（笔数）</td>
-                            <td th:text="${timeStock.a1_v}" style="font-weight: 700;color: red">- -</td>
-                            <td>委卖一（价格）</td>
-                            <td th:text="${timeStock.a1_p}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委卖二（笔数）</td>
-                            <td th:text="${timeStock.a2_v}" style="font-weight: 700;color: red">- -</td>
-                            <td>委卖二（价格）</td>
-                            <td th:text="${timeStock.a2_p}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委卖三（笔数）</td>
-                            <td th:text="${timeStock.a3_v}" style="font-weight: 700;color: red">- -</td>
-                            <td>委卖三（价格）</td>
-                            <td th:text="${timeStock.a3_p}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委卖四（笔数）</td>
-                            <td th:text="${timeStock.a4_v}" style="font-weight: 700;color: red">- -</td>
-                            <td>委卖四（价格）</td>
-                            <td th:text="${timeStock.a4_p}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        <tr>
-                            <td>委卖五（笔数）</td>
-                            <td th:text="${timeStock.a5_v}" style="font-weight: 700;color: red">- -</td>
-                            <td>委卖五（价格）</td>
-                            <td th:text="${timeStock.a5_p}" style="font-weight: 700;color: red">- -</td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="card" style="margin-left: 1%; width: 35%">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        支出比较
+                    </h3>
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#stackedBarChart" data-toggle="tab">两月对比</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#lineChart" data-toggle="tab">两周对比</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <div class="chart tab-pane active" id="stackedBarChart">
+                        <canvas id="stackedBarChart-canvas" style=" min-height: 250px; height: 275px; max-height: 275px; max-width: 100%; display: block; width: 349px;" width="383" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
+
+                        <div class=" chart tab-pane" id="lineChart">
+                        <canvas id="lineChart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;" width="403" height="250" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    </div>
                 </div>
                 <!-- /.card-body -->
             </div>
 
-            <div style="width: 3%"></div>
+            <!--<div  id="week-model" th:fragment="week-model">-->
 
-            <div class="card2" style=" overflow-x:auto; width: 59% ;height: auto">
-                <div id="baseStock" th:fragment="baseStock">
-                <div style="display: flex" >
-                    <div class="small-box bg-info" style="width: 20%">
-                    <div class="inner">
-                        <h3 th:text="${baseStock0.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
-                        <p th:text="${baseStock0.name}">上证指数</p>
-                        <p th:text="${baseStock0.nowPrice}">- -</p>
+            <div class="card" id="week-model" style="margin-left: 1%; width: 25%">
+
+            </div>
+            <!--</div>-->
+
+            <div class="card" style="margin-left: 1%; width: 12%">
+                <div class="card-body">
+                    <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
+                    <div id="accordion" th:fragment="accordion">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapse1" aria-expanded="false">
+                                        本月收入
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="collapse" data-parent="#accordion" style="">
+                                <div th:text="'￥'+${accordion?.monthIn}" style="font-weight: 700" class="card-body">
+                                   ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse2">
+                                        本月支出
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.monthOut}"  style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse3">
+                                        总收入
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.allIn}"  style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-secondary card">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse4">
+                                        总支出
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse4" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.allOut}" style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse5">
+                                        总余额
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse5" class="collapse" data-parent="#accordion">
+                                <div class="card-body" style="font-weight: 700" th:text="'￥'+${accordion.balance}">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-                    <div class="small-box bg-success" style="width: 20% ;">
-                        <div class="inner">
-                            <h3 th:text="${baseStock1.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
-                            <p th:text="${baseStock1.name}">- -</p>
-                            <p th:text="${baseStock1.nowPrice}">- -</p>
-                        </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                </div>
-                    <div class="small-box bg-warning" style="width: 20% ;">
-                        <div class="inner">
-                            <h3 th:text="${baseStock2.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
-                            <p th:text="${baseStock2.name}">- -</p>
-                            <p th:text="${baseStock2.nowPrice}">- -</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                    <div class="small-box bg-danger" style="width: 20% ;" >
-                        <div class="inner">
-                            <h3 th:text="${baseStock3.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
-                            <p th:text="${baseStock3.name}">- -</p>
-                            <p th:text="${baseStock3.nowPrice}">- -</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                    <div class="small-box bg-info" style="width: 20% ;">
-                        <div class="inner">
-                            <h3 th:text="${baseStock4.diff_rate}">- -</h3><sup style="font-size: 20px">%</sup>
-                            <p th:text="${baseStock4.name}">- -</p>
-                            <p th:text="${baseStock4.nowPrice}">- -</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-
-                </div>
-                </div>
-
-                <div class="card-header">
-                    <h3 class="card-title">关注股票</h3>
-                    &nbsp
-                    <button type="button" class="btn btn-default btn-sm" onclick="flush()">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
-                    <button type="button" class="btn btn-info float-right" data-toggle="modal" data-target="#addStockModal"><i class="fas fa-plus"></i> 新增关注</button>
-
-                    <!-- 模态框（Modal） -->
-                    <form method="post" action="##" class="form-horizontal" role="form" id="form_data"  onsubmit="return false" style="margin: 20px;">
-                        <div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                            &times;
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="form-horizontal" role="form">
-                                            <label for="exampleInputPassword1">股票编号</label>
-                                            <input class="form-control" onkeyup="this.value=this.value.replace(/[^0-9-]+.[^0-9-]+/,'');" type="text"   placeholder="例：300377" id="stockId" name="stockId">
-                                            <input type="text" id="createId" name="createId" style="display:none"/>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                                        </button>
-                                        <button type="submit"  class="btn btn-primary toastsDefaultSuccess" >
-                                            提交
-                                        </button><span id="tip"> </span>
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal -->
-                        </div>
-                    </form>
-
-
-                </div>
-
-                <!-- /.card-header -->
-                <div class="card-body p-0" id="selfStock" th:fragment="selfStock">
-                    <table class="table table-striped" id="self-table">
-                        <thead>
-                        <tr>
-                            <th>编码</th>
-                            <th nowrap>名字</th>
-                            <th nowrap>价格</th>
-                            <th nowrap>涨跌幅度</th>
-                            <th nowrap>涨跌金额</th>
-                            <th nowrap>换手率</th>
-                            <th nowrap>总市值</th>
-                            <th nowrap>流通市值</th>
-                            <th nowrap>总股本</th>
-                            <th nowrap>流通股本</th>
-                            <th nowrap>市盈率</th>
-                            <th nowrap>市净率</th>
-                            <th> </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="s : ${selfStock}">
-                            <td th:text="${s.code}" role="button" style="color: #0000C0" id="code" onclick="findInInfo(this)">- -</td>
-                            <td th:text="${s.name}">- -</td>
-                            <!--<td th:text="${s.code}">-->
-                                <!--<div class="progress progress-xs">-->
-                                    <!--<div class="progress-bar progress-bar-danger" style="width: 55%"></div>-->
-                                <!--</div>-->
-                            <!--</td>-->
-                            <td th:text="${s.nowPrice}">- -</td>
-                            <td ><span class="" th:classappend="
-                                ${s.diff_rate <= -2} ? 'badge bg-success' : (
-                                ${s.diff_rate <= 0} ? 'badge bg-primary' : (
-                                ${s.diff_rate <= 2} ? 'badge bg-warning' : 'badge bg-danger'))
-                                " th:text="${s.diff_rate}+'%'">--</span></td>
-                            <td th:text="${s.diff_money}">- -</td>
-                            <td ><span class="badge bg-danger" th:text="${s.turnover}">--</span></td>
-                            <td th:text="${s.all_value}">- -</td>
-                            <td th:text="${s.circulation_value}">- -</td>
-                            <td th:text="${s.totalcapital}">- -</td>
-                            <td th:text="${s.currcapital}">- -</td>
-                            <td th:text="${s.pe}+'%'" style="color: red">- -</td>
-                            <td th:text="${s.pb}+'%'" style="color: red">- -</td>
-                            <td><button type="button" id="addBottom" class="btn btn-default btn-sm  toastrDefaultError" onclick="deleteStock(this)">
-                                <i class="far fa-trash-alt"></i>
-                            </button></td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
                 <!-- /.card-body -->
-
-        </div>
+            </div>
         </section>
+
+            <div class="card" id="addInfo" style="min-width: 500px;width: 98%;margin-left: 1%;height: 3%;">
+                <form method="post" action="##" class="card-body" role="form" id="form_data"  onsubmit="return false">
+                    <div style="width: 5% ;display: inline-flex; margin-left: 5%"  >
+                        <select class="custom-select rounded-0" id="inorout" >
+                        <option>支出</option>
+                        <option>收入</option>
+                    </select>
+                    </div>
+                    <div style="width: 8% ;margin-left: 1%;display: inline-flex;">
+                        <select class="custom-select rounded-0" id="type" >
+                        <option class="b">餐饮美食</option><option>账户存取</option><option >转账红包</option><option>投资理财</option><option class="a">收入</option><option class="a">退款</option><option class="a">亲友代付</option>
+                        <option class="b">服饰装扮</option><option class="b">日用百货</option><option class="b">家居家装</option><option class="b">数码电器</option>" +
+                        "<option class="b">运动户外</option><option class="b">美容美发</option><option class="b">母婴亲子</option><option class="b">宠物</option><option class="b">交通出行</option><option class="b">爱车养车</option><option class="b">住房物业</option><option class="b">酒店旅游</option>" +
+                        "<option class="b">文化休闲</option><option class="b">教育培训</option><option class="b">医疗健康</option><option class="b">生活服务</option><option class="b">公共服务</option><option class="b">商业服务</option><option class="b">美容美发</option><option class="b">公益捐赠</option>" +
+                        "<option class="b">互助保障</option><option class="b">保险</option><option class="b">信用借还</option><option class="b">充值缴费</option><option>其他</option>
+                    </select>
+                    </div>
+                    <div class="input-group-prepend"  style="display: inline-flex;margin-left: 1%; width: 12%">
+                        <span class="input-group-text">
+                          ￥
+                        </span>
+                        <input type="number" step="0.01" id="money" placeholder="金额" class="form-control" >
+                    </div>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest" style="display: inline-flex;margin-left: 1%; width: 12%">
+                        <input type="text" id="account-time" class="form-control datetimepicker-input" placeholder="时间" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask inputmode="numeric" data-target="#reservationdate">
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <div  style="display: inline-flex;margin-left: 1%; width: 20%" >
+                        <input class="form-control" id="remark" placeholder="备注" type="text">
+                    </div>
+
+                    <div  style="display: inline-flex;margin-left: 20%; width: 8%" >
+                        <button type="submit" class="btn btn-info toastrDefaultSuccess" data-toggle="modal" id="addBottom" data-target="#addStockModal" ><i class="fas fa-plus"></i> 添加</button>
+                    </div>
+                </form>
+            </div>
+
+        <div id="toastsContainerTopRight" class="toasts-top-right fixed"></div>
+
+        <div class="card" style="margin-left: 1%">
+            <div class="card-header">
+                <h3 class="card-title">收支明细</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" id="account" th:fragment="account">
+                <table id="example1"  class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th style="width: 10%">收入||支出</th>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>金额</th>
+                        <th>备注</th>
+                        <th style="width: 5%"> </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="s : ${account}">
+                        <td th:name="${s.id}" th:text="${s.money < 0} ? '支出':'收入'" th:classappend="${s.money>0}?'fas fa-arrow-up text-big text-danger':'fas fa-arrow-down text-big text-success'">- -</td>
+                        <td th:text="${s.time}">- -</td>
+                        <td th:text="${s.type}">- -</td>
+                        <td th:text="'￥'+${s.money}" style="color: red;" th:styleappend="${s.money<0} ? 'background-color:#F5DEDE':'background-color:#F1EDED'">- -</td>
+                        <td th:text="${s.remark}">- -</td>
+                        <td><button type="button" id="addBottom" class="btn btn-default btn-sm toastrDefaultError" onclick="deleteAccount(this)">
+                            <i class="far fa-trash-alt"></i>
+                        </button></td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>收入||支出</th>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>金额</th>
+                        <th>备注</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        <!-- Main content -->
+
+
 
         <!-- /.content -->
     </div>
@@ -780,6 +722,7 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -815,10 +758,24 @@
 <script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="../dist/js/pages/dashboard.js"></script>-->
+<script src="../js/jquery.calender.js"></script>
+<script src="../js/account.js"></script>
 <!-- Toastr -->
 <script src="../plugins/toastr/toastr.min.js"></script>
-<script src="../js/jquery.calender.js"></script>
-<script src="../js/stock.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
 
 
 

@@ -29,7 +29,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
     <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-
+    <script src="../dist/js/echarts.min.js"></script>
+    <script src="../dist/js/echarts-gl.js"></script>
 </head>
 <head><s:head theme="ajax" /></head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -191,15 +192,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./stock/gold.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>黄金汇率</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="./stock/account.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>会计分录</p>
+                                    <p>资金账簿</p>
                                 </a>
                             </li>
 
@@ -671,7 +666,7 @@
 
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
+                            <div class="card-body" id="todo-list">
                                 <ul class="todo-list" data-widget="todo-list" th:each="c, State : ${toDoList}">
 
                                     <!--<ul th:each="c, State : ${toDoList}">-->
@@ -706,8 +701,8 @@
                                 </ul>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                <button type="button" class="btn btn-info float-right"  data-toggle="modal"  data-target="#addUserModal"><i class="fas fa-plus"></i> Add item</button>
+                            <div class="card-footer clearfix" id="today-list-add">
+                                <button type="button" class="btn btn-info float-right "  data-toggle="modal"  data-target="#addUserModal"><i class="fas fa-plus"></i> Add item</button>
                             </div>
 
                             <!-- 模态框（Modal） -->
@@ -738,7 +733,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                                                 </button>
-                                                <button type="submit" class="btn btn-primary" >
+                                                <button type="submit " class="btn btn-primary toastsDefaultSuccess" >
                                                     提交
                                                 </button><span id="tip"> </span>
                                             </div>
@@ -753,59 +748,6 @@
                     <!--&lt;!&ndash; /.Left col &ndash;&gt;-->
                     <!--&lt;!&ndash; right col (We are only adding the ID to make the widgets sortable)&ndash;&gt;-->
                     <section class="col-lg-5 connectedSortable">
-
-
-
-                        <!--&lt;!&ndash; solid sales graph &ndash;&gt;-->
-                        <div class="card bg-gradient-info">
-                            <div class="card-header border-0">
-                                <h3 class="card-title">
-                                    <i class="fas fa-th mr-1"></i>
-                                    天气预报
-                                </h3>
-
-                                <div class="card-tools">
-                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer bg-transparent">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
-
-                                        <div class="text-white">Mail-Orders</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
-
-                                        <div class="text-white">Online</div>
-                                    </div>
-                                    <!-- ./col -->
-                                    <div class="col-4 text-center">
-                                        <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                                               data-fgColor="#39CCCC">
-
-                                        <div class="text-white">In-Store</div>
-                                    </div>
-                                    <!-- ./col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.card-footer -->
-                        </div>
-                        <!--&lt;!&ndash; /.card &ndash;&gt;-->
 
                         <!--&lt;!&ndash; Calendar &ndash;&gt;-->
                         <div class="card bg-gradient-success">
@@ -846,6 +788,60 @@
                             <!-- /.card-body -->
                         </div>
                         <!--&lt;!&ndash; /.card &ndash;&gt;-->
+
+                        <!--&lt;!&ndash; solid sales graph &ndash;&gt;-->
+                        <div class="card bg-gradient-info">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-th mr-1"></i>
+                                    地球仪
+                                </h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body" >
+                                <div class="chart" id="gl1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                                <div class="chart" id="gl2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></div>
+                            </div>
+                            <!-- /.card-body -->
+                            <!--<div class="card-footer bg-transparent">-->
+                                <!--<div class="row">-->
+                                    <!--<div class="col-4 text-center">-->
+                                        <!--<input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"-->
+                                               <!--data-fgColor="#39CCCC">-->
+
+                                        <!--<div class="text-white">Mail-Orders</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; ./col &ndash;&gt;-->
+                                    <!--<div class="col-4 text-center">-->
+                                        <!--<input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"-->
+                                               <!--data-fgColor="#39CCCC">-->
+
+                                        <!--<div class="text-white">Online</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; ./col &ndash;&gt;-->
+                                    <!--<div class="col-4 text-center">-->
+                                        <!--<input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"-->
+                                               <!--data-fgColor="#39CCCC">-->
+
+                                        <!--<div class="text-white">In-Store</div>-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash; ./col &ndash;&gt;-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; /.row &ndash;&gt;-->
+                            <!--</div>-->
+                            <!-- /.card-footer -->
+                        </div>
+                        <!--&lt;!&ndash; /.card &ndash;&gt;-->
+
+
                     </section>
                     <!--&lt;!&ndash; right col &ndash;&gt;-->
                 </div>
@@ -873,6 +869,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>

@@ -3,6 +3,7 @@ package com.lxz.stock;
 import com.lxz.stock.controller.StockInfoController;
 import com.lxz.stock.dao.StockListMapper;
 import com.lxz.stock.entity.*;
+import com.lxz.stock.service.AccountInfoService;
 import com.lxz.stock.service.FundInfoService;
 import com.lxz.stock.service.StockInfoService;
 import com.lxz.stock.utils.StockUtil;
@@ -32,6 +33,10 @@ class StockServiceApplicationTests {
     RestTemplate restTemplate;
     @Autowired
     FundInfoService fundInfoService;
+//    @Resource
+//    AccountBO accountBO;
+    @Autowired
+    AccountInfoService accountInfoService;
 
     @Test
     void contextLoads() {
@@ -107,5 +112,36 @@ class StockServiceApplicationTests {
     void TestSelfFund() throws IOException {
         List<PersonalFund> personalFunds = fundInfoService.selfFund(10001);
         System.out.println(personalFunds);
+    }
+
+
+
+    @Test
+    void TestInsertAccount(){
+        AccountBO accountBO = new AccountBO();
+        accountBO.setCreateId(10001);
+        accountBO.setMoney(79.50f);
+        accountBO.setRemark("高铁费");
+        accountBO.setTime("2021/03/01");
+        accountBO.setType("交通出行");
+//        accountInfoService.insertAccount(accountBO);
+    }
+
+    @Test
+    void TestMonthModel(){
+        AccountMonthVO monthModel = accountInfoService.getMonthModel(10001);
+        System.out.println(monthModel);
+    }
+
+    @Test
+    void TestWeekModel(){
+        List<AccountWeekVO> weekModel = accountInfoService.getWeekModel(10001);
+        System.out.println(weekModel);
+    }
+
+    @Test
+    void TestGetThisWeekDate(){
+        String[] thisWeekDate = accountInfoService.getThisWeekDate(10001);
+        System.out.println(thisWeekDate);
     }
 }

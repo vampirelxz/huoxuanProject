@@ -8,6 +8,15 @@
 //     $("#baseStock").html(date);
 // })
 //
+$('.toastsDefaultSuccess').click(function() {
+    $(document.getElementById('selfFund')).Toasts('create', {
+        class: 'bg-success',
+        title: '关注基金',
+        subtitle: '成功',
+        body: '添加成功！！！'
+    })
+});
+
 $.get("/selfFund",{
     "createId":localStorage.getItem("uid")
 },function(date){
@@ -45,6 +54,8 @@ $("#form_data").submit(function(){
     //         flush()
     //     }
     // })
+    $('#addBottom').attr('disabled','disabled');
+    setTimeout('myfunction()',2000);
     $.ajax({
         type: "POST",
         data: {fundId: fundId ,createId: createId},
@@ -66,7 +77,7 @@ $("#form_data").submit(function(){
     })
 })
 //
-function deleteFund() {
+function deleteFund(r) {
     $("#self-table tbody").on("click","tr",function() {
         var td = $(this).find("td");
         var code = td.eq(1).text();
@@ -74,7 +85,9 @@ function deleteFund() {
         $.post("/deleteSelfFund",{"createId":localStorage.getItem("uid"),
             "fundId":code
         },function(){
-            $("#self-table tr:last").remove();
+            // $("#self-table tr:last").remove();
+            var i=r.parentNode.parentNode.rowIndex;
+            document.getElementById('self-table').deleteRow(i);
         })
     });
 }
@@ -114,3 +127,12 @@ function findInfo() {
         $("#listFund").css('display','block');
     })
 }
+
+$('.toastrDefaultError').click(function() {
+    toastr.success('删除成功！！')
+});
+
+function myfunction() {
+    $('#addBottom').removeAttr('disabled')
+}
+
