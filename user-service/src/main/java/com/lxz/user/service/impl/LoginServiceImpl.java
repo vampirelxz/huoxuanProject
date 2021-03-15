@@ -36,7 +36,7 @@ public class LoginServiceImpl implements LoginService {
         if (user.equals(null)) {
             return new ResultVO(false,"此邮箱未注册");
         } else if (user.getPwd().equals(pwd)) {
-            return new ResultVO(true,"http://localhost:80/index",user);
+            return new ResultVO(true,"http://localhost:80/huoxuan.html",user);
         }
         return new ResultVO(false,"密码错误");
 

@@ -78,7 +78,7 @@ public class IndexController {
             model.addAttribute("toDoList",toDoList);
         }
 
-        return "/index";
+        return "/index.html";
     }
 
 
