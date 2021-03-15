@@ -150,16 +150,22 @@ public class AccountController {
         ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, request, String.class);
         String body = exchange.getBody();
         List<AccountWeekVO> accountWeekVOS = JSONArray.parseArray(body, AccountWeekVO.class);
+        String s="[{\"name\":\"暂无数据\",\"value\":1.0},{\"name\":\"暂无数据\",\"value\":1.0},{\"name\":\"暂无数据\",\"value\":1.0},{\"name\":\"暂无数据\",\"value\":1.0}]";
+        try {
+            List<Data1> data1s = new ArrayList<>();
+            for (int i = 0; i < 4; i++) {
+                Data1 data1 = new Data1();
+                if (accountWeekVOS.get(i) != null) {
+                    data1.setName(accountWeekVOS.get(i).getType());
+                    data1.setValue(accountWeekVOS.get(i).getTypeAll());
+                    data1s.add(data1);
+                }
+            }
+            s = JSONArray.toJSONString(data1s);
+        }catch (Exception e){
+            e.printStackTrace();
 
-        List<Data1> data1s=new ArrayList<>();
-        for(int i=0;i<4;i++) {
-            Data1 data1 = new Data1();
-            data1.setName(accountWeekVOS.get(i).getType());
-            data1.setValue(accountWeekVOS.get(i).getTypeAll());
-            data1s.add(data1);
         }
-        String s = JSONArray.toJSONString(data1s);
-
         System.out.println(s);
 
         return s;

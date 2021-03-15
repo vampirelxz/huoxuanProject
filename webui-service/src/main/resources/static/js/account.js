@@ -175,7 +175,7 @@ var donutData        = {
     labels: getMonthTypePie(),
     datasets: [
         {
-            data: getMonthValuePie,
+            data: getMonthValuePie(),
             backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
         }
     ]
@@ -562,3 +562,5 @@ option = {
 };
 
 option && myChart.setOption(option);
+
+$('#user-name').html(localStorage.getItem('uname'));
