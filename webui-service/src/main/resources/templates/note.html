@@ -7,37 +7,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>火玄 | 智慧助手</title>
-    <link rel="shortcut icon" href="dist/img/huoxuanLogo.png" sizes="any">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <script src="../dist/js/echarts.min.js"></script>
-    <script src="../dist/js/echarts-gl.js"></script>
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="plugins/codemirror/codemirror.css">
+    <link rel="stylesheet" href="plugins/codemirror/theme/monokai.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+    <!-- SimpleMDE -->
 </head>
 <head><s:head theme="ajax" /></head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
+
 
     <!-- Navbar -->
     <!--<nav th:replace="common::.main-header"></nav>-->
@@ -121,7 +111,7 @@
     </nav>
     <!-- /.navbar -->
     <!--<aside th:replace="common::.main-sidebar"></aside>-->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: none">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
             <img src="dist/img/huoxuanLogo.png" alt="HUOXUAN Logo" class="brand-image img-circle elevation-3"  style="opacity: .8 ;max-height: 42px;max-width: 42px" >
@@ -129,7 +119,7 @@
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar" >
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
@@ -158,7 +148,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item ">
+                    <li class="nav-item menu-open">
                         <a href="index" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -203,6 +193,14 @@
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 个人云盘
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./forcast.html" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                天气预报
                             </p>
                         </a>
                     </li>
@@ -436,31 +434,109 @@
 
 
     <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
-        <div class="nav navbar navbar-expand-lg navbar-white navbar-light border-bottom p-0">
-            <a class="nav-link bg-danger" href="#" data-widget="iframe-close">Close</a>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a>
-            <ul class="navbar-nav" role="tablist"></ul>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
+    <div class="content-wrapper" style="display: contents">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">随手记</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right" >
+                            <li class="breadcrumb-item"><a href="#">个人主页</a></li>
+                            <li class="breadcrumb-item active">随手记</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
-        <div class="tab-content" style="height: 783px">
-            <!--<div class="tab-empty">-->
-                <!--<h2 class="display-4">No tab selected!</h2>-->
-            <!--</div>-->
-            <div class="tab-loading">
-                <div>
-                    <h2 class="display-4">Tab is loading <i class="fa fa-sync fa-spin"></i></h2>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content" style="display: flex">
+            <div class="row" style="width: 75%">
+                    <div class="col-md-12">
+                        <div class="card card-outline card-info">
+                            <form method="post" action="##" class="card-body" role="form" id="form_data"  onsubmit="return false">
+                            <div class="card-header">
+                                <input  style="display: inline-block; width: 15%" class="form-control" id="title" placeholder="主题" type="text">
+                                <input id="id" style="display: none" value="0">
+                                <div style="width: 70%;display: inline-block">&nbsp;</div>
+                                <button style="display: inline-block" type="submit" class="btn btn-info toastrDefaultSuccess"  ><i class="fas fa-download">&nbsp;保存</i></button>
+                                <button style="display: inline-block" type="button" onclick="addNew()" class="btn btn-info"  ><i class="fas fa-plus">&nbsp;新增</i></button>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body" id="content">
+                <textarea id="summernote">
+                    在 <em>此处</em> <u>开始</u> <strong>你的文本</strong>
+                </textarea>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                <!-- /.col-->
+            </div>
+            <div id="toastsContainerTopRight" class="toasts-top-right fixed"></div>
+            <div class="bg-info" style="width: 2%;height:98%"></div>
+
+            <div class="row" style="width: 23%">
+                <div class="col-12">
+                    <div class="card card-outline card-info" >
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                总览
+                            </h3>
+                            <a style="margin-left: 74%" class="btn btn-tool btn-sm" onclick="flush()">
+                                <i class="fas fa-sync-alt"></i>
+                            </a>
+                        </div>
+
+                        <!-- ./card-header -->
+                        <div id="notes" th:fragment="notes">
+                        <div class="card-body callout callout-info" >
+                            <table class="table table-bordered table-hover" style="min-height: 50%">
+                                <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>标 题</th>
+                                    <th>时 间</th>
+                                    <th> </th>
+                                </tr>
+                                </thead>
+                                <tbody th:each="s : ${notes}">
+                                <tr data-widget="expandable-table" aria-expanded="false">
+                                    <td th:id="${s.id}"><button type="button" id="modify" onclick="modify(this)" th:name="${s.id}" class="btn btn-default" ><i class="fas fa-pencil-alt"></i></button></td>
+                                    <td th:text="${s.title}">- -</td>
+                                    <td th:text="${s.updateTime}">- -</td>
+                                    <td><button type="button" id="delete" class="btn btn-default btn-sm toastrDefaultError " onclick="deleteNote(this)">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button></td>
+                                <tr class="expandable-body">
+                                    <td colspan="5">
+                                        <p th:text="${s.content}" style="height: 40px; width:269px;overflow: hidden;padding-top: 12px; text-overflow:ellipsis;margin-top: 0px; padding-bottom: 12px; margin-bottom: 16px; display: none;">
+                                        </p>
+                                    </td>
+                                </tr>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
             </div>
-            <div class="tab-pane fade active show" id="panel-index-643" role="tabpanel" aria-labelledby="tab-index-778" ><iframe src="index" style="height: 777px;"></iframe></div>
-        </div>
-
+        </section>
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <!--<footer th:replace="common::.main-footer"></footer>-->
-    <footer class="main-footer">
+    <footer class="main-footer" >
         <strong>Copyright &copy; 2020-2021 <a href="https://adminlte.io">HUOXUAN.ASSISTANT</a>.</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
@@ -479,44 +555,35 @@
 <!-- jQuery -->
 
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
-<script type="text/javascript">
-    $('#user-name').html(localStorage.getItem('uname'));
-</script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
 <!-- Summernote -->
 <script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<!-- CodeMirror -->
+<script src="plugins/codemirror/codemirror.js"></script>
+<script src="plugins/codemirror/mode/css/css.js"></script>
+<script src="plugins/codemirror/mode/xml/xml.js"></script>
+<script src="plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!--<script src="dist/js/pages/dashboard.js"></script>-->
-
-<script src="js/jquery.calender.js"></script>
-
+<script src="js/note.js"></script>
+<!-- Toastr -->
+<script src="plugins/toastr/toastr.min.js"></script>
+<!-- Page specific script -->
+<script>
+    // $(function () {
+    //     // Summernote
+    //     $('#summernote').summernote()
+    //
+    //     // CodeMirror
+    //     // CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+    //     //     mode: "htmlmixed",
+    //     //     theme: "monokai"
+    //     // });
+    // })
+</script>
 
 
 
