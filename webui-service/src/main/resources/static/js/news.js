@@ -57,7 +57,7 @@ $(function(){
             });
         },
         error: function () {
-            alert("error")
+            alert("服务未开启")
         }
     });
 })
@@ -109,7 +109,7 @@ function newInfo2(id){
             $.attr("onclick",null)
         },
         error: function () {
-            alert("error")
+            alert("服务未开启")
         }
     });
 }

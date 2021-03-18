@@ -4,53 +4,116 @@
     <meta charset="utf-8">
     <title>ECharts</title>
     <!-- 引入 echarts.js -->
-    <script src="../dist/js/demo1.js"></script>
+    <script src="../dist/js/echarts.min.js"></script>
     <script src="../dist/js/echarts-gl.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="main" style="width: 600px;height:400px;"></div>
+<div class = "dg main"></div>
+<div id="main" style="width:250px;height:250px;"></div>
 <script type="text/javascript">
-
-    var ROOT_PATH = 'https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples';
-
     var chartDom = document.getElementById('main');
     var myChart = echarts.init(chartDom);
     var option;
 
-    option = {
-        backgroundColor: '#EBF3F3',
-        globe: {
-            baseTexture: ROOT_PATH + "/data-gl/asset/world.topo.bathy.200401.jpg",
-            heightTexture: ROOT_PATH + "/data-gl/asset/bathymetry_bw_composite_4k.jpg",
-            displacementScale: 0.2,
-            shading: 'realistic',
-            environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
-            realisticMaterial: {
-                roughness: ROOT_PATH + '/asset/get/s/data-1497599804873-H1SHkG-mZ.jpg',
-                metalness: ROOT_PATH + '/asset/get/s/data-1497599800643-BJbHyGWQW.jpg',
-                textureTiling: [8, 4]
-            },
-            postEffect: {
-                enable: true
-            },
-            viewControl: {
-                autoRotate: false
-            },
-            light: {
-                main: {
-                    intensity: 2,
-                    shadow: true
-                },
-                ambientCubemap: {
-                    texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
-                    exposure: 2,
-                    diffuseIntensity: 2,
-                    specularIntensity: 2
+    $.getScript('https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.js').done(function () {
+
+        var noise = new SimplexNoise(Math.random);
+        var noise2 = new SimplexNoise(Math.random);
+        function generateData() {
+            var data = [];
+            for (var i = 0; i <= 50; i++) {
+                for (var j = 0; j <= 50; j++) {
+                    var dx = noise.noise2D(i / 30, j / 30);
+                    var dy = noise2.noise2D(i / 30, j / 30);
+                    var mag = Math.sqrt(dx * dx + dy * dy);
+                    valMax = Math.max(valMax, mag);
+                    valMin = Math.min(valMin, mag);
+                    data.push([i, j, dx, dy, mag]);
                 }
             }
+            return data;
         }
-    };
+        var valMin = Infinity;
+        var valMax = -Infinity;
+        var data = generateData();
+
+
+        myChart.setOption({
+            visualMap: {
+                show: false,
+                min: valMin,
+                max: valMax,
+                dimension: 4,
+                inRange: {
+                    color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                }
+            },
+            xAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(255,255,255,0.2)'
+                    }
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff'
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: 'rgba(255,255,255,0.2)'
+                    }
+                }
+            },
+            series: [{
+                type: 'flowGL',
+                data: data,
+                particleDensity: 64,
+                particleSize: 5,
+                itemStyle: {
+                    opacity: 0.5
+                }
+            }, {
+                type: 'custom',
+                data: data,
+                encode: {
+                    x: 0,
+                    y: 0
+                },
+                renderItem: function (params, api) {
+                    var x = api.value(0), y = api.value(1), dx = api.value(2), dy = api.value(3);
+                    var start = api.coord([x - dx / 2, y - dy / 2]);
+                    var end = api.coord([x + dx / 2, y + dy / 2]);
+                    return {
+                        type: 'line',
+                        shape: {
+                            x1: start[0], y1: start[1],
+                            x2: end[0], y2: end[1]
+                        },
+                        style: {
+                            lineWidth: 2,
+                            stroke:'#fff',
+                            opacity: 0.2
+                        }
+                    }
+                }
+            }]
+        });
+
+    });
 
     option && myChart.setOption(option);
 

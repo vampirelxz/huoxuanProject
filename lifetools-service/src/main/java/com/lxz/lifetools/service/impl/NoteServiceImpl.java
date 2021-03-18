@@ -50,6 +50,9 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public void saveOrUpdateNote(String id, String createId, String title, String content) {
+        if(title == null){
+            return;
+        }
         int i = Integer.parseInt(id);
         int i1 = Integer.parseInt(createId);
         SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");

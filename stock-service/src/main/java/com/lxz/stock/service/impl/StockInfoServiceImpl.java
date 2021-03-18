@@ -122,7 +122,7 @@ public class StockInfoServiceImpl implements StockInfoService {
 
     @Override
     public List<BaseStock> baseStock() throws IOException {
-        URL u = new URL("http://route.showapi.com/131-46?showapi_appid="+appId+"&stocks=0&needIndex=1&showapi_sign="+key);
+        URL u = new URL("http://route.showapi.com/131-46?showapi_appid="+appId+"&stocks=300377&needIndex=1&showapi_sign="+key);
         String stockInfo = stockUtil.getStockInfo(u);
         JSONArray jsonArray = JSONObject.parseObject(stockInfo).getJSONObject("showapi_res_body").getJSONArray("indexList");
         List<BaseStock> baseStockInfo = new ArrayList<>();
