@@ -1,5 +1,6 @@
 package com.lxz.webui.consumer.api.feign;
 
+import com.lxz.webui.entity.Garbage;
 import com.lxz.webui.entity.ToDoList;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -28,4 +29,13 @@ public interface LifetoolsFeign {
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     int save(@RequestParam("createId") int createId,@RequestParam("information") String information,@RequestParam("endTime") String endTime);
+
+    @RequestMapping(value = "/garbageRankTitil",method = RequestMethod.GET)
+    String[] garbageRankTitil();
+
+    @RequestMapping(value = "/garbageRankValue",method = RequestMethod.GET)
+    int[] garbageRankValue();
+
+    @RequestMapping(value = "/garbage",method = RequestMethod.GET)
+    List<Garbage> garbage(@RequestParam("name") String name);
 }

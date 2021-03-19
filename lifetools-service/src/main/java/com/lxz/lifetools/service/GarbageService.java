@@ -2,6 +2,7 @@ package com.lxz.lifetools.service;
 
 
 import com.lxz.lifetools.entity.Garbage;
+import com.lxz.lifetools.entity.GarbageRank;
 
 import java.util.List;
 
@@ -21,4 +22,5 @@ import java.util.List;
 public interface GarbageService {
     List<Garbage> garbageSorting(String garbage);
 
+    List<GarbageRank> garbageRank();
 }

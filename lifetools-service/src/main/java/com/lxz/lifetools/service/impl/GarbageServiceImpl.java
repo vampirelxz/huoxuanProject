@@ -13,9 +13,11 @@ package com.lxz.lifetools.service.impl;/****************************************
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lxz.lifetools.entity.Garbage;
+import com.lxz.lifetools.entity.GarbageRank;
 import com.lxz.lifetools.service.GarbageService;
 import com.lxz.lifetools.utils.GarbageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -42,6 +44,9 @@ public class GarbageServiceImpl implements GarbageService {
     @Autowired
     GarbageUtil garbageUtil;
 
+    @Value("${api.tianxing.key}")
+    public String key;
+
     @Override
     public List<Garbage> garbageSorting(String garbage) {
         String url="https://v1.alapi.cn/api/lajifenlei?name="+garbage;
@@ -66,5 +71,20 @@ public class GarbageServiceImpl implements GarbageService {
             garbageInfo.add(garbageF);
         }
         return garbageInfo;
+    }
+
+    @Override
+    public List<GarbageRank> garbageRank() {
+        String url="http://api.tianapi.com/txapi/hotlajifenlei/index?key="+key;
+        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+        String json = results.getBody();
+        JSONArray jsonArray = JSONObject.parseObject(json).getJSONArray("newslist");
+        List<GarbageRank> objects = new ArrayList<>();
+        for (Iterator iterator = jsonArray.iterator(); iterator.hasNext(); ) {
+            JSONObject jsonObject1 = (JSONObject) iterator.next();
+            GarbageRank content = jsonObject1.toJavaObject(GarbageRank.class);
+            objects.add(content);
+        }
+        return objects;
     }
 }

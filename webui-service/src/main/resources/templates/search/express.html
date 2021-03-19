@@ -6,38 +6,41 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>火玄 | 智慧助手</title>
-    <link rel="shortcut icon" href="dist/img/huoxuanLogo.png" sizes="any">
+    <title>HuoXuan | Express</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <script src="../dist/js/echarts.min.js"></script>
-    <script src="../dist/js/echarts-gl.js"></script>
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+    <script src="../dist/js/echarts.min.js/"></script>
 </head>
 <head><s:head theme="ajax" /></head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
+
 
     <!-- Navbar -->
     <!--<nav th:replace="common::.main-header"></nav>-->
@@ -48,7 +51,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">个人主页</a>
+                <a href="../index3.html" class="nav-link">个人主页</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">关注</a>
@@ -121,15 +124,15 @@
     </nav>
     <!-- /.navbar -->
     <!--<aside th:replace="common::.main-sidebar"></aside>-->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: none">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="dist/img/huoxuanLogo.png" alt="HUOXUAN Logo" class="brand-image img-circle elevation-3"  style="opacity: .8 ;max-height: 42px;max-width: 42px" >
+        <a href="../index3.html" class="brand-link">
+            <img src="../dist/img/huoxuanLogo.png" alt="HUOXUAN Logo" class="brand-image img-circle elevation-3"  style="opacity: .8 ;max-height: 42px;max-width: 42px" >
             <span class="brand-text font-weight-light">火玄智慧助手</span>
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div class="sidebar" style="display: contents">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
@@ -159,7 +162,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item ">
-                        <a href="index" class="nav-link active">
+                        <a href="../index" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 咨询主页
@@ -167,8 +170,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item menu-open" >
+                        <a href="./stock.html" class="nav-link active">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 金融理财
@@ -178,28 +181,27 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./stock/stock.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="./stock.html" class="nav-link ">
+                                    <i class="far fa-circle nav-icon "></i>
                                     <p>股票</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./stock/fund.html" class="nav-link">
+                                <a href="./fund.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>基金</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./stock/account.html" class="nav-link">
+                                <a href="./account.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>资金账簿</p>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="./cloud.html" class="nav-link">
+                        <a href="../cloud.html" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 个人云盘
@@ -207,7 +209,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./note.html" class="nav-link">
+                        <a href="../forcast.html" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                天气预报
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../note.html" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
                                 随手记
@@ -215,7 +225,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./map.html" class="nav-link">
+                        <a href="../map.html" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
                                 行程规划
@@ -224,7 +234,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="calendar.html" class="nav-link">
+                        <a href="../calendar.html" class="nav-link">
                             <i class="nav-icon far fa-calendar-alt"></i>
                             <p>
                                 日程安排
@@ -235,7 +245,7 @@
 
                     <li class="nav-header">生活娱乐工具</li>
                     <li class="nav-item">
-                        <a href="./news.html" class="nav-link">
+                        <a href="../news.html" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 新闻头条
@@ -244,7 +254,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./game.html" class="nav-link">
+                        <a href="../game.html" class="nav-link">
                             <i class="nav-icon fas fa-columns"></i>
                             <p>
                                 赛事信息
@@ -253,7 +263,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="./fun.html" class="nav-link">
+                        <a href="../fun.html" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 每日一算
@@ -261,7 +271,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./other.html" class="nav-link">
+                        <a href="../other.html" class="nav-link">
                             <i class="nav-icon far fa-plus-square"></i>
                             <p>
                                 其它
@@ -399,15 +409,15 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="search/garbage.html" class="nav-link">
+                                <a href="pages/search/simple.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>垃圾分类查询</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="search/express.html" class="nav-link">
+                                <a href="pages/search/enhanced.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>快递查询</p>
+                                    <p>Enhanced</p>
                                 </a>
                             </li>
                         </ul>
@@ -436,27 +446,261 @@
 
 
     <!-- Content Wrapper. Contains page content -->
-
-    <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
-        <div class="nav navbar navbar-expand-lg navbar-white navbar-light border-bottom p-0">
-            <a class="nav-link bg-danger" href="#" data-widget="iframe-close">Close</a>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollleft"><i class="fas fa-angle-double-left"></i></a>
-            <ul class="navbar-nav" role="tablist"></ul>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-scrollright"><i class="fas fa-angle-double-right"></i></a>
-            <a class="nav-link bg-light" href="#" data-widget="iframe-fullscreen"><i class="fas fa-expand"></i></a>
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">个人账簿</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">个人主页</a></li>
+                            <li class="breadcrumb-item active">个人账簿</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
-        <div class="tab-content" style="height: 783px">
-            <!--<div class="tab-empty">-->
-                <!--<h2 class="display-4">No tab selected!</h2>-->
-            <!--</div>-->
-            <div class="tab-loading">
-                <div>
-                    <h2 class="display-4">Tab is loading <i class="fa fa-sync fa-spin"></i></h2>
+        <!-- /.content-header -->
+        <section style="display: flex; ">
+            <div class="card" style="width: 25%; margin-left: 1%">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        数据表盘
+                    </h3>
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#month-chart" data-toggle="tab">本月</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#year-chart" data-toggle="tab">本年</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <div class="active chart tab-pane" id="month-chart">
+                        <canvas id="month-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
+                        <div id="year-chart" class="chart tab-pane">
+                        <canvas id="year-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    </div>
                 </div>
             </div>
-            <div class="tab-pane fade active show" id="panel-index-643" role="tabpanel" aria-labelledby="tab-index-778" ><iframe src="index" style="height: 777px;"></iframe></div>
+
+            <div class="card" style="margin-left: 1%; width: 35%">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        支出比较
+                    </h3>
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#stackedBarChart" data-toggle="tab">两月对比</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#lineChart" data-toggle="tab">两周对比</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content p-0">
+                        <div class="chart tab-pane active" id="stackedBarChart">
+                        <canvas id="stackedBarChart-canvas" style=" min-height: 250px; height: 275px; max-height: 275px; max-width: 100%; display: block; width: 349px;" width="383" height="275" class="chartjs-render-monitor"></canvas>
+                    </div>
+
+                        <div class=" chart tab-pane" id="lineChart">
+                        <canvas id="lineChart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;" width="403" height="250" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+
+            <!--<div  id="week-model" th:fragment="week-model">-->
+
+            <div class="card" id="week-model" style="margin-left: 1%; width: 25%">
+
+            </div>
+            <!--</div>-->
+
+            <div class="card" style="margin-left: 1%; width: 12%">
+                <div class="card-body">
+                    <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
+                    <div id="accordion" th:fragment="accordion">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapse1" aria-expanded="false">
+                                        本月收入
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="collapse" data-parent="#accordion" style="">
+                                <div th:text="'￥'+${accordion?.monthIn}" style="font-weight: 700" class="card-body">
+                                   ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse2">
+                                        本月支出
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.monthOut}"  style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse3">
+                                        总收入
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.allIn}"  style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-secondary card">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse4">
+                                        总支出
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse4" class="collapse" data-parent="#accordion">
+                                <div th:text="'￥'+${accordion.allOut}" style="font-weight: 700" class="card-body">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h4 class="card-title w-100">
+                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse5">
+                                        总余额
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse5" class="collapse" data-parent="#accordion">
+                                <div class="card-body" style="font-weight: 700" th:text="'￥'+${accordion.balance}">
+                                    ￥0.00
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </section>
+
+            <div class="card" id="addInfo" style="min-width: 500px;width: 98%;margin-left: 1%;height: 3%;">
+                <form method="post" action="##" class="card-body" role="form" id="form_data"  onsubmit="return false">
+                    <div style="width: 5% ;display: inline-flex; margin-left: 5%"  >
+                        <select class="custom-select rounded-0" id="inorout" >
+                        <option>支出</option>
+                        <option>收入</option>
+                    </select>
+                    </div>
+                    <div style="width: 8% ;margin-left: 1%;display: inline-flex;">
+                        <select class="custom-select rounded-0" id="type" >
+                        <option class="b">餐饮美食</option><option>账户存取</option><option >转账红包</option><option>投资理财</option><option class="a">收入</option><option class="a">退款</option><option class="a">亲友代付</option>
+                        <option class="b">服饰装扮</option><option class="b">日用百货</option><option class="b">家居家装</option><option class="b">数码电器</option>" +
+                        "<option class="b">运动户外</option><option class="b">美容美发</option><option class="b">母婴亲子</option><option class="b">宠物</option><option class="b">交通出行</option><option class="b">爱车养车</option><option class="b">住房物业</option><option class="b">酒店旅游</option>" +
+                        "<option class="b">文化休闲</option><option class="b">教育培训</option><option class="b">医疗健康</option><option class="b">生活服务</option><option class="b">公共服务</option><option class="b">商业服务</option><option class="b">美容美发</option><option class="b">公益捐赠</option>" +
+                        "<option class="b">互助保障</option><option class="b">保险</option><option class="b">信用借还</option><option class="b">充值缴费</option><option>其他</option>
+                    </select>
+                    </div>
+                    <div class="input-group-prepend"  style="display: inline-flex;margin-left: 1%; width: 12%">
+                        <span class="input-group-text">
+                          ￥
+                        </span>
+                        <input type="number" step="0.01" id="money" placeholder="金额" class="form-control" >
+                    </div>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest" style="display: inline-flex;margin-left: 1%; width: 12%">
+                        <input type="text" id="account-time" class="form-control datetimepicker-input" placeholder="时间" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask inputmode="numeric" data-target="#reservationdate">
+                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    <div  style="display: inline-flex;margin-left: 1%; width: 20%" >
+                        <input class="form-control" id="remark" placeholder="备注" type="text">
+                    </div>
+
+                    <div  style="display: inline-flex;margin-left: 20%; width: 8%" >
+                        <button type="submit" class="btn btn-info toastrDefaultSuccess" data-toggle="modal" id="addBottom" data-target="#addStockModal" ><i class="fas fa-plus"></i> 添加</button>
+                    </div>
+                </form>
+            </div>
+
+        <div id="toastsContainerTopRight" class="toasts-top-right fixed"></div>
+
+        <div class="card" style="margin-left: 1%">
+            <div class="card-header">
+                <h3 class="card-title">收支明细</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" id="account" th:fragment="account">
+                <table id="example1"  class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th style="width: 10%">收入||支出</th>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>金额</th>
+                        <th>备注</th>
+                        <th style="width: 5%"> </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="s : ${account}">
+                        <td th:name="${s.id}" th:text="${s.money < 0} ? '支出':'收入'" th:classappend="${s.money>0}?'fas fa-arrow-up text-big text-danger':'fas fa-arrow-down text-big text-success'">- -</td>
+                        <td th:text="${s.time}">- -</td>
+                        <td th:text="${s.type}">- -</td>
+                        <td th:text="'￥'+${s.money}" style="color: red;" th:styleappend="${s.money<0} ? 'background-color:#F5DEDE':'background-color:#F1EDED'">- -</td>
+                        <td th:text="${s.remark}">- -</td>
+                        <td><button type="button" id="addBottom" class="btn btn-default btn-sm toastrDefaultError" onclick="deleteAccount(this)">
+                            <i class="far fa-trash-alt"></i>
+                        </button></td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>收入||支出</th>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>金额</th>
+                        <th>备注</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
 
+        <!-- Main content -->
+
+
+
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <!--<footer th:replace="common::.main-footer"></footer>-->
@@ -476,46 +720,59 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
 
-<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
-<script type="text/javascript">
-    $('#user-name').html(localStorage.getItem('uname'));
-</script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+<script src="../plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
+<script src="../plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<script src="../dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="../dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!--<script src="dist/js/pages/dashboard.js"></script>-->
+<!--<script src="../dist/js/pages/dashboard.js"></script>-->
+<script src="../js/jquery.calender.js"></script>
+<script src="../js/account.js"></script>
+<!-- Toastr -->
+<script src="../plugins/toastr/toastr.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/jszip/jszip.min.js"></script>
+<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-<script src="js/jquery.calender.js"></script>
 
 
 

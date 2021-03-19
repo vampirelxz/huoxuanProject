@@ -45,3 +45,8 @@ mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapper/*.xml
+
+
+api:
+  tianxing:
+    key: 9ba66edca2ac23b2bd8f9cafa45587c1
