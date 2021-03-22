@@ -14,6 +14,55 @@
 //
 //     });
 // })
+//------------发送消息-------------
+
+$("#form_data1").submit(function(){
+
+  var message=$('#message').val()
+  console.log(message)
+  $("#addMessage").replaceWith("<div class=\"direct-chat-msg right\" >\n" +
+      "                                    <div class=\"direct-chat-infos clearfix\">\n" +
+      "                                        <span class=\"direct-chat-name float-right\">"+userName+"</span>\n" +
+      "                                    </div>\n" +
+      "                                    <img class=\"direct-chat-img\" src=\"../dist/img/user1-128x128.jpg\" alt=\"Message User Image\">\n" +
+      "                                    <!-- /.direct-chat-img -->\n" +
+      "\n" +
+      "                                    <!-- /.direct-chat-infos -->\n" +
+      "                                    <div class=\"direct-chat-text\" style=\"width: auto;max-width: 60%;margin-right: 1%;float: right;\">\n" +
+      "                                        "+message+"\n" +
+      "                                    </div>\n" +
+      "                                    <!-- /.direct-chat-text -->\n" +
+      "                                </div>\n" +
+      "                                <div id=\"addMessage\"></div>");
+  var showContent = $(".direct-chat-messages");
+  showContent[0].scrollTop = showContent[0].scrollHeight;
+
+  $.ajax({
+    type: "GET",
+    data: {question: message},
+    contentType : "application/x-www-form-urlencoded; charset=utf-8",
+    url: "http://localhost:80/getAiReply" ,
+    dataType: "html",
+    success: function (date) {
+      // alert(date)
+      $("#addMessage").replaceWith(date);
+      var showContent = $(".direct-chat-messages");
+      showContent[0].scrollTop = showContent[0].scrollHeight;
+      $("#message").val("")
+    },
+    error: function () {
+      // console.log("respon error");
+      // var errorNum = localStorage.getItem("errorNum");
+      // if(errorNum>111){
+      //     return window.location.href= "http://localhost:80";
+      // }
+      // localStorage.setItem("errorNum",errorNum+1);
+      // return window.location.href= "http://localhost/stock/account.html";
+      $("#message").val("")
+    }
+  })
+})
+//________________________
 
 $('.toastsDefaultSuccess').click(function() {
   $(document.getElementById('todo-list')).Toasts('create', {
@@ -418,6 +467,7 @@ var salesChart = new Chart(forecastChartCanvas, { // lgtm[js/unused-local-variab
 $('#user-name').html(localStorage.getItem('uname'));
 
 document.getElementById("createId").value=localStorage.getItem("uid")
+userName=localStorage.getItem("uname");
 
 
 $("#form_data").submit(function(){

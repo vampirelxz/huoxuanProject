@@ -1,12 +1,10 @@
 package com.lxz.lifetools;
 
 import com.lxz.lifetools.dao.NoteMapper;
+import com.lxz.lifetools.entity.AiReply;
 import com.lxz.lifetools.entity.GarbageRank;
 import com.lxz.lifetools.entity.ToDoList;
-import com.lxz.lifetools.service.ExpressService;
-import com.lxz.lifetools.service.GarbageService;
-import com.lxz.lifetools.service.NoteService;
-import com.lxz.lifetools.service.ToDoListService;
+import com.lxz.lifetools.service.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,6 +26,8 @@ class LifetoolsServiceApplicationTests {
     NoteService noteService;
     @Autowired
     NoteMapper noteMapper;
+    @Autowired
+    AiReplyService aiReplyService;
 
     @Test
     void contextLoads() {
@@ -55,5 +55,11 @@ class LifetoolsServiceApplicationTests {
     void testGarbageRank(){
         List<GarbageRank> garbageRanks = garbageService.garbageRank();
         System.out.println(garbageRanks);
+    }
+
+    @Test
+    void testAiReply(){
+        AiReply ai = aiReplyService.getReply("你好");
+        System.out.println(ai);
     }
 }

@@ -747,6 +747,59 @@
                     <!--&lt;!&ndash; /.Left col &ndash;&gt;-->
                     <!--&lt;!&ndash; right col (We are only adding the ID to make the widgets sortable)&ndash;&gt;-->
                     <section class="col-lg-5 connectedSortable">
+                        <div class="card card-primary  direct-chat " style="height: 30%">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">
+                                    <i class="fas fa-map-marker-alt mr-1"></i>
+                                    智能问答
+                                </h3>
+                                <!-- card tools -->
+                                <div class="card-tools">
+                                    <button type="button" class="btn bg-primary btn-sm" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-primary btn-sm" data-card-widget="remove">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
+                            </div>
+
+                            <div class="card-body direct-chat-messages"  onpropertychange="this.scrollTop = this.scrollHeight " onfocus="this.scrollTop = this.scrollHeight ">
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg" >
+                                        <!-- /.direct-chat-infos -->
+                                        <div class="direct-chat-infos clearfix">
+                                            <span class="direct-chat-name float-left">智能助手</span>
+                                        </div>
+                                        <img class="direct-chat-img" src="../dist/img/user3-128x128.jpg" alt="Message User Image">
+                                        <!-- /.direct-chat-img -->
+
+                                        <div class="direct-chat-text" style="width: auto;max-width: 60%;float: left;margin-left: 2%;">
+                                            你好！ 有什么可以帮助到您？
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+
+                                    <!-- /.direct-chat-msg -->
+
+                                    <!-- Message to the right -->
+
+                                    <div id="addMessage"></div>
+                                    <!-- /.direct-chat-msg -->
+                            </div>
+                            <!-- /.card-body-->
+                            <div class="card-footer" >
+                                <form method="get" action="##" class="card-body" role="form" id="form_data1"  style="padding: 0.3rem" onsubmit="return false">
+                                    <div class="input-group">
+                                        <input type="text" name="message" id="message" placeholder="Type Message ..." class="form-control">
+                                        <span class="input-group-append">
+                      <button type="submit" class="btn btn-primary">Send</button>
+                    </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
                         <!--&lt;!&ndash; Calendar &ndash;&gt;-->
                         <div class="card bg-gradient-success">
@@ -793,7 +846,7 @@
                             <div class="card-header border-0">
                                 <h3 class="card-title">
                                     <i class="fas fa-th mr-1"></i>
-                                    世界口味
+                                    口味列表
                                 </h3>
 
                                 <div class="card-tools">

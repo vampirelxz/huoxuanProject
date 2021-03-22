@@ -50,3 +50,6 @@ mybatis:
 api:
   tianxing:
     key: 9ba66edca2ac23b2bd8f9cafa45587c1
+  baidu:
+    AccessKey: 386fa0cd92eb4b86ade7776f5b556c93
+    appSecret: 6daa25d6c8354a61aaa25b526b7e6bd6

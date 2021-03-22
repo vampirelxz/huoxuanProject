@@ -38,4 +38,7 @@ public interface LifetoolsFeign {
 
     @RequestMapping(value = "/garbage",method = RequestMethod.GET)
     List<Garbage> garbage(@RequestParam("name") String name);
+
+    @RequestMapping(value = "/getAiReply",method = RequestMethod.GET)
+    String getAiReply(@RequestParam("question") String question);
 }

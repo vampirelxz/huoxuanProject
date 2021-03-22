@@ -10,16 +10,13 @@ package com.lxz.webui.controller;/**********************************************
  *
  ********************************************************/
 
-import com.lxz.webui.consumer.api.feign.StockFeign;
+import com.lxz.webui.consumer.api.feign.LifetoolsFeign;
 import com.lxz.webui.entity.ToDoList;
 import com.lxz.webui.entity.Weather;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class IndexController {
     @Autowired
     LifetoolsController lifetoolsController;
     @Autowired
-    private StockFeign stockFeign;
+    private LifetoolsFeign lifetoolsFeign;
 
 
     private int iuid=0;
@@ -47,6 +44,7 @@ public class IndexController {
     public String login(){
         return "/login";
     }
+
 
     @RequestMapping("/index")
     public String index(Model model){
@@ -91,5 +89,25 @@ public class IndexController {
     public void getUid(@PathVariable int uid){
         System.out.println(uid);
         iuid=uid;
+    }
+
+    @ResponseBody
+    @GetMapping("/getAiReply")
+    public String getAiReply(@RequestParam("question")String question){
+        String aiReply = lifetoolsFeign.getAiReply(question);
+        String html ="<div class=\"direct-chat-msg\" >\n" +
+                "                                    <!-- /.direct-chat-infos -->\n" +
+                "                                    <div class=\"direct-chat-infos clearfix\">\n" +
+                "                                        <span class=\"direct-chat-name float-left\">智能助手</span>\n" +
+                "                                    </div>\n" +
+                "                                    <img class=\"direct-chat-img\" src=\"../dist/img/user3-128x128.jpg\" alt=\"Message User Image\">\n" +
+                "                                    <!-- /.direct-chat-img -->\n" +
+                "\n" +
+                "                                    <div class=\"direct-chat-text\" style=\"width: auto;max-width: 60%;float: left;margin-left: 2%;\">\n" +
+                "                                        "+aiReply+"\n" +
+                "                                    </div>\n" +
+                "                                    <!-- /.direct-chat-text -->\n" +
+                "                                </div><div id=\"addMessage\"></div>";
+        return html;
     }
 }
