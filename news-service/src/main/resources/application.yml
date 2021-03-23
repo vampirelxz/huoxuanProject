@@ -34,7 +34,19 @@ logging:
 spring:
   application:
     name: news
-
+  #redis配置
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    database: 1
+    timeout: 60s
+    jedis:
+      pool:
+        max-active: -1
+        max-idle: 15
+        max-wait: -1s
+        min-idle: 5
 juhe:
   news:
     key: 0738d00fddda8f1273db226b4dc68b14

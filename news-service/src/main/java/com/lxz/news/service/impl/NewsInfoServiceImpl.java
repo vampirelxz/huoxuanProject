@@ -17,6 +17,8 @@ import com.lxz.news.service.NewsInfoService;
 import com.lxz.news.utils.TranChannelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -33,7 +35,11 @@ import java.util.List;
  * 创建人：@author liuxuanzhi
  * 创建时间：2021/1/15/13:31
  */
+/**
+ * CacheConfig是指定cacheManager  并生成config中配置的文件名cache,再生成cacheName的news文件，再在里面存放数据
+ */
 @Service
+@CacheConfig(cacheNames = "news")
 public class NewsInfoServiceImpl implements NewsInfoService {
 
     @Value("${juhe.news.key}")
@@ -49,6 +55,7 @@ public class NewsInfoServiceImpl implements NewsInfoService {
     TranChannelUtil tranChannelUtil;
 
     @Override
+    @Cacheable(key = "#type",unless = "#result==null ")
     public List<New> listNewsInfo(String type) {
         String url="http://v.juhe.cn/toutiao/index?type="+type+"&key="+juhekey;
         System.out.println(url);
@@ -101,6 +108,7 @@ public class NewsInfoServiceImpl implements NewsInfoService {
     }
 
     @Override
+    @Cacheable(key = "#channel",unless = "#result==null ")
     public List<New> listNewByClassify(String channel) {
         String channelId=tranChannelUtil.channel(channel);
         String url="https://route.showapi.com/109-35?showapi_appid=514404&showapi_sign="+wanweikey+"&channelId="+channelId+"&maxResult=20";
@@ -136,6 +144,7 @@ public class NewsInfoServiceImpl implements NewsInfoService {
     }
 
     @Override
+    @Cacheable(key = "#root.methodName",unless = "#result==null ")
     public List<New> listNew() {
         String url="https://api.apiopen.top/getWangYiNews?count=100";
         System.out.println(url);
