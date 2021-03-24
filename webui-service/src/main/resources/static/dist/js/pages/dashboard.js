@@ -436,6 +436,13 @@ var weatherChartData = {
 
 }
 
+function check_form(){
+
+}
+function nothing(){
+    console("等待")
+}
+
 var forecastChartOptions = {
   maintainAspectRatio: false,
   responsive: true,
@@ -480,12 +487,13 @@ $("#form_data").submit(function(){
     contentType : "application/x-www-form-urlencoded; charset=utf-8",
     url: "http://localhost:80/saveInfo" ,
     dataType: "JSON",
-    success: function (data) {
+    success: function () {
           // alert(data)
-
-          return window.location.href= data;
+          setTimeout('nothing()',1000);
+          // return window.location.href= data;
         },
     error: function () {
+      setTimeout('nothing()',2000);
       console.log("respon error");
     }
   })

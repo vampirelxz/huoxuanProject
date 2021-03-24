@@ -34,14 +34,38 @@
     <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- Toastr -->
     <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+    <!--<link rel="stylesheet" href="../css/express.css">-->
     <script src="../dist/js/echarts.min.js/"></script>
+    <style>
+        .iframe-container{
+            height: 0;
+            padding-bottom: 73%;
+            position: relative;
+        }
+        .iframe-container iframe{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .jingdong-container{
+            height: 0;
+            padding-bottom: 73%;
+            position: relative;
+        }
+        .jingdong-container iframe{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <head><s:head theme="ajax" /></head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-
-
     <!-- Navbar -->
     <!--<nav th:replace="common::.main-header"></nav>-->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -452,248 +476,43 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">个人账簿</h1>
+                        <h1 class="m-0">快递查询</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">个人主页</a></li>
-                            <li class="breadcrumb-item active">个人账簿</li>
+                            <li class="breadcrumb-item active">快递查询</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-        <section style="display: flex; ">
-            <div class="card" style="width: 25%; margin-left: 1%">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        数据表盘
-                    </h3>
-                    <div class="card-tools">
-                        <ul class="nav nav-pills ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#month-chart" data-toggle="tab">本月</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#year-chart" data-toggle="tab">本年</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- /.card-header -->
-                <div class="card-body">
-                    <div class="tab-content p-0">
-                        <div class="active chart tab-pane" id="month-chart">
-                        <canvas id="month-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
-                    </div>
-                        <div id="year-chart" class="chart tab-pane">
-                        <canvas id="year-chart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 394px;" width="433" height="275" class="chartjs-render-monitor"></canvas>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-left: 1%; width: 35%">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        支出比较
-                    </h3>
-                    <div class="card-tools">
-                        <ul class="nav nav-pills ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#stackedBarChart" data-toggle="tab">两月对比</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#lineChart" data-toggle="tab">两周对比</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- /.card-header -->
-                <div class="card-body">
-                    <div class="tab-content p-0">
-                        <div class="chart tab-pane active" id="stackedBarChart">
-                        <canvas id="stackedBarChart-canvas" style=" min-height: 250px; height: 275px; max-height: 275px; max-width: 100%; display: block; width: 349px;" width="383" height="275" class="chartjs-render-monitor"></canvas>
-                    </div>
-
-                        <div class=" chart tab-pane" id="lineChart">
-                        <canvas id="lineChart-canvas" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block;" width="403" height="250" class="chartjs-render-monitor"></canvas>
-                    </div>
-                    </div>
-                </div>
-                <!-- /.card-body -->
-            </div>
-
-            <!--<div  id="week-model" th:fragment="week-model">-->
-
-            <div class="card" id="week-model" style="margin-left: 1%; width: 25%">
-
-            </div>
-            <!--</div>-->
-
-            <div class="card" style="margin-left: 1%; width: 12%">
-                <div class="card-body">
-                    <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
-                    <div id="accordion" th:fragment="accordion">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h4 class="card-title w-100">
-                                    <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapse1" aria-expanded="false">
-                                        本月收入
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="collapse" data-parent="#accordion" style="">
-                                <div th:text="'￥'+${accordion?.monthIn}" style="font-weight: 700" class="card-body">
-                                   ￥0.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-danger">
-                            <div class="card-header">
-                                <h4 class="card-title w-100">
-                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse2">
-                                        本月支出
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse2" class="collapse" data-parent="#accordion">
-                                <div th:text="'￥'+${accordion.monthOut}"  style="font-weight: 700" class="card-body">
-                                    ￥0.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-info">
-                            <div class="card-header">
-                                <h4 class="card-title w-100">
-                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse3">
-                                        总收入
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse3" class="collapse" data-parent="#accordion">
-                                <div th:text="'￥'+${accordion.allIn}"  style="font-weight: 700" class="card-body">
-                                    ￥0.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-secondary card">
-                            <div class="card-header">
-                                <h4 class="card-title w-100">
-                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse4">
-                                        总支出
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse4" class="collapse" data-parent="#accordion">
-                                <div th:text="'￥'+${accordion.allOut}" style="font-weight: 700" class="card-body">
-                                    ￥0.00
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card card-success">
-                            <div class="card-header">
-                                <h4 class="card-title w-100">
-                                    <a class="d-block w-100" data-toggle="collapse" href="#collapse5">
-                                        总余额
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse5" class="collapse" data-parent="#accordion">
-                                <div class="card-body" style="font-weight: 700" th:text="'￥'+${accordion.balance}">
-                                    ￥0.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card-body -->
+        <div class="row" style="width: 100%">
+        <section  class="col-lg-7 connectedSortable ui-sortable">
+            <div class="iframe-container" style="overflow-y: hidden">
+                <iframe name="kuaidi100" id="kuaidi100" src="https://www.kuaidi100.com/frame/910.html" width="910" height="700" marginwidth="0" marginheight="0" hspace="0" vspace="0" align="top:100px" sandbox="allow-same-origin allow-scripts allow-forms" frameborder="0" ></iframe>
             </div>
         </section>
-
-            <div class="card" id="addInfo" style="min-width: 500px;width: 98%;margin-left: 1%;height: 3%;">
-                <form method="post" action="##" class="card-body" role="form" id="form_data"  onsubmit="return false">
-                    <div style="width: 5% ;display: inline-flex; margin-left: 5%"  >
-                        <select class="custom-select rounded-0" id="inorout" >
-                        <option>支出</option>
-                        <option>收入</option>
-                    </select>
-                    </div>
-                    <div style="width: 8% ;margin-left: 1%;display: inline-flex;">
-                        <select class="custom-select rounded-0" id="type" >
-                        <option class="b">餐饮美食</option><option>账户存取</option><option >转账红包</option><option>投资理财</option><option class="a">收入</option><option class="a">退款</option><option class="a">亲友代付</option>
-                        <option class="b">服饰装扮</option><option class="b">日用百货</option><option class="b">家居家装</option><option class="b">数码电器</option>" +
-                        "<option class="b">运动户外</option><option class="b">美容美发</option><option class="b">母婴亲子</option><option class="b">宠物</option><option class="b">交通出行</option><option class="b">爱车养车</option><option class="b">住房物业</option><option class="b">酒店旅游</option>" +
-                        "<option class="b">文化休闲</option><option class="b">教育培训</option><option class="b">医疗健康</option><option class="b">生活服务</option><option class="b">公共服务</option><option class="b">商业服务</option><option class="b">美容美发</option><option class="b">公益捐赠</option>" +
-                        "<option class="b">互助保障</option><option class="b">保险</option><option class="b">信用借还</option><option class="b">充值缴费</option><option>其他</option>
-                    </select>
-                    </div>
-                    <div class="input-group-prepend"  style="display: inline-flex;margin-left: 1%; width: 12%">
-                        <span class="input-group-text">
-                          ￥
-                        </span>
-                        <input type="number" step="0.01" id="money" placeholder="金额" class="form-control" >
-                    </div>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest" style="display: inline-flex;margin-left: 1%; width: 12%">
-                        <input type="text" id="account-time" class="form-control datetimepicker-input" placeholder="时间" data-inputmask-alias="datetime" data-inputmask-inputformat="mm/dd/yyyy" data-mask inputmode="numeric" data-target="#reservationdate">
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+        <section class="col-lg-5 connectedSortable ui-sortable" style="width: 100%">
+            <div class="card card-info" style="width: 99%; height: 100%">
+                <div class="card-header" style="background-color: #4496D2">
+                    <h3 class="card-title">京东快递</h3>
+                </div>
+                <div>
+                    <div class="card-body" style="padding: 0px;">
+                        <div id="jingdong-container" style="width: 600px; height: 600px; overflow: hidden; ">
+                            <iframe id="jingdong" src="https://www.baidu.com/s?wd=jd%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81%E6%9F%A5%E8%AF%A2" width="710px" height="547px" style="overflow: hidden; border:none;margin-top: -122px;margin-left: -140px" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
                         </div>
-                    </div>
-                    <div  style="display: inline-flex;margin-left: 1%; width: 20%" >
-                        <input class="form-control" id="remark" placeholder="备注" type="text">
-                    </div>
 
-                    <div  style="display: inline-flex;margin-left: 20%; width: 8%" >
-                        <button type="submit" class="btn btn-info toastrDefaultSuccess" data-toggle="modal" id="addBottom" data-target="#addStockModal" ><i class="fas fa-plus"></i> 添加</button>
                     </div>
-                </form>
+                </div>
+
             </div>
 
-        <div id="toastsContainerTopRight" class="toasts-top-right fixed"></div>
+            <div style="margin-left: 1%"></div>
+        </section>
 
-        <div class="card" style="margin-left: 1%">
-            <div class="card-header">
-                <h3 class="card-title">收支明细</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body" id="account" th:fragment="account">
-                <table id="example1"  class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th style="width: 10%">收入||支出</th>
-                        <th>时间</th>
-                        <th>类型</th>
-                        <th>金额</th>
-                        <th>备注</th>
-                        <th style="width: 5%"> </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="s : ${account}">
-                        <td th:name="${s.id}" th:text="${s.money < 0} ? '支出':'收入'" th:classappend="${s.money>0}?'fas fa-arrow-up text-big text-danger':'fas fa-arrow-down text-big text-success'">- -</td>
-                        <td th:text="${s.time}">- -</td>
-                        <td th:text="${s.type}">- -</td>
-                        <td th:text="'￥'+${s.money}" style="color: red;" th:styleappend="${s.money<0} ? 'background-color:#F5DEDE':'background-color:#F1EDED'">- -</td>
-                        <td th:text="${s.remark}">- -</td>
-                        <td><button type="button" id="addBottom" class="btn btn-default btn-sm toastrDefaultError" onclick="deleteAccount(this)">
-                            <i class="far fa-trash-alt"></i>
-                        </button></td>
-                    </tr>
-
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>收入||支出</th>
-                        <th>时间</th>
-                        <th>类型</th>
-                        <th>金额</th>
-                        <th>备注</th>
-                        <th></th>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <!-- /.card-body -->
         </div>
 
         <!-- Main content -->
@@ -719,7 +538,18 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+<script type="text/javascript">
+    function iFrameHeight() {                             //iframe窗口大小根据内容确定
+        var ifm= document.getElementById("luke");
+        var subWeb = document.frames ? document.frames["kuaidi100"].document : ifm.contentDocument;
+        if(ifm != null && subWeb != null) {
+            ifm.height = subWeb.body.scrollHeight;
+            ifm.width = subWeb.body.scrollWidth;
+        }
+    }
 
+
+</script>
 
 <!-- jQuery -->
 <script src="../plugins/jquery/jquery.min.js"></script>
@@ -756,26 +586,10 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!--<script src="../dist/js/pages/dashboard.js"></script>-->
 <script src="../js/jquery.calender.js"></script>
-<script src="../js/account.js"></script>
+<!--<script src="../js/express.js"></script>-->
 <!-- Toastr -->
 <script src="../plugins/toastr/toastr.min.js"></script>
 <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-
-
-
 
 </body>
 </html>
