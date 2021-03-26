@@ -96,7 +96,7 @@ spring:
         ## 转发地址格式为 uri/routeAll，/all 部分会被下面的过滤器给截取掉
         - Path=/forecast/**
         ## 匹配 GET 请求
-        - Method=GET
+        - Method=GET,POST
         # 过滤器（filters：过滤器，过滤规则）
         filters:
         ## 截取路径位数

@@ -3,71 +3,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HuoXuan | Express</title>
+    <title>HuoXuan | New</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
-    <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
-    <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
-    <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
-    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <!-- Toastr -->
-    <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
-    <!--<link rel="stylesheet" href="../css/express.css">-->
-    <script src="../dist/js/echarts.min.js/"></script>
-    <style>
-        .iframe-container{
-            height: 0;
-            padding-bottom: 73%;
-            position: relative;
-        }
-        .iframe-container iframe{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .jingdong-container{
-            height: 0;
-            padding-bottom: 73%;
-            position: relative;
-        }
-        .jingdong-container iframe{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link href="https://cdn.bootcss.com/bttn.css/0.2.4/bttn.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bulma/0.7.4/css/bulma.css" rel="stylesheet">
+
+
 </head>
 <head><s:head theme="ajax" /></head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
+
 <div class="wrapper">
+
+
+
     <!-- Navbar -->
-    <!--<nav th:replace="common::.main-header"></nav>-->
+    <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
@@ -75,7 +50,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="../index3.html" class="nav-link">个人主页</a>
+                <a href="index3.html" class="nav-link">个人主页</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">关注</a>
@@ -146,12 +121,11 @@
             </li>
         </ul>
     </nav>
-    <!-- /.navbar -->
-    <!--<aside th:replace="common::.main-sidebar"></aside>-->
+
     <aside class="main-sidebar sidebar-dark-primary elevation-4" style="display: none">
         <!-- Brand Logo -->
-        <a href="../index3.html" class="brand-link">
-            <img src="../dist/img/huoxuanLogo.png" alt="HUOXUAN Logo" class="brand-image img-circle elevation-3"  style="opacity: .8 ;max-height: 42px;max-width: 42px" >
+        <a href="index3.html" class="brand-link">
+            <img src="dist/img/huoxuanLogo.png" alt="HUOXUAN Logo" class="brand-image img-circle elevation-3" style="opacity: .8;max-height: 42px;max-width: 42px"  >
             <span class="brand-text font-weight-light">火玄智慧助手</span>
         </a>
 
@@ -185,8 +159,8 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item ">
-                        <a href="../index" class="nav-link">
+                    <li class="nav-item">
+                        <a href="index" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 咨询主页
@@ -194,8 +168,8 @@
                         </a>
                     </li>
 
-                    <li class="nav-item menu-open" >
-                        <a href="./stock.html" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="./stock/stock.html" class="nav-link">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 金融理财
@@ -205,27 +179,28 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./stock.html" class="nav-link ">
-                                    <i class="far fa-circle nav-icon "></i>
+                                <a href="./stock/stock.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
                                     <p>股票</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./fund.html" class="nav-link">
+                                <a href="./stock/fund.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>基金</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="./account.html" class="nav-link active">
+                                <a href="./stock/account.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>资金账簿</p>
                                 </a>
                             </li>
+
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="../cloud.html" class="nav-link">
+                        <a href="./cloud.html" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 个人云盘
@@ -233,7 +208,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../forcast.html" class="nav-link">
+                        <a href="./forcast.html" class="nav-link">
                             <i class="nav-icon fas fa-tree"></i>
                             <p>
                                 天气预报
@@ -241,7 +216,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../note.html" class="nav-link">
+                        <a href="./note.html" class="nav-link">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
                                 随手记
@@ -249,7 +224,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../map.html" class="nav-link">
+                        <a href="./map.html" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
                                 行程规划
@@ -258,7 +233,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a href="../calendar.html" class="nav-link">
+                        <a href="calendar.html" class="nav-link">
                             <i class="nav-icon far fa-calendar-alt"></i>
                             <p>
                                 日程安排
@@ -269,7 +244,7 @@
 
                     <li class="nav-header">生活娱乐工具</li>
                     <li class="nav-item">
-                        <a href="../news.html" class="nav-link">
+                        <a href="./news.html" class="nav-link active">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 新闻头条
@@ -278,7 +253,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../game.html" class="nav-link">
+                        <a href="./game.html" class="nav-link">
                             <i class="nav-icon fas fa-columns"></i>
                             <p>
                                 赛事信息
@@ -287,7 +262,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="../fun.html" class="nav-link">
+                        <a href="./fun.html" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
                                 每日一算
@@ -295,7 +270,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../other.html" class="nav-link">
+                        <a href="./other.html" class="nav-link">
                             <i class="nav-icon far fa-plus-square"></i>
                             <p>
                                 其它
@@ -466,63 +441,71 @@
         </div>
         <!-- /.sidebar -->
     </aside>
-    <!-- Main Sidebar Container -->
 
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        <!--  &lt;!&ndash; Content Header (Page header) &ndash;&gt;-->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">快递查询</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
+                        <h1 class="m-0">每日一算</h1>
+                    </div>
+
+
+                    <!-- /.col -->
+
+
+                    <div class="col-sm-61" style="max-width: 50%; flex: 0 0 50%;">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">个人主页</a></li>
-                            <li class="breadcrumb-item active">快递查询</li>
+                            <li class="breadcrumb-item active">每日一算</li>
                         </ol>
                     </div><!-- /.col -->
+
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-        <div class="row" style="width: 100%">
-        <section  class="col-lg-7 connectedSortable ui-sortable">
-            <div class="iframe-container" style="overflow-y: hidden">
-                <iframe name="kuaidi100" id="kuaidi100" src="https://www.kuaidi100.com/frame/910.html" width="910" height="700" marginwidth="0" marginheight="0" hspace="0" vspace="0" align="top:100px" sandbox="allow-same-origin allow-scripts allow-forms" frameborder="0" ></iframe>
-            </div>
-        </section>
-        <section class="col-lg-5 connectedSortable ui-sortable" style="width: 100%">
-            <div class="card card-info" style="width: 99%; height: 100%">
-                <div class="card-header" style="background-color: #4496D2">
-                    <h3 class="card-title">京东快递</h3>
-                </div>
-                <div>
-                    <div class="card-body" style="padding: 0px;">
-                        <div id="jingdong-container" style="width: 600px; height: 600px; overflow: hidden; ">
-                            <iframe id="jingdong" src="https://www.baidu.com/s?wd=jd%E4%BA%AC%E4%B8%9C%E7%89%A9%E6%B5%81%E6%9F%A5%E8%AF%A2" width="710px" height="535px" style="overflow: hidden; border:none;margin-top: -122px;margin-left: -140px" scrolling="no" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
-                        </div>
 
+        <div  style="display: flex">
+            <div style="width: 40%"></div>
+            <div style="width:60%;text-align:center">
+                <form action="#" method="post" onsubmit="return false">
+                    <div class="control" style="width:100%;margin: 10px auto ;">
+                        <textarea class="textarea is-success" id="myInput" name="source" style="border-color: #1d89ff" rows="15" cols="180">public class Run {
+    public static void main(String[] args) {
+
+    }
+}</textarea>
+                    </div>
+                    <div class="control" style="width:100%;margin: 10px auto;height: 2%">
+                        <textarea class="textarea is-success" id="mySystemIn"  name="systemIn" style="border-color: #1d89ff" rows="1.5" cols="180" placeholder="System Input! 目前仅支持 new Scanner(System.in) 读取标准输入."></textarea>
+                    </div>
+                    <input class="bttn-simple bttn-md bttn-primary" onclick="runContent()" type="submit" value="Run" />
+                </form>
+                <div  class="card" style="border-color: #1d89ff; min-height:15%;border:1px solid; padding: 3px; width:60%; margin-top:10px; position:absolute;left:70%;transform:translate(-50%);">
+                    <div id="show" th:fragment="show" >
+                        <div id="showRunResult" th:utext="'输出：'+${runResult}" >--</div>
                     </div>
                 </div>
-
             </div>
 
-            <div style="margin-left: 1%"></div>
-        </section>
+
+
+
+
+
 
         </div>
 
-        <!-- Main content -->
 
 
-
-        <!-- /.content -->
     </div>
+
+
     <!-- /.content-wrapper -->
-    <!--<footer th:replace="common::.main-footer"></footer>-->
     <footer class="main-footer">
         <strong>Copyright &copy; 2020-2021 <a href="https://adminlte.io">HUOXUAN.ASSISTANT</a>.</strong>
         All rights reserved.
@@ -530,6 +513,7 @@
             <b>Version</b> 1.1.0-rc
         </div>
     </footer>
+    <!--<footer th:replace="common::.main-footer"></footer>-->
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -537,59 +521,49 @@
     </aside>
     <!-- /.control-sidebar -->
 </div>
+
+
+
 <!-- ./wrapper -->
-<script type="text/javascript">
-    function iFrameHeight() {                             //iframe窗口大小根据内容确定
-        var ifm= document.getElementById("luke");
-        var subWeb = document.frames ? document.frames["kuaidi100"].document : ifm.contentDocument;
-        if(ifm != null && subWeb != null) {
-            ifm.height = subWeb.body.scrollHeight;
-            ifm.width = subWeb.body.scrollWidth;
-        }
-    }
 
 
-</script>
 
 <!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<script src="../plugins/chart.js/Chart.min.js"></script>
+<script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="../plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="plugins/sparklines/sparkline.js"></script>
 <!-- jQuery Knob Chart -->
-<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
-<script src="../plugins/moment/moment.min.js"></script>
-<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
-<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/adminlte.js"></script>
+<script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!--<script src="../dist/js/pages/dashboard.js"></script>-->
-<script src="../js/jquery.calender.js"></script>
-<!--<script src="../js/express.js"></script>-->
-<!-- Toastr -->
-<script src="../plugins/toastr/toastr.min.js"></script>
-<!-- DataTables  & Plugins -->
+<script src="dist/js/demo.js"></script>
+<script src="js/algorithm.js"></script>
+<!--<script src="dist/js/pages/dashboard.js"></script>-->
 
+
+
+<script>
+
+</script>
 </body>
 </html>
