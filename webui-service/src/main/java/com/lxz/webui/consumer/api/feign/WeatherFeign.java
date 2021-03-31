@@ -1,9 +1,12 @@
 package com.lxz.webui.consumer.api.feign;
 
+import com.lxz.webui.entity.AlgorithmInfo;
 import com.lxz.webui.entity.Weather;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /****************************************************
  * 创建人：     @author liuxuanzhi    
@@ -24,4 +27,11 @@ public interface WeatherFeign {
 
     @RequestMapping("/getCity")
     String getCity();
+
+    @RequestMapping("/run")
+    String runCode2();
+
+    @RequestMapping("/listAlgorithmInfo")
+    List<AlgorithmInfo> listAlgorithmInfo();
+
 }

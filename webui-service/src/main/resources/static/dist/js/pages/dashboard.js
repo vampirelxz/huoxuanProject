@@ -77,6 +77,7 @@ $(function () {
   'use strict'
 
   if(localStorage.getItem("uid") == null) {
+    top.location.href = self.location.href;
     window.location.href = "http://localhost/";
   }
 

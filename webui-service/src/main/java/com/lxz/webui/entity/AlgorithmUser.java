@@ -1,4 +1,4 @@
-package com.lxz.forecast.entity;/****************************************************
+package com.lxz.webui.entity;/****************************************************
  * 创建人：     @author xxxxx    
  * 创建时间: 2021/3/26/13:34
  * 项目名称：  HXAssistant

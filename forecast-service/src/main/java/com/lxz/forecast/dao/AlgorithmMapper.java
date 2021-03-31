@@ -13,6 +13,7 @@ package com.lxz.forecast.dao;/**************************************************
 import com.lxz.forecast.entity.AlgorithmInfo;
 import com.lxz.forecast.entity.AlgorithmUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -47,7 +48,7 @@ public interface AlgorithmMapper {
      * @param timeExpend
      * @param spaceExpend
      */
-    void insertAlgorithmUser(Integer userId,Integer algorithmId,String content,String updateTime,String timeExpend,String spaceExpend);
+    void insertAlgorithmUser(@Param("userId") Integer userId,@Param("algorithmId") Integer algorithmId,@Param("content") String content,@Param("updateTime") String updateTime,@Param("timeExpend") String timeExpend,@Param("spaceExpend") String spaceExpend);
 
     /**
      * 判断之前是否有做过该题目
@@ -55,22 +56,22 @@ public interface AlgorithmMapper {
      * @param algorithmId
      * @return
      */
-    Integer isExistAlgorithmUser(Integer userId,Integer algorithmId);
+    AlgorithmUser isExistAlgorithmUser(@Param("userId") Integer userId,@Param("algorithmId") Integer algorithmId);
 
     /**
      *  更新用户对某一道算法的内容
-     * @param algorithmId
+     * @param id
      * @param content
      * @param updateTime
      * @param timeExpend
      * @param spaceExpend
      */
-    void updateAlgorithmUser(Integer algorithmId,String content,String updateTime,String timeExpend,String spaceExpend);
+    void updateAlgorithmUser(@Param("id") Integer id,@Param("content") String content,@Param("updateTime") String updateTime,@Param("timeExpend") String timeExpend,@Param("spaceExpend") String spaceExpend);
 
     /**
      * 通过用户记录表id获取相关信息
-     * @param AlgorithmUserid
+     * @param AlgorithmUserId
      * @return
      */
-    AlgorithmUser getAlgorithmUser(Integer AlgorithmUserid);
+    AlgorithmUser getAlgorithmUser(Integer AlgorithmUserId);
 }

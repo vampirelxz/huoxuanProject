@@ -79,8 +79,9 @@ public interface ExecuteStringSourceService {
 
     /**
      * 通过用户记录表id获取相关信息
-     * @param algorithmUserid
+     * @param userId
+     * @param algorithmId
      * @return
      */
-    AlgorithmUser getAlgorithmUser(Integer algorithmUserid);
+    AlgorithmUser getAlgorithmUser(Integer userId, Integer algorithmId);
 }

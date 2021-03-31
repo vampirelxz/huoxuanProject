@@ -14,6 +14,7 @@ import javax.tools.Diagnostic;
 import javax.tools.DiagnosticCollector;
 import javax.tools.JavaFileObject;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -59,6 +60,14 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
             return compileErrorRes.toString();
         }
 
+        long startTime = System.currentTimeMillis();
+        //得到虚拟机运行、程序开始执行时jvm所占用的内存。
+        Runtime runtime = Runtime.getRuntime();
+        long l = runtime.totalMemory();
+        long l1 = runtime.freeMemory();
+        long startSpace=l-l1;
+        System.out.println(startSpace);
+
         // 运行字节码的main方法
         Callable<String> runTask = new Callable<String>() {
             @Override
@@ -67,35 +76,13 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
             }
         };
 
-
-        long startTime = System.currentTimeMillis();
-        //得到虚拟机运行、程序开始执行时jvm所占用的内存。
-        Runtime runtime = Runtime.getRuntime();
-        long l = runtime.totalMemory();
-        long l1 = runtime.freeMemory();
-        long startSpace=l1-l;
         Future<String> res = null;
         try {
             res = pool.submit(runTask);
         } catch (RejectedExecutionException e) {
             return WAIT_WARNING;
         }
-        long endTime = System.currentTimeMillis();
-        String expendTime=String.valueOf(endTime-startTime);
-        long t = runtime.totalMemory();
-        long t1 = runtime.freeMemory();
-        long endSpace=t1-t;
-        String expandSpace=String.valueOf((double)(endSpace-startSpace)/1024/1024);
-        //添加或更新用户记录
-        Date date=new Date();
-        DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SS");
-        String date1 = format.format(date);
-        Integer existAlgorithmUser = isExistAlgorithmUser(Integer.valueOf(userId), Integer.valueOf(algorithmId));
-        if(existAlgorithmUser==0){
-            insertAlgorithmUser(Integer.valueOf(userId),Integer.valueOf(algorithmId),source,date1,expendTime,expandSpace);
-        }else{
-            updateAlgorithmUser(existAlgorithmUser,source,date1,expendTime,expandSpace);
-        }
+
         // 获取运行结果，处理非客户端代码错误
         String runResult;
         try {
@@ -109,6 +96,26 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
         } finally {
             res.cancel(true);
         }
+
+        long endTime = System.currentTimeMillis();
+        String expendTime=String.valueOf(endTime-startTime);
+        long t = runtime.totalMemory();
+        long t1 = runtime.freeMemory();
+        long endSpace=t-t1;
+        System.out.println(endSpace);
+        DecimalFormat df = new DecimalFormat("##.00");
+        String expandSpace= String.valueOf(df.format((double)(endSpace-startSpace)/1024/1024));
+        //添加或更新用户记录
+        Date date=new Date();
+        DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        String date1 = format.format(date);
+        Integer existAlgorithmUser = isExistAlgorithmUser(Integer.valueOf(userId), Integer.valueOf(algorithmId));
+        if(existAlgorithmUser==0){
+            insertAlgorithmUser(Integer.valueOf(userId),Integer.valueOf(algorithmId),source,date1,expendTime+"ms",expandSpace+"M");
+        }else{
+            updateAlgorithmUser(existAlgorithmUser,source,date1,expendTime+"ms",expandSpace+"M");
+        }
+
         return runResult != null ? runResult : NO_OUTPUT;
     }
 
@@ -128,8 +135,10 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
             for (Diagnostic diagnostic : compileError) {
                 compileErrorRes.append("Compilation error at ");
                 compileErrorRes.append(diagnostic.getLineNumber());
-                compileErrorRes.append(".");
+                compileErrorRes.append(".\n");
                 compileErrorRes.append(System.lineSeparator());
+                compileErrorRes.append("reason:");
+                compileErrorRes.append(diagnostic.getCode());
             }
             return compileErrorRes.toString();
         }
@@ -207,7 +216,13 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
     @Override
     public Integer isExistAlgorithmUser(Integer userId, Integer algorithmId) {
         Integer algorithmUserId ;
-        Integer existAlgorithmUser = algorithmMapper.isExistAlgorithmUser(userId, algorithmId);
+        Integer existAlgorithmUser =null;
+        try {
+            existAlgorithmUser = Integer.valueOf(algorithmMapper.isExistAlgorithmUser(userId, algorithmId).getId());
+        }catch (Exception e){
+            System.out.println("用户未有该题目记录");
+            e.printStackTrace();
+        }
         if(existAlgorithmUser != null){
             algorithmUserId=existAlgorithmUser;
         }else{
@@ -217,8 +232,12 @@ public class ExecuteStringSourceServiceImpl implements ExecuteStringSourceServic
     }
 
     @Override
-    public AlgorithmUser getAlgorithmUser(Integer algorithmUserid) {
-        AlgorithmUser algorithmUser = algorithmMapper.getAlgorithmUser(algorithmUserid);
+    public AlgorithmUser getAlgorithmUser(Integer userId, Integer algorithmId) {
+        Integer existAlgorithmUser = isExistAlgorithmUser(userId, algorithmId);
+        AlgorithmUser algorithmUser=null;
+        if(existAlgorithmUser != null){
+            algorithmUser = algorithmMapper.getAlgorithmUser(existAlgorithmUser);
+        }
         return algorithmUser;
     }
 }

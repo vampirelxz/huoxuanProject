@@ -1,9 +1,21 @@
 function runContent() {
     var source=$("#myInput").val()
     var systemIn=$("#mySystemIn").text()
-    $.post("/run",{"source":source,"systemIn":systemIn},
+    var userId=localStorage.getItem("uid")
+
+    if($("#nowQuestion").attr("val") != null){
+        var algorithmId=$("#nowQuestion").attr("val")
+    }else{
+        algorithmId = null;
+    }
+    $.post("/run",{"source":source,"systemIn":systemIn,"userId":userId,"algorithmId":algorithmId},
         function (date) {
         $("#showRunResult").html(date);
+            $.get("/getAlgorithmUser",{"userId":localStorage.getItem("uid"),"algorithmId":algorithmId},function(date){
+                $("#algorithmUserInfo").html(date);
+                $("#timeExpend").text($("#myInput").attr("time-expend")),
+                    $("#spaceExpend").text($("#myInput").attr("space-expend"))
+            })
     })
 }
 
@@ -40,4 +52,36 @@ function insertText(obj,str) {
     }
 }
 
+$.get("/listAlgorithmInfo",{
+},function(date){
+    $("#questionList").html(date);
+})
 
+function loadHistory() {
+        var td = $("#questionTable tbody").find("td");
+        var code = td.eq(1).text()
+        var title = td.eq(2).text()
+        $("#nowQuestion").text(title)
+        $("#nowQuestion").attr("val",code)
+        $.get("/getAlgorithmUser",{"userId":localStorage.getItem("uid"),"algorithmId":code},function(date){
+            $("#algorithmUserInfo").html(date);
+            $("#timeExpend").text($("#myInput").attr("time-expend")),
+            $("#spaceExpend").text($("#myInput").attr("space-expend"))
+        })
+}
+
+function solution() {
+        var td = $("#questionTable tbody").find("td");
+        var code = td.eq(1).text()
+        $.get("/getAlgorithmInfo",{"id":code},function(date){
+            $("#solution").html(date);
+            $("#out-questionList").css("display","none");
+            $("#solution-more").css("display","block");
+        })
+
+}
+
+function relist() {
+    $("#out-questionList").css("display","block");
+    $("#solution-more").css("display","none");
+}

@@ -3,33 +3,45 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lxz.forecast.dao.AlgorithmMapper">
 
-	<!--<resultMap id="BaseResultMap" type="com.lxz.lifetools.entity.ToDoList" >-->
-		<!--<result column="id" property="id" />-->
-        <!--<result column="create_id" property="createId" />-->
-        <!--<result column="information" property="information" />-->
-        <!--<result column="create_time" property="createTime" />-->
-        <!--<result column="delete_flag" property="deleteFlag" />-->
-        <!--<result column="end_time" property="endTime" />-->
-    <!--</resultMap>-->
-
-    <resultMap id="Note" type="com.lxz.forecast.entity.Note" >
+    <resultMap id="AlgorithmInfo" type="com.lxz.forecast.entity.AlgorithmInfo" >
         <result column="id" property="id" />
-        <result column="create_id" property="createId" />
         <result column="title" property="title" />
-        <result column="update_time" property="updateTime" />
-        <result column="content" property="content" />
+        <result column="type1" property="type1" />
+        <result column="type2" property="type2" />
+        <result column="type3" property="type3" />
+        <result column="content1" property="content1" />
+        <result column="content2" property="content2" />
+        <result column="content3" property="content3" />
+        <result column="thinking1" property="thinking1" />
+        <result column="thinking2" property="thinking2" />
+        <result column="thinking3" property="thinking3" />
+        <result column="question" property="question" />
 	</resultMap>
 
-    <select id="listNoteInfo"  resultMap="Note">
-        select id,content, update_time,title from note_info where  delete_flag=0 and create_id = #{createId}
+    <resultMap id="AlgorithmUser" type="com.lxz.forecast.entity.AlgorithmUser" >
+        <result column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="algorithm_id" property="algorithmId" />
+        <result column="update_time" property="updateTime" />
+        <result column="content" property="content" />
+        <result column="time_expend" property="timeExpend" />
+        <result column="space_expend" property="spaceExpend" />
+    </resultMap>
+
+    <select id="listAlgorithmInfo"  resultMap="AlgorithmInfo">
+        select id, title ,question  from algorithm_info where  delete_flag=0;
     </select>
 
-    <select id="getContent"  resultMap="Note">
-        select content,title from note_info where  delete_flag=0 and id = #{id}
+    <select id="getAlgorithmInfo"  resultMap="AlgorithmInfo">
+        select id,title ,question ,type1 ,type2, type3, content1,content2,content3,thinking1,thinking2,thinking3 from algorithm_info where  delete_flag=0 and id = #{id};
     </select>
 
-    <select id="isExist"  resultMap="Note">
-        select title from note_info where  delete_flag=0 and id = #{id}
+    <select id="isExistAlgorithmUser"  resultMap="AlgorithmUser">
+        select id from algorithm_user where  delete_flag=0  and algorithm_id = #{algorithmId} and user_id = #{userId}
+    </select>
+
+    <select id="getAlgorithmUser"  resultMap="AlgorithmUser">
+        select id,user_id ,algorithm_id ,update_time ,content, time_expend, space_expend from algorithm_user where  delete_flag=0 and id = #{id};
     </select>
 
     <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->
@@ -45,57 +57,65 @@
 
 
 
-    <insert id="saveNote">
-        INSERT INTO note_info
+    <insert id="insertAlgorithmUser">
+        INSERT INTO algorithm_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
 
-            <if test="createId != null ">
-                create_id,
+            <if test="userId != null ">
+                user_id,
             </if>
 
-            <if test="title != null">
-                title,
+            <if test="algorithmId != null">
+                algorithm_id,
+            </if>
+            <if test="content != null">
+                content,
             </if>
             <if test="updateTime != null">
                 update_time,
             </if>
-            content
+            <if test="timeExpend != null">
+                time_expend,
+            </if>
+            <if test="spaceExpend != null">
+                space_expend
+            </if>
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
 
-            <if test="createId != null">
-                #{createId},
+            <if test="userId != null">
+                #{userId},
             </if>
-            <if test="title != null">
-                #{title},
+            <if test="algorithmId != null">
+                #{algorithmId},
+            </if>
+            <if test="content != null">
+                #{content},
             </if>
             <if test="updateTime != null">
                 #{updateTime},
             </if>
-            #{content}
+            <if test="timeExpend != null">
+                #{timeExpend},
+            </if>
+            <if test="spaceExpend != null">
+                #{spaceExpend}
+            </if>
         </trim>
 
     </insert>
 
-    <update id="updateNote" parameterType="com.lxz.lifetools.entity.Note">
-        UPDATE note_info
+    <update id="updateAlgorithmUser" parameterType="com.lxz.forecast.entity.AlgorithmUser">
+        UPDATE algorithm_user
         <set>
             <if test ='null != updateTime'>update_time = #{updateTime},</if>
-            <if test ='null != title'>title = #{title},</if>
-            content = #{content}
+            <if test ='null != content'>content = #{content},</if>
+            <if test ='null != timeExpend'>time_expend = #{timeExpend},</if>
+            <if test ='null != spaceExpend'>space_expend = #{spaceExpend},</if>
         </set>
         WHERE id = #{id}  AND delete_flag = 0
     </update>
 
-    <update id="deleteNote" >
-        UPDATE note_info
-        <set>
-            delete_flag = 1
-        </set>
-        WHERE id = #{id}  AND create_id = #{createId}
-    </update>
-
-    
 
 </mapper>
