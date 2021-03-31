@@ -330,7 +330,7 @@ function dateInfo() {
     var arr=[];
   $.ajax({
     type: "get",
-    url: "http://localhost:2001/forecast/forecast",
+    url: "/forecast",
     async: false,
     dataType: 'json',
     beforeSend: function(head) {
@@ -358,7 +358,7 @@ function dayInfo() {
   $.ajax({
     type: "get",
     // headers:{"Authorization":localStorage.getItem('token')}, //请求头类型
-    url: "http://localhost:2001/forecast/forecast",
+    url: "/forecast",
     async: false,
     dataType: 'json',
     beforeSend: function(head) {
@@ -385,7 +385,7 @@ function nightInfo() {
   var arr=[];
   $.ajax({
     type: "get",
-    url: "http://localhost:2001/forecast/forecast",
+    url: "/forecast",
     async: false,
     dataType: 'json',
     headers:{"Authorization":token}, //请求头类型

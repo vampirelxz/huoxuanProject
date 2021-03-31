@@ -20,7 +20,7 @@ import java.util.List;
 
 @Service
 public interface WeatherService {
-    Weather getWeather();
+    Weather getWeather(String city);
 
-    List<Forecast> getForecast();
+    List<Forecast> getForecast(String city);
 }

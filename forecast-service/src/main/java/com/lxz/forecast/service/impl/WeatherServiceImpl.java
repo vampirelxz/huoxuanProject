@@ -54,17 +54,19 @@ public class WeatherServiceImpl implements WeatherService {
     private String key;
 
     @Override
-    public Weather getWeather() {
-        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=base";
+    public Weather getWeather(String city) {
+        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+city+"&key="+key+"&extensions=base";
+        System.out.println(url);
         //String json =restTemplate.getForObject(url,Object.class);
         ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
         JSONArray lives = JSONObject.parseObject(results.getBody()).getJSONArray("lives");
-        return jsonUtil.jsonToObject(lives,Weather.class);
+        JSONObject jsonObject = lives.getJSONObject(0);
+        return JSONObject.toJavaObject(jsonObject,Weather.class);
     }
 
     @Override
-    public List<Forecast> getForecast() {
-        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=all";
+    public List<Forecast> getForecast(String city) {
+        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+city+"&key="+key+"&extensions=all";
         //String json =restTemplate.getForObject(url,Object.class);
         ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
         String json = results.getBody();

@@ -13,6 +13,7 @@ package com.lxz.forecast.controller;/*******************************************
 import com.lxz.forecast.entity.Forecast;
 import com.lxz.forecast.entity.Weather;
 import com.lxz.forecast.service.impl.WeatherServiceImpl;
+import com.lxz.forecast.utils.PositionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,48 +40,21 @@ public class ForecastController {
     @Value("${amap.forecast.key}")
     private String key;
 
+    @Autowired
+    PositionUtil positionUtil;
+
 
     @GetMapping("/forecast")
-    public List<Forecast> getForecast(){
-
-//        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=all";
-//        System.out.println(url);
-//        //String json =restTemplate.getForObject(url,Object.class);
-//
-//        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-//        String json = results.getBody();
-//        return json;
-        return weatherService.getForecast();
+    public List<Forecast> getForecast(String ip){
+        String city=positionUtil.getCity(ip);
+        return weatherService.getForecast(city);
     }
 
     @GetMapping("/weather")
-    public Weather getWeather(){
-//        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=base";
-//        //String json =restTemplate.getForObject(url,Object.class);
-//        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-//        String json = results.getBody();
-//        return json;
-        return weatherService.getWeather();
+    public Weather getWeather(String ip){
+        String city=positionUtil.getCity(ip);
+        System.out.println(city);
+        return weatherService.getWeather(city);
     }
 
-
-//    @PostMapping(value = "/testPost")
-//    public Object postJson(@RequestBody JSONObject param) {
-//        System.out.println(param.toJSONString());
-//        param.put("action", "post");
-//        param.put("username", "tester");
-//        param.put("pwd", "123456748");
-//        return param;
-//    }
-//
-//    @PostMapping(value = "/forecast")
-//    public Object Forecast() {
-//        String url = "https://restapi.amap.com/v3/weather/weatherInfo";
-//        JSONObject postData = new JSONObject();
-//        postData.put("city", "110101");
-//        postData.put("key", key);
-//        JSONObject json = restTemplate.postForEntity(url, postData, JSONObject.class).getBody();
-//        return json;
-
-//    }
 }

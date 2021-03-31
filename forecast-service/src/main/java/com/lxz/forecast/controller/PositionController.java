@@ -28,7 +28,7 @@ public class PositionController {
     PositionUtil positionUtil;
 
     @GetMapping("/getCity")
-    public String getCity(){
-        return positionUtil.getCity();
+    public String getCity(String ip){
+        return positionUtil.getCity(ip);
     }
 }

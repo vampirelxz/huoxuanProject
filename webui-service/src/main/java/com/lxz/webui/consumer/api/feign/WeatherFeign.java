@@ -1,10 +1,13 @@
 package com.lxz.webui.consumer.api.feign;
 
 import com.lxz.webui.entity.AlgorithmInfo;
+import com.lxz.webui.entity.Forecast;
 import com.lxz.webui.entity.Weather;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -23,10 +26,13 @@ import java.util.List;
 @FeignClient("forecast")
 public interface WeatherFeign {
     @RequestMapping("/weather")
-    Weather weather();
+    Weather weather(@RequestParam("ip") String ip);
 
     @RequestMapping("/getCity")
-    String getCity();
+    String getCity(@RequestParam("ip") String ip);
+
+    @GetMapping("/forecast")
+    List<Forecast> getForecast(@RequestParam("ip") String ip);
 
     @RequestMapping("/run")
     String runCode2();

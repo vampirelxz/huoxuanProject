@@ -66,7 +66,7 @@ public class RunCodeController {
     public String listAlgorithmInfo(Model model){
         List<AlgorithmInfo> algorithmInfos = weatherFeign.listAlgorithmInfo();
         for(int i=0;i<algorithmInfos.size();i++){
-            System.out.println(algorithmInfos.get(i).getQuestion());
+//            System.out.println(algorithmInfos.get(i).getQuestion());
             algorithmInfos.get(i).setQuestion(algorithmInfos.get(i).getQuestion().replaceAll("\n","<br/>"));
         }
         model.addAttribute("questionList",algorithmInfos);
@@ -120,8 +120,10 @@ public class RunCodeController {
         ResponseEntity<AlgorithmInfo> exchange = restTemplate.exchange(url, HttpMethod.GET, request, AlgorithmInfo.class);
         AlgorithmInfo algorithmInfo = exchange.getBody();
         // 处理html中换行的问题
-        algorithmInfo.setContent1(algorithmInfo.getContent1().replaceAll("\n", "<br/>"));
-        algorithmInfo.setThinking1(algorithmInfo.getThinking1().replaceAll("\n", "<br/>"));
+        if(algorithmInfo.getContent1()!=null && algorithmInfo.getThinking1()!=null) {
+            algorithmInfo.setContent1(algorithmInfo.getContent1().replaceAll("\n", "<br/>"));
+            algorithmInfo.setThinking1(algorithmInfo.getThinking1().replaceAll("\n", "<br/>"));
+        }
         if(algorithmInfo.getContent2()!=null && algorithmInfo.getThinking2()!=null) {
             algorithmInfo.setContent2(algorithmInfo.getContent2().replaceAll("\n", "<br/>"));
             algorithmInfo.setThinking2(algorithmInfo.getThinking2().replaceAll("\n", "<br/>"));

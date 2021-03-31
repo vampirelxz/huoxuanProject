@@ -13,6 +13,7 @@ package com.lxz.webui.controller;/**********************************************
 import com.lxz.webui.consumer.api.feign.LifetoolsFeign;
 import com.lxz.webui.entity.ToDoList;
 import com.lxz.webui.entity.Weather;
+import com.lxz.webui.utils.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,8 @@ public class IndexController {
     @Autowired
     private LifetoolsFeign lifetoolsFeign;
 
+    @Autowired
+    IpUtil ipUtil;
 
     private int iuid=0;
 
@@ -51,7 +54,8 @@ public class IndexController {
         Weather weather=null;
         List<ToDoList> toDoLists=null;
         try {
-            weather = weatherController.feign();
+            String ip = ipUtil.getIp();
+            weather = weatherController.feign(ip);
         }catch (Exception e){
             e.printStackTrace();
             weather = null;

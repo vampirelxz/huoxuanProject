@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UtilController {
-    String t=null;
+    public String t=null;
 
     /*
     获取token
@@ -36,4 +36,6 @@ public class UtilController {
         t=token;
         return t;
     }
+
+
 }

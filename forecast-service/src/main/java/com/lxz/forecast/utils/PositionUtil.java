@@ -18,7 +18,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -60,8 +59,8 @@ public class PositionUtil {
      * @Date:  2021/1/13/10:54
      */
 
-    public String getCity(){
-        String url="https://restapi.amap.com/v3/ip?"+urlIp(getIp())+"&output=json&key="+key;
+    public String getCity(String ip){
+        String url="https://restapi.amap.com/v3/ip?"+getIp(ip)+"&output=json&key="+key;
         System.out.println(url);
         //String json =restTemplate.getForObject(url,Object.class);
         ResponseEntity<AmapPosition> results = template.exchange(url, HttpMethod.GET, null,  AmapPosition.class);
@@ -70,27 +69,27 @@ public class PositionUtil {
         return json.getCity();
     }
 
-    public InetAddress getIp(){
+    public String getIp(String ip){
         try {
-            InetAddress ip4 = Inet4Address.getLocalHost();
+            InetAddress ip4 = InetAddress.getByName(ip);
             System.out.println(ip4.getHostAddress());
             if(!ipIsInner(ip4.toString())){
                 return null;
             }
-            return ip4;
+            return ip4.toString();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public String urlIp(InetAddress ip){
-        if(ip == null){
-            return null;
-        }else{
-            return "ip="+getIp().getHostAddress();
-        }
-    }
+//    public String urlIp(InetAddress ip){
+//        if(ip == null){
+//            return null;
+//        }else{
+//            return "ip="+getIp().getHostAddress();
+//        }
+//    }
 
     /**
      * 私有IP：
