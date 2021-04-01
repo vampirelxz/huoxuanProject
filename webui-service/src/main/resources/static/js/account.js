@@ -1,6 +1,8 @@
 //
+var token=localStorage.getItem("token")
+
 $.get("/account",{
-    "createId":localStorage.getItem("uid")
+    "createId":localStorage.getItem("uid"),"token":token
 },function(date){
     $("#account").html(date);
 })
@@ -9,7 +11,7 @@ $.get("/account",{
 // //
 function flush() {
     $.get("/account",{
-        "createId":localStorage.getItem("uid")
+        "createId":localStorage.getItem("uid"),"token":token
     },function(date){
         $("#account").html(date);
     })
@@ -33,7 +35,7 @@ $("#form_data").submit(function(){
     console.log(createId+','+time+','+type+','+remark+','+money)
     $.ajax({
         type: "POST",
-        data: {type: type ,createId: createId ,money: money,time: time,remark: remark},
+        data: {type: type ,createId: createId ,money: money,time: time,remark: remark,token: token},
         contentType : "application/x-www-form-urlencoded; charset=utf-8",
         url: "http://localhost:80/insertSelfAccount" ,
         dataType: "text",
@@ -56,14 +58,14 @@ function deleteAccount(r) {
     $("#example1 tbody").on("click","tr",function() {
         var td = $(this).find("td");
         var code = td.eq(0).attr('name')
-        $.get("/deleteAccount",{"id":code},function(){
+        $.get("/deleteAccount",{"id":code,"token":token},function(){
             var i=r.parentNode.parentNode.rowIndex;
             document.getElementById('example1').deleteRow(i);
         })
     });
 }
 
-$.get("/getMonthModel",{"createId":localStorage.getItem("uid")},function(date){
+$.get("/getMonthModel",{"createId":localStorage.getItem("uid"),"token":token},function(date){
     $("#accordion").html(date);
 
 })
@@ -113,7 +115,7 @@ $.get("/getMonthModel",{"createId":localStorage.getItem("uid")},function(date){
 function getMonthTypePie() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getMonthTypePie",
         async: false,
@@ -128,7 +130,7 @@ function getMonthTypePie() {
 function getMonthValuePie() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getMonthValuePie",
         async: false,
@@ -143,7 +145,7 @@ function getMonthValuePie() {
 function getYearTypePie() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getYearTypePie",
         async: false,
@@ -158,7 +160,7 @@ function getYearTypePie() {
 function getYearValuePie() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getYearValuePie",
         async: false,
@@ -226,7 +228,7 @@ new Chart(donutChartCanvas, {
 function thisMonth() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getThisMonthData",
         async: false,
@@ -240,7 +242,7 @@ function thisMonth() {
 function lastMonth() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getLastMonthData",
         async: false,
@@ -305,7 +307,7 @@ new Chart(stackedBarChartCanvas, {
 function thisWeek() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getThisWeekData",
         async: false,
@@ -319,7 +321,7 @@ function thisWeek() {
 function lastWeek() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getLastWeekData",
         async: false,
@@ -501,7 +503,7 @@ bgPatternImg.src = bgPatternSrc;
 function f() {
     var date1=null;
     $.ajax({
-        data: {"createId": localStorage.getItem("uid")},
+        data: {"createId": localStorage.getItem("uid"),"token":token},
         type: "get",
         url: "/getWeekModel",
         async: false,

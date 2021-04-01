@@ -1,7 +1,6 @@
 package com.lxz.webui.consumer.api.feign;
 
 import com.lxz.webui.entity.Garbage;
-import com.lxz.webui.entity.ToDoList;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +23,6 @@ import java.util.List;
 @Component
 @FeignClient("lifetools")
 public interface LifetoolsFeign {
-    @RequestMapping(value = "/toDoList",method = RequestMethod.GET)
-    List<ToDoList> toDoList(@RequestParam("createId") int createId);
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     int save(@RequestParam("createId") int createId,@RequestParam("information") String information,@RequestParam("endTime") String endTime);

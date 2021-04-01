@@ -10,17 +10,14 @@ package com.lxz.webui.controller;/**********************************************
  *
  ********************************************************/
 
-import com.alibaba.fastjson.JSONArray;
+import com.lxz.webui.consumer.api.feign.GatewayFeign;
 import com.lxz.webui.consumer.api.feign.StockFeign;
 import com.lxz.webui.entity.BaseFund;
 import com.lxz.webui.entity.Fund;
 import com.lxz.webui.entity.PersonalFund;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +43,8 @@ public class FundController {
     UtilController utilController;
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    GatewayFeign gatewayFeign;
 
     @GetMapping("/rankFund")
     public String  listRankList(Model model) throws IOException {
@@ -73,48 +72,23 @@ public class FundController {
     }
 
     @GetMapping("/selfFund")
-    public String listSelfFund(@RequestParam("createId") String createId, Model model) {
+    public String listSelfFund(@RequestParam("createId") String createId, Model model,@RequestParam("token") String token) {
         System.out.println(createId);
         Integer uid = Integer.valueOf(createId);
         if (createId == null) {
             return null;
         }
-        MultiValueMap<String, Integer> bodyMap = new LinkedMultiValueMap<>();
-        String token = utilController.t;
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, Integer>> request = new HttpEntity<>(bodyMap, headers);
-        String url = "http://localhost:2001/stock/selfFund?createId=" + uid;
-        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, request, String.class);
-        String body = exchange.getBody();
-        System.out.println(body);
-        List<PersonalFund> personalFunds = JSONArray.parseArray(body, PersonalFund.class);
+
+        List<PersonalFund> personalFunds = gatewayFeign.listSelfFund(uid,token);
         model.addAttribute("selfFund", personalFunds);
         return "stock/fund::selfFund";
     }
 
     @PostMapping("/insertSelfFund")
     @ResponseBody
-    public String insertSelfFund(@RequestParam("createId") String createId, @RequestParam("fundId") String fundId) {
-        System.out.println(createId);
-        System.out.println(fundId);
-
-        MultiValueMap<String, String> bodyMap = new LinkedMultiValueMap<>();
-        bodyMap.add("fundId", fundId);
-        bodyMap.add("createId", createId);
-        String token=utilController.t;
-        System.out.println(token);
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(bodyMap, headers);
-
-        String url="http://localhost:2001/stock/insertSelfFund";
+    public String insertSelfFund(@RequestParam("createId") String createId, @RequestParam("fundId") String fundId, @RequestParam("token") String token) {
         try{
-            restTemplate.exchange(url, HttpMethod.POST, request, String.class);
+            gatewayFeign.insertSelfFund(createId, fundId, token);
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("1");
@@ -129,24 +103,9 @@ public class FundController {
 
     @PostMapping("/deleteSelfFund")
     @ResponseBody
-    public String delete(@RequestParam("createId") String createId, @RequestParam("fundId") String fundId){
-        System.out.println(createId);
-        System.out.println(fundId);
-
-        MultiValueMap<String, String> bodyMap = new LinkedMultiValueMap<>();
-        bodyMap.add("fundId", fundId);
-        bodyMap.add("createId", createId);
-        String token=utilController.t;
-        System.out.println(token);
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(bodyMap, headers);
-
-        String url="http://localhost:2001/stock/deleteSelfFund";
+    public String delete(@RequestParam("createId") String createId, @RequestParam("fundId") String fundId, @RequestParam("token") String token){
         try{
-            restTemplate.exchange(url, HttpMethod.POST, request, String.class);
+            gatewayFeign.deleteSelfFund(createId, fundId, token);
         }catch (Exception e){
             e.printStackTrace();
             return "localhost:80/login.html";

@@ -2,12 +2,6 @@
 //
 //
 
-//
-// $.get("/stock",{
-// },function(date){
-//     $("#baseStock").html(date);
-// })
-//
 $('.toastsDefaultSuccess').click(function() {
     $(document.getElementById('selfFund')).Toasts('create', {
         class: 'bg-success',
@@ -17,8 +11,10 @@ $('.toastsDefaultSuccess').click(function() {
     })
 });
 
+var token=localStorage.getItem("token")
+
 $.get("/selfFund",{
-    "createId":localStorage.getItem("uid")
+    "createId":localStorage.getItem("uid"),"token":token
 },function(date){
     $("#selfFund").html(date);
 })
@@ -27,7 +23,7 @@ $.get("/selfFund",{
 //
 function flush() {
     $.get("/selfFund",{
-        "createId":localStorage.getItem("uid")
+        "createId":localStorage.getItem("uid"),"token":token
     },function(date){
         $("#selfFund").html(date);
     })
@@ -39,26 +35,12 @@ $("#form_data").submit(function(){
     if(fundId == null){
         return
     }
-    // $.post("/insertSelfStock",{"createId":localStorage.getItem("uid"),
-    //     "stockId":code
-    // },function(date){
-    //     if(date == "false"){
-    //         console.log("respon error");
-    //         var errorNum = localStorage.getItem("errorNum");
-    //         if(errorNum>111){
-    //             return window.location.href= "http://localhost:80";
-    //         }
-    //         localStorage.setItem("errorNum",errorNum+1)
-    //         return window.location.href= "http://localhost/stock/stock.html";
-    //     }else {
-    //         flush()
-    //     }
-    // })
+
     $('#addBottom').attr('disabled','disabled');
     setTimeout('myfunction()',2000);
     $.ajax({
         type: "POST",
-        data: {fundId: fundId ,createId: createId},
+        data: {fundId: fundId ,createId: createId,token: token},
         contentType : "application/x-www-form-urlencoded; charset=utf-8",
         url: "http://localhost:80/insertSelfFund" ,
         dataType: "text",
@@ -83,7 +65,7 @@ function deleteFund(r) {
         var code = td.eq(1).text();
         alert(code)
         $.post("/deleteSelfFund",{"createId":localStorage.getItem("uid"),
-            "fundId":code
+            "fundId":code,"token":token
         },function(){
             // $("#self-table tr:last").remove();
             var i=r.parentNode.parentNode.rowIndex;

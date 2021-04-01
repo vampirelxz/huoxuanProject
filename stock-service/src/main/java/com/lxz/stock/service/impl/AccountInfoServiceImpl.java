@@ -133,11 +133,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     public String[] getMonthTypePie(int createId) {
         String[] date=new String[6];
         List<AccountPieData> monthPie = accountListMapper.getMonthPie(createId);
+        String type=null;
         for(int i=0;i < date.length;i++){
-            if(monthPie.get(i)==null){
-                return date;
+            try{
+                type = monthPie.get(i).getType();
+            }catch (Exception e){
+                type = "未知";
             }
-            date[i] = monthPie.get(i).getType();
+            date[i] = type;
         }
         return date;
     }
@@ -146,11 +149,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     public String[] getMonthValuePie(int createId) {
         String[] date=new String[6];
         List<AccountPieData> monthPie = accountListMapper.getMonthPie(createId);
+        String value=null;
         for(int i=0;i < date.length;i++){
-            if(monthPie.get(i)==null){
-                return date;
+            try{
+                value = monthPie.get(i).getValue();
+            }catch (Exception e){
+                value = "0";
             }
-            date[i] = monthPie.get(i).getValue();
+            date[i] = value;
         }
         return date;
     }
@@ -159,11 +165,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     public String[] getYearTypePie(int createId) {
         String[] date=new String[6];
         List<AccountPieData> yearPie = accountListMapper.getYearPie(createId);
+        String type=null;
         for(int i=0;i < date.length;i++){
-            if(yearPie.get(i)==null){
-                return date;
+            try{
+                type = yearPie.get(i).getType();
+            }catch (Exception e){
+                type = "年未知";
             }
-            date[i] = yearPie.get(i).getType();
+            date[i] = type;
         }
         return date;
     }
@@ -172,11 +181,14 @@ public class AccountInfoServiceImpl implements AccountInfoService {
     public String[] getYearValuePie(int createId) {
         String[] date=new String[6];
         List<AccountPieData> yearPie = accountListMapper.getYearPie(createId);
+        String value=null;
         for(int i=0;i < date.length;i++){
-            if(yearPie.get(i)==null){
-                return date;
+            try{
+                value = yearPie.get(i).getValue();
+            }catch (Exception e){
+                value = "0.0";
             }
-            date[i] = yearPie.get(i).getValue();
+            date[i] = value;
         }
         return date;
     }

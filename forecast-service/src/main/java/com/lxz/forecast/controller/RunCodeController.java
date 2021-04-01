@@ -63,7 +63,7 @@ public class RunCodeController {
         return algorithmInfo;
     }
 
-    @RequestMapping(path = {"/getAlgorithmUser"},method = RequestMethod.POST)
+    @RequestMapping(path = {"/getAlgorithmUser"},method = RequestMethod.GET)
     public AlgorithmUser getAlgorithmUser(@RequestParam("userId") Integer userId,@RequestParam("algorithmId") Integer algorithmId){
         AlgorithmUser algorithmUser = executeStringSourceService.getAlgorithmUser(userId, algorithmId);
         return algorithmUser;

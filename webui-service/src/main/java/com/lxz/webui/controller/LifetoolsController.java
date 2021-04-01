@@ -10,16 +10,15 @@ package com.lxz.webui.controller;/**********************************************
  *
  ********************************************************/
 
-import com.lxz.webui.consumer.api.feign.LifetoolsFeign;
+import com.lxz.webui.consumer.api.feign.GatewayFeign;
 import com.lxz.webui.entity.ToDoList;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -31,76 +30,45 @@ import java.util.List;
  * 创建时间：2021/2/1/16:12
  */
 
-@RestController
+@Controller
 public class LifetoolsController {
 
-    @Autowired(required = false)
-    private LifetoolsFeign lifetoolsFeign;
-
     @Autowired
-    private RestTemplate restTemplate;
+    GatewayFeign gatewayFeign;
 
-    @Autowired
-    private UtilController utilController;
-/**
- * @Title:
- * @Description:
- *
- * @param
- * @return:
- * @throws
- * @author: liuxuanzhi
- * @Date:  2021/2/1/16:13
- */
-    public List<ToDoList> feign(int uid){
+    @GetMapping("/listToDoList")
+    public String listToDoList(@RequestParam("createId") int uid, @RequestParam("token") String token, Model model){
         List<ToDoList> toDoLists;
         try {
-            toDoLists = lifetoolsFeign.toDoList(uid);
+            toDoLists = gatewayFeign.toDoList(uid,token);
+            if(toDoLists != null) {
+                model.addAttribute("toDoList", toDoLists);
+            }else{
+                ToDoList toDoList = new ToDoList();
+                toDoList.setId(0);
+                toDoList.setInformation("今日暂无安排");
+                long defaultTime=100000;
+                toDoList.setDurationTime(defaultTime);
+                model.addAttribute("toDoList",toDoList);
+            }
         }catch (Exception e1){
-            toDoLists=null;
             e1.printStackTrace();
         }
-        return toDoLists;
+        return "index::todo-list";
     }
 
     @PostMapping("/saveInfo")
-    public String save(@RequestParam("information") String information,@RequestParam("endTime") String endTime ,@RequestParam("createId") String createId){
-        System.out.println(createId);
-        System.out.println(endTime);
-        System.out.println(information);
+    @ResponseBody
+    public void save(@RequestParam("information") String information,@RequestParam("endTime") String endTime ,@RequestParam("createId") String createId,@RequestParam("token") String token){
         endTime=endTime.replace('T',' ');
         endTime=endTime+":00";
-       // lifetoolsFeign.save(uid, information, endTime);
-
-        MultiValueMap<String, String> bodyMap = new LinkedMultiValueMap<>();
-        bodyMap.add("information", information);
-        bodyMap.add("endTime", endTime);
-        bodyMap.add("createId", createId);
-        String token=utilController.t;
-        System.out.println(token);
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(bodyMap, headers);
-
-        String url="http://localhost:2001/lifetools/save";
         try{
-            restTemplate.exchange(url, HttpMethod.POST, request, String.class);
+            gatewayFeign.save(information, endTime, createId, token);
         }catch (Exception e){
             e.printStackTrace();
-            return "localhost:80/login.html";
+
         }
-
-
-        return "localhost:80/index";
     }
 
-//    public Weather getWeather() {
-//        String url="https://restapi.amap.com/v3/weather/weatherInfo?city="+positionUtil.getCity()+"&key="+key+"&extensions=base";
-//        //String json =restTemplate.getForObject(url,Object.class);
-//        ResponseEntity<String> results = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-//        JSONArray lives = JSONObject.parseObject(results.getBody()).getJSONArray("lives");
-//        return jsonUtil.jsonToObject(lives,Weather.class);
-//    }
+
 }

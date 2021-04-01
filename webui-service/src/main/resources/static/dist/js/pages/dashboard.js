@@ -256,67 +256,7 @@ $(function () {
     options: pieOptions
   })
 
-  // // Sales graph chart
-  // var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
-  // // $('#revenue-chart').get(0).getContext('2d');
-  //
-  // var salesGraphChartData = {
-  //   labels: ['1/29 Q1', '1/30 Q2', '1/31 Q3'],
-  //   datasets: [
-  //     {
-  //       label: 'Digital Goods',
-  //       fill: false,
-  //       borderWidth: 2,
-  //       lineTension: 0,
-  //       spanGaps: true,
-  //       borderColor: '#efefef',
-  //       pointRadius: 3,
-  //       pointHoverRadius: 7,
-  //       pointColor: '#efefef',
-  //       pointBackgroundColor: '#efefef',
-  //       data: [12,13,14]
-  //     }
-  //   ]
-  // }
-  //
-  // var salesGraphChartOptions = {
-  //   maintainAspectRatio: false,
-  //   responsive: true,
-  //   legend: {
-  //     display: false
-  //   },
-  //   scales: {
-  //     xAxes: [{
-  //       ticks: {
-  //         fontColor: '#efefef'
-  //       },
-  //       gridLines: {
-  //         display: false,
-  //         color: '#efefef',
-  //         drawBorder: false
-  //       }
-  //     }],
-  //     yAxes: [{
-  //       ticks: {
-  //         stepSize: 5000,
-  //         fontColor: '#efefef'
-  //       },
-  //       gridLines: {
-  //         display: true,
-  //         color: '#efefef',
-  //         drawBorder: false
-  //       }
-  //     }]
-  //   }
-  // }
-  //
-  // // This will get the first returned node in the jQuery collection.
-  // // eslint-disable-next-line no-unused-vars
-  // var salesGraphChart = new Chart(salesGraphChartCanvas, { // lgtm[js/unused-local-variable]
-  //   type: 'line',
-  //   data: salesGraphChartData,
-  //   options: salesGraphChartOptions
-  // })
+
 })
 
 
@@ -441,7 +381,7 @@ function check_form(){
 
 }
 function nothing(){
-    console("等待")
+    console.log("等待")
 }
 
 var forecastChartOptions = {
@@ -484,36 +424,35 @@ $("#form_data").submit(function(){
   var createId = $("#createId").val();
   $.ajax({
     type: "POST",
-    data: {information: information ,endTime: endTime ,createId: createId},
+    data: {information: information ,endTime: endTime ,createId: createId,token:localStorage.getItem("token")},
     contentType : "application/x-www-form-urlencoded; charset=utf-8",
     url: "http://localhost:80/saveInfo" ,
-    dataType: "JSON",
+    dataType: "text",
     success: function () {
           // alert(data)
-          setTimeout('nothing()',1000);
-          // return window.location.href= data;
+        flush()
         },
     error: function () {
-      setTimeout('nothing()',2000);
       console.log("respon error");
+      // setTimeout('nothing()',2000);
     }
   })
+
+})
+function flush(){
+  $.get("/listToDoList",{
+    "createId":localStorage.getItem("uid"),"token":token
+  },function(date){
+    $("#todo-list").html(date);
+  })
+}
+
+$.get("/listToDoList",{
+  "createId":localStorage.getItem("uid"),"token":token
+},function(date){
+  $("#todo-list").html(date);
 })
 
-  /* $.post("/saveInfo",{information: information ,endTime: endTime ,createId: createId},function (data) {
-        alert(1)
-        // if(data.success){
-        //     alert(data.message);
-        //    return window.location.href= data.message;
-        // }
-        // else {
-        //     $("#loginInfor").css({ "display": "block", "opacity": "1" });
-        //     $("#loginInfor").animate({ opacity: 0 }, 2000);
-        //     $("#loginInfor").html(data.message);
-        //     console.log("respon success, but the password is worry!");
-        // }
-
-    },'json');*/
 
 $.get("/getToken",{
   "token":localStorage.getItem("token")

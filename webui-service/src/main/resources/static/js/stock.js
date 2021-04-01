@@ -29,9 +29,10 @@ $.get("/stock",{
 },function(date){
     $("#baseStock").html(date);
 })
+var token=localStorage.getItem("token")
 
 $.get("/selfStock",{
-    "createId":localStorage.getItem("uid")
+    "createId":localStorage.getItem("uid"),"token":token
 },function(date){
     $("#selfStock").html(date);
 })
@@ -47,7 +48,7 @@ function findInInfo(value) {
 
 function flush() {
     $.get("/selfStock",{
-        "createId":localStorage.getItem("uid")
+        "createId":localStorage.getItem("uid"),"token":token
     },function(date){
         $("#selfStock").html(date);
     })
@@ -59,26 +60,12 @@ $("#form_data").submit(function(){
     if(stockId == null){
         return
     }
-    // $.post("/insertSelfStock",{"createId":localStorage.getItem("uid"),
-    //     "stockId":code
-    // },function(date){
-    //     if(date == "false"){
-    //         console.log("respon error");
-    //         var errorNum = localStorage.getItem("errorNum");
-    //         if(errorNum>111){
-    //             return window.location.href= "http://localhost:80";
-    //         }
-    //         localStorage.setItem("errorNum",errorNum+1)
-    //         return window.location.href= "http://localhost/stock/stock.html";
-    //     }else {
-    //         flush()
-    //     }
-    // })
+
     $('.toastrDefaultError').attr('disabled','disabled');
     setTimeout('myfunction()',2000);
     $.ajax({
         type: "POST",
-        data: {stockId: stockId ,createId: createId},
+        data: {stockId: stockId ,createId: createId,token:token},
         contentType : "application/x-www-form-urlencoded; charset=utf-8",
         url: "http://localhost:80/insertSelfStock" ,
         dataType: "text",
@@ -102,7 +89,7 @@ function deleteStock(r) {
         var td = $(this).find("td");
         var code = td.eq(0).text();
         $.post("/deleteSelfStock",{"createId":localStorage.getItem("uid"),
-            "stockId":code
+            "stockId":code,"token":token
         },function(){
             var i=r.parentNode.parentNode.rowIndex;
             document.getElementById('self-table').deleteRow(i);

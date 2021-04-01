@@ -1,13 +1,14 @@
 // //
+var token=localStorage.getItem("token")
 $.get("/listNoteInfo",{
-    "createId":localStorage.getItem("uid")
+    "createId":localStorage.getItem("uid"),"token":token
 },function(date){
     $("#notes").html(date);
 })
 
 function flush() {
     $.get("/listNoteInfo",{
-        "createId":localStorage.getItem("uid")
+        "createId":localStorage.getItem("uid"),"token":token
     },function(date){
         $("#notes").html(date);
     })
@@ -35,7 +36,7 @@ $("#form_data").submit(function(){
 
     $.ajax({
         type: "POST",
-        data: {id: id ,createId: createId ,title: title,content: content},
+        data: {id: id ,createId: createId ,title: title,content: content,token: token},
         contentType : "application/x-www-form-urlencoded; charset=utf-8",
         url: "http://localhost:80/saveOrUpdateNote" ,
         dataType: "text",
@@ -82,7 +83,7 @@ $('#user-name').html(localStorage.getItem('uname'));
 
 function modify(data) {
     var id=data.name;
-        $.get("/getContent",{"id":id},function(date){
+        $.get("/getContent",{"id":id,"token":token},function(date){
             $('#title').val(date.title);
             $('#id').val(id)
             $('.card-block').html(date.content)
@@ -96,7 +97,7 @@ function deleteNote(r) {
         var td = $(this).find("td");
         var id = td.eq(0).attr('id')
 
-        $.get("/deleteNote",{"id":id,"createId":createId},function(){
+        $.get("/deleteNote",{"id":id,"createId":createId,"token":token},function(){
             flush()
         })
     });

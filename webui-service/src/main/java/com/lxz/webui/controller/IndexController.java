@@ -63,30 +63,10 @@ public class IndexController {
         if(weather != null) {
             model.addAttribute("weather", weather);
         }
-        try {
-            toDoLists = toDoListfeign(iuid);
-        }catch (Exception e){
-            e.printStackTrace();
-            toDoLists = null;
-        }
-        if(toDoLists != null) {
-            model.addAttribute("toDoList", toDoLists);
-        }else{
-            ToDoList toDoList = new ToDoList();
-            toDoList.setId(0);
-            toDoList.setInformation("今日暂无安排");
-            long defaultTime=100000;
-            toDoList.setDurationTime(defaultTime);
-            model.addAttribute("toDoList",toDoList);
-        }
 
         return "/index.html";
     }
 
-
-    public List<ToDoList> toDoListfeign(int uid){
-        return lifetoolsController.feign(uid);
-    }
 
     @ResponseBody
     @GetMapping("/getUid/{uid}")

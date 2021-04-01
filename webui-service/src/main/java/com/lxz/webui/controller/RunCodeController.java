@@ -1,15 +1,13 @@
 package com.lxz.webui.controller;
 
 
+import com.lxz.webui.consumer.api.feign.GatewayFeign;
 import com.lxz.webui.consumer.api.feign.WeatherFeign;
 import com.lxz.webui.entity.AlgorithmInfo;
 import com.lxz.webui.entity.AlgorithmUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,32 +23,16 @@ public class RunCodeController {
     RestTemplate restTemplate;
     @Autowired
     WeatherFeign weatherFeign;
-
-//    @Autowired
-//    private ExecuteStringSourceService executeStringSourceService;
+    @Autowired
+    GatewayFeign gatewayFeign;
 
     @RequestMapping(path = {"/run"}, method = RequestMethod.POST)
     public String runCode(@RequestParam("source") String source,
-                          @RequestParam("systemIn") String systemIn,@RequestParam("algorithmId") String algorithmId,@RequestParam("userId") String userId, Model model) {
+                          @RequestParam("systemIn") String systemIn, @RequestParam("algorithmId") String algorithmId, @RequestParam("userId") String userId, Model model, @RequestParam("token") String token) {
         System.out.println(source);
         String runResult;
-        MultiValueMap<String, String> bodyMap = new LinkedMultiValueMap<>();
-        bodyMap.add("source", source);
-        bodyMap.add("systemIn", systemIn);
-        bodyMap.add("algorithmId", algorithmId);
-        bodyMap.add("userId", userId);
-        String token=utilController.t;
-        System.out.println(token);
-        // 设置请求头
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(bodyMap, headers);
-
-        String url="http://localhost:2001/forecast/run";
         try{
-            ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
-            String body = exchange.getBody();
+            String body = gatewayFeign.runCode(source, systemIn, algorithmId, userId, token);
             // 处理html中换行的问题
             runResult = body.replaceAll(System.lineSeparator(), "<br/>");
         }catch (Exception e){
@@ -66,7 +48,6 @@ public class RunCodeController {
     public String listAlgorithmInfo(Model model){
         List<AlgorithmInfo> algorithmInfos = weatherFeign.listAlgorithmInfo();
         for(int i=0;i<algorithmInfos.size();i++){
-//            System.out.println(algorithmInfos.get(i).getQuestion());
             algorithmInfos.get(i).setQuestion(algorithmInfos.get(i).getQuestion().replaceAll("\n","<br/>"));
         }
         model.addAttribute("questionList",algorithmInfos);
@@ -74,19 +55,9 @@ public class RunCodeController {
     }
 
     @RequestMapping(path = {"/getAlgorithmUser"},method = RequestMethod.GET)
-    public String getAlgorithmUser(@RequestParam("userId") Integer userId,@RequestParam("algorithmId") Integer algorithmId,Model model){
-        MultiValueMap<String, Integer> bodyMap = new LinkedMultiValueMap<>();
-        bodyMap.add("userId", userId);
-        bodyMap.add("algorithmId", algorithmId);
-        String token=utilController.t;
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, Integer>> request = new HttpEntity<>(bodyMap, headers);
-        String url="http://localhost:2001/forecast/getAlgorithmUser";
+    public String getAlgorithmUser(Model model, @RequestParam("userId") Integer userId,@RequestParam("algorithmId") Integer algorithmId,@RequestParam("token") String token){
         try{
-            ResponseEntity<AlgorithmUser> exchange = restTemplate.exchange(url, HttpMethod.POST, request, AlgorithmUser.class);
-            AlgorithmUser algorithmUser = exchange.getBody();
+            AlgorithmUser algorithmUser = gatewayFeign.getAlgorithmUser(userId,algorithmId,token);
             if(algorithmUser == null || algorithmUser.getContent()==null){
                 AlgorithmUser algorithmUser1 = new AlgorithmUser();
                 algorithmUser1.setContent("public class Run {\n" +
@@ -98,8 +69,6 @@ public class RunCodeController {
                 algorithmUser1.setTimeExpend("--ms");
                 model.addAttribute("algorithmUserInfo",algorithmUser1);
             }else{
-                // 处理html中换行的问题
-//                algorithmUser.setContent(algorithmUser.getContent().replaceAll("\n", "<br/>"));
                 model.addAttribute("algorithmUserInfo",algorithmUser);
             }
         }catch (Exception e){
@@ -109,16 +78,8 @@ public class RunCodeController {
     }
 
     @RequestMapping(path = {"/getAlgorithmInfo"},method = RequestMethod.GET)
-    public String getAlgorithmInfo(Integer id,Model model){
-        MultiValueMap<String, Integer> bodyMap = new LinkedMultiValueMap<>();
-        String token=utilController.t;
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization",token);
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-        HttpEntity<MultiValueMap<String, Integer>> request = new HttpEntity<>(bodyMap, headers);
-        String url="http://localhost:2001/forecast/getAlgorithmInfo?id="+id;
-        ResponseEntity<AlgorithmInfo> exchange = restTemplate.exchange(url, HttpMethod.GET, request, AlgorithmInfo.class);
-        AlgorithmInfo algorithmInfo = exchange.getBody();
+    public String getAlgorithmInfo(Model model,@RequestParam("id")Integer id,@RequestParam("token") String token){
+        AlgorithmInfo algorithmInfo = gatewayFeign.getAlgorithmInfo(id,token);
         // 处理html中换行的问题
         if(algorithmInfo.getContent1()!=null && algorithmInfo.getThinking1()!=null) {
             algorithmInfo.setContent1(algorithmInfo.getContent1().replaceAll("\n", "<br/>"));
