@@ -32,13 +32,19 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public ResultVO login(String email,String pwd) {
+        if(email.isEmpty()){
+            return new ResultVO(false,"邮箱不能为空");
+        }
+        if(pwd.isEmpty()){
+            return new ResultVO(false,"密码不能为空");
+        }
         User user=userMapper.getUserByEmail(email);
-        if (user.equals(null)) {
+        if (user == null||user.equals(null)) {
             return new ResultVO(false,"此邮箱未注册");
         } else if (user.getPwd().equals(pwd)) {
             return new ResultVO(true,"http://localhost:80/huoxuan.html",user);
         }
-        return new ResultVO(false,"密码错误");
+        return new ResultVO(false,"输入密码错误");
 
     }
 }

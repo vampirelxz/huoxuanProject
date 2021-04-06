@@ -11,6 +11,7 @@ package com.lxz.webui.entity;/**************************************************
  ********************************************************/
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -24,6 +25,7 @@ import java.sql.Timestamp;
  */
 
 @Data
+@NoArgsConstructor
 public class ToDoList implements Serializable {
     private static final long serialVersionUID = -1874347215095341154L;
     private int id;

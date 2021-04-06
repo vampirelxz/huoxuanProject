@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Registration Page</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <style>
+    .infoTextarea.change::-webkit-input-placeholder {
+      color: #dc3545;
+    }
+
+    .clg-icon-qq {
+      width: 11px;
+      height: 12px;
+      background-image: url(/dist/img/login-202101261445.svg);
+      background-position: 0.42% 99.33%;
+      background-size: 1636.3636363636363% 1050%;
+      background-repeat: no-repeat;
+    }
+    .clg-icon-wxoa {
+      width: 12px;
+      height: 10px;
+      background-image: url(/dist/img/login-202101261445.svg);
+      background-position: 79.75999999999999% 81.89999999999999%;
+      background-size: 1500% 1260%;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="hold-transition register-page">
+<div class="register-box">
+  <div class="register-logo">
+    <a href="index.html"><b>HUOXUAN</b>ASSISTANT</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">注册新账户</p>
+
+      <form action="##" method="post" id="register-form" onsubmit="return false">
+        <div class="form-group mb-3">
+          <div class="input-group-append">
+          <input type="text" class="form-control" placeholder="用户名称"  name="username" id="user-name">
+          <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="input-group-append">
+            <input type="email" name="email" class="form-control" onblur="haveEmail()" id="email" placeholder="邮箱">
+            <div class="input-group-text">
+              <span class="fas fa-envelope" ></span>
+            </div>
+          </div>
+          <span id="have-email" class="error invalid-feedback" style="display: none;"></span>
+        </div>
+        <div class="form-group mb-3">
+          <div class="input-group-append ">
+          <input type="text" id="verification" name="verification" class="form-control" placeholder="验证码">
+            <div class="input-group-text" style="padding: 0rem">
+            <span class="form-group-append">
+                    <button onclick="sendEmail()" id="getCode" type="button" class="btn btn-primary ">获取验证码</button>
+            </span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="input-group-append">
+          <input type="password" name="password" class="form-control" id="password" placeholder="密码">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <div class="input-group-append">
+            <input type="password" name="repassword" class="form-control" onblur="pwd_confirm()" id="re-password" placeholder="确认密码">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+          <span id="have-pwd" class="error invalid-feedback" style="display: none;"></span>
+        </div>
+
+        <div class="row">
+
+
+          <div class="col-8 form-group">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" id="agreeTerms" name="terms" value="agree" class="custom-control-input">
+              <label class="custom-control-label" for="agreeTerms">
+              我同意 <a href="#">火玄生活平台协议</a>
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">注册</button>
+          </div>
+          <!-- /.col -->
+        </div>
+        <span id="errorInfo" class="error invalid-feedback" style="display: none;"></span>
+      </form>
+
+      <div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab clg-icon-qq mr-2"></i>
+          QQ接入
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab clg-icon-wxoa mr-2"></i>
+          邮箱接入
+        </a>
+      </div>
+
+      <a href="login.html" class="text-center">已经是火玄会员？</a>
+    </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<script src="js/register.js"></script>
+<script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="plugins/jquery-validation/additional-methods.min.js"></script>
+</body>
+</html>

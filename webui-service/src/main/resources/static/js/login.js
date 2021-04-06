@@ -27,12 +27,17 @@ $("#apply_link_form").submit(function(){
             success: function (data) {
                 if(data.success){
                     if (!window.localStorage) {
-                        alert(" 当浏览器不支持 localStorage ...")
+                        alert(" 当前浏览器不支持 localStorage ...")
                     } else {
                         localStorage.setItem("token",data.token);
                         localStorage.setItem("uname",data.user.name);
                         localStorage.setItem("uid",data.user.id);
                         localStorage.setItem("errorNum","0");
+                        if($("input[type='checkbox']").prop('checked')){
+                            localStorage.setItem(username,password)
+                        }else{
+                            localStorage.removeItem(username)
+                        }
                         localStorage.refreshToken = data.refreshToken;
                         getUid();
                         // alert(localStorage.getItem('token'))
@@ -41,14 +46,12 @@ $("#apply_link_form").submit(function(){
 
                         return window.location.href= data.message;
                     }
-
                     // alert(localStorage.refreshToken)
-
                 }
                 else {
                     $("#loginInfor").css({ "display": "block", "opacity": "1" });
                     $("#loginInfor").animate({ opacity: 0 }, 2000);
-                    $("#loginInfor").html(data.message);
+                    $("#loginInfor").html(data.message).css({"color":"red"});
                     console.log("respon success, but the password is worry!");
                 }
             },
@@ -56,12 +59,22 @@ $("#apply_link_form").submit(function(){
                 console.log("respon error");
             }
         });
+
 function getUid() {
     $.ajax({
         url: "getUid/" + localStorage.getItem('uid'), //提价的路径
         type: "get",       //提交方式
         dataType: "JSON",       //规定请求成功后返回的数据
-
     });
 }
 });
+
+function havePwd() {
+    // alert(localStorage.getItem($("#email").val()))
+    if (localStorage.getItem($("#email").val())) {
+        // alert(2)
+        $("#remember").attr("checked","checked")
+        // $("input[type='checkbox']").checkbox[0].value=true
+        $("#pwd").val(localStorage.getItem($("#email").val()))
+    }
+}

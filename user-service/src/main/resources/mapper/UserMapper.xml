@@ -22,85 +22,48 @@
         select id,user_information.name,pwd,email from user_information where  delete_flag=0 and email = #{email}
     </select>
 
-    <!--<select id="list" resultMap="IpoMaxPurchaseRateRepVO" >-->
-          <!--select id,prod_code,prod_name,remark,max_ratio,create_user_id,create_time,update_user_id,update_time from ipo_new_stock_max_ratio-->
-          <!--<where>-->
-          <!--delete_flag=0-->
-		      <!--<if test="prodCode != null">-->
-			    <!--and prod_code like concat('%',#{prodCode},'%')-->
-		      <!--</if>-->
-          <!--</where>-->
-          <!--ORDER BY update_time DESC-->
-    <!--</select>-->
+    <select id="haveEmail" resultMap="User" >
+          select email from user_information
+          <where>
+          delete_flag=0
+		      <if test="email != null">
+			    and email = #{email}
+		      </if>
+          </where>
+    </select>
 
 
 
-    <!--<insert id="save">-->
-        <!--INSERT INTO ipo_new_stock_max_ratio-->
-        <!--<trim prefix="(" suffix=")" suffixOverrides=",">-->
+    <insert id="insertUser">
+        INSERT INTO user_information
+        <trim prefix="(" suffix=")" suffixOverrides=",">
 
-            <!--<if test="id != null ">-->
-                <!--id,-->
-            <!--</if>-->
-            <!--<if test="prodCode != null and prodCode.length() > 0">-->
-                <!--prod_code,-->
-            <!--</if>-->
-            <!--<if test="prodName != null and prodName.length() > 0">-->
-                <!--prod_name,-->
-            <!--</if>-->
-            <!--<if test="createTime != null">-->
-                <!--create_time,-->
-            <!--</if>-->
-            <!--<if test="createUserId != null">-->
-                <!--create_user_id,-->
-            <!--</if>-->
-            <!--<if test="updateTime != null">-->
-                <!--update_time,-->
-            <!--</if>-->
-            <!--<if test="updateUserId != null">-->
-                <!--update_user_id,-->
-            <!--</if>-->
+            <if test="name != null and name.length() >= 2">
+                name,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="pwd != null and pwd.length() > 4">
+                pwd,
+            </if>
 
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
 
-            <!--<if test="maxRatio != null">-->
-                <!--max_ratio,-->
-            <!--</if>-->
+            <if test="name != null and name.length() >= 2">
+                #{name},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="pwd != null and pwd.length() > 4">
+                #{pwd},
+            </if>
 
-            <!--remark,-->
+        </trim>
 
-        <!--</trim>-->
-        <!--<trim prefix="values (" suffix=")" suffixOverrides=",">-->
-
-            <!--<if test="id != null">-->
-                <!--#{id},-->
-            <!--</if>-->
-            <!--<if test="prodCode != null and prodCode.length() > 0">-->
-                <!--#{prodCode},-->
-            <!--</if>-->
-            <!--<if test="prodName != null and prodName.length() > 0">-->
-                <!--#{prodName},-->
-            <!--</if>-->
-            <!--<if test="createTime != null">-->
-                <!--#{createTime},-->
-            <!--</if>-->
-            <!--<if test="createUserId != null">-->
-                <!--#{createUserId},-->
-            <!--</if>-->
-            <!--<if test="updateTime != null">-->
-                <!--#{updateTime},-->
-            <!--</if>-->
-            <!--<if test="updateUserId != null">-->
-                <!--#{updateUserId},-->
-            <!--</if>-->
-
-            <!--<if test="maxRatio != null ">-->
-                <!--#{maxRatio},-->
-            <!--</if>-->
-
-            <!--remark,-->
-        <!--</trim>-->
-
-    <!--</insert>-->
+    </insert>
 
     <!--<update id="update" parameterType="com.win.dfbp.newstock.entity.IpoMaxPurchaseRate">-->
         <!--UPDATE ipo_new_stock_max_ratio-->
