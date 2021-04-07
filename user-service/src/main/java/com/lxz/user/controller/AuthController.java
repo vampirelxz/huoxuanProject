@@ -127,4 +127,44 @@ public class AuthController {
         return token;
     }
 
+    private String buildJWT2(String email){
+        //生成jwt
+        Date now = new Date();
+        Algorithm algo = Algorithm.HMAC256(secretKey);
+        String token = JWT.create()
+                .withIssuer("XUAN")
+                .withIssuedAt(now)
+                .withExpiresAt(new Date(now.getTime() + tokenExpireTime))
+                .withClaim("email", email)
+                .withClaim("userId", 0000)
+                .sign(algo);
+        System.out.println(token);
+        return token;
+    }
+
+    /**
+     * 登录授权，生成JWT
+     * @param email
+     * @return
+     */
+    @PostMapping("/updatePwdAuth")
+    public ResultVO updatePwdAuth(@RequestParam String email){
+        Map<String,Object> resultMap = new HashMap<>();
+        //账号密码校验
+        ResultVO resultVO = new ResultVO();
+        //生成JWT
+        String token = buildJWT2(email);
+        //返回结果
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("token", token);
+        resultMap.put("code", "10000");
+        resultMap.put("data", dataMap);
+        resultVO.setToken(token);
+        System.out.println(resultVO.toString());
+        return resultVO;
+    }
+
+
+
+
 }

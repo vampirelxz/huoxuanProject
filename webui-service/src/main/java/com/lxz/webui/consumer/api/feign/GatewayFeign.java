@@ -300,4 +300,8 @@ public interface GatewayFeign {
     @RequestMapping(value = "/lifetools/deleteNote",method = RequestMethod.GET)
     void deleteNote(@RequestParam("id") int id, @RequestParam("createId") int createId,
                     @RequestHeader("Authorization") String token);
+
+    @RequestMapping(value = "/user/updatePwd",method = RequestMethod.POST)
+    ResultVO updatePwd(@RequestParam("email") String email,@RequestParam("pwd") String pwd,
+                    @RequestHeader("Authorization") String token);
 }

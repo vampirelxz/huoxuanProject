@@ -42,4 +42,11 @@ public interface UserMapper {
      * @param pwd 密码
      */
     void insertUser(@Param("email") String email,@Param("name") String name,@Param("pwd") String pwd);
+
+    /**
+     * 更改密码
+     * @param email 邮箱
+     * @param pwd 密码
+     */
+    void updatePwd(@Param("email") String email,@Param("pwd") String pwd);
 }

@@ -65,18 +65,13 @@
 
     </insert>
 
-    <!--<update id="update" parameterType="com.win.dfbp.newstock.entity.IpoMaxPurchaseRate">-->
-        <!--UPDATE ipo_new_stock_max_ratio-->
-        <!--<set>-->
-            <!--<if test ='null != prodCode'>prod_code = #{prodCode},</if>-->
-            <!--<if test ='null != prodName'>prod_name = #{prodName},</if>-->
-            <!--<if test ='null != maxRatio'>max_ratio = #{maxRatio},</if>-->
-            <!--<if test ='null != remark'>remark = #{remark},</if>-->
-            <!--<if test ='null != updateUserId'>update_user_id = #{updateUserId},</if>-->
-            <!--<if test ='null != updateTime'>update_time = #{updateTime}</if>-->
-        <!--</set>-->
-        <!--WHERE prod_code = #{prodCode}  AND delete_flag = 0-->
-    <!--</update>-->
+    <update id="updatePwd" parameterType="com.lxz.user.entity.User">
+        UPDATE user_information
+        <set>
+            <if test ='null != pwd'>pwd = #{pwd},</if>
+        </set>
+        WHERE email = #{email}  AND delete_flag = 0
+    </update>
 
 
 
