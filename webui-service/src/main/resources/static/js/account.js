@@ -5,7 +5,16 @@ $.get("/account",{
     "createId":localStorage.getItem("uid"),"token":token
 },function(date){
     $("#account").html(date);
+    refreshToken()
 })
+
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
 // //
 //
 // //
@@ -19,6 +28,7 @@ function flush() {
 // //
 $('#example1 tr').find('td:eq(0)').css("display:none")
 $("#form_data").submit(function(){
+    refreshToken()
     var createId = localStorage.getItem("uid")
     var type =$('#type option:selected').text()
     var inout=$('#inorout option:selected').text()
@@ -55,6 +65,7 @@ $("#form_data").submit(function(){
 })
 // //
 function deleteAccount(r) {
+    refreshToken()
     $("#example1 tbody").on("click","tr",function() {
         var td = $(this).find("td");
         var code = td.eq(0).attr('name')

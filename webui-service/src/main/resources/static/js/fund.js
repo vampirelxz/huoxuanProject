@@ -1,6 +1,10 @@
-
-//
-//
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
 
 $('.toastsDefaultSuccess').click(function() {
     $(document.getElementById('selfFund')).Toasts('create', {
@@ -25,6 +29,7 @@ function flush() {
     $.get("/selfFund",{
         "createId":localStorage.getItem("uid"),"token":token
     },function(date){
+        refreshToken()
         $("#selfFund").html(date);
     })
 }
@@ -35,7 +40,7 @@ $("#form_data").submit(function(){
     if(fundId == null){
         return
     }
-
+    refreshToken()
     $('#addBottom').attr('disabled','disabled');
     setTimeout('myfunction()',2000);
     $.ajax({
@@ -63,7 +68,7 @@ function deleteFund(r) {
     $("#self-table tbody").on("click","tr",function() {
         var td = $(this).find("td");
         var code = td.eq(1).text();
-        alert(code)
+        refreshToken()
         $.post("/deleteSelfFund",{"createId":localStorage.getItem("uid"),
             "fundId":code,"token":token
         },function(){
@@ -83,6 +88,7 @@ function findInInfo(value) {
     $.get("/detailFund",{
         "code":value.innerText
     },function(date){
+        refreshToken()
         $("#detailFund").html(date);
         $("#detailFund").css('display','block');
         $("#listFund").css('display','none');
@@ -103,6 +109,7 @@ function findInfo() {
     $.get("/listFund",{
         "code":code
     },function(date){
+        refreshToken()
         $("#listFund").html(date);
         $("#detailFund").css('display','none');
         $("#listFundw").css('display','block');

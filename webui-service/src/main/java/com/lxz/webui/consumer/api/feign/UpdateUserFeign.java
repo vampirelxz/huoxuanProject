@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+
 /****************************************************
  * 创建人：     @author liuxuanzhi    
  * 创建时间: 2021/4/7/13:38
@@ -52,4 +54,7 @@ public interface UpdateUserFeign {
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     ResultVO register(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("varifyCode") String varifyCode ,@RequestParam("pwd") String pwd);
+
+    @RequestMapping(value = "/token/refresh",method = RequestMethod.GET)
+    Map<String,Object> refreshToken(@RequestParam("refreshToken") String refreshToken);
 }

@@ -1,3 +1,11 @@
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
+
 function runContent() {
     var source=$("#myInput").val()
     var systemIn=$("#mySystemIn").text()
@@ -8,6 +16,7 @@ function runContent() {
     }else{
         algorithmId = null;
     }
+    refreshToken()
     $.post("/run",{"source":source,"systemIn":systemIn,"userId":userId,"algorithmId":algorithmId,"token":localStorage.getItem("token")},
         function (date) {
         $("#showRunResult").html(date);
@@ -55,6 +64,7 @@ function insertText(obj,str) {
 $.get("/listAlgorithmInfo",{
 },function(date){
     $("#questionList").html(date);
+    refreshToken()
 })
 
 function loadHistory(obj) {
@@ -77,6 +87,7 @@ function solution(obj) {
             $("#solution").html(date);
             $("#out-questionList").css("display","none");
             $("#solution-more").css("display","block");
+            refreshToken()
         })
 
 }

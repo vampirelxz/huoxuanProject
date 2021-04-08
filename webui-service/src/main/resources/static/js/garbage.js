@@ -2,6 +2,14 @@ var chartDom = document.getElementById('garbageRank');
 var myChart = echarts.init(chartDom);
 var option;
 
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
+
 function getGarbageTitle() {
     var date1=null;
     $.ajax({
@@ -10,6 +18,7 @@ function getGarbageTitle() {
         async: false,
         dataType: 'json',
         success : function (res) {
+            refreshToken()
             date1 =res;
         }
     })

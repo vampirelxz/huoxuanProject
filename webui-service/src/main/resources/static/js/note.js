@@ -1,4 +1,12 @@
 // //
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
+
 var token=localStorage.getItem("token")
 $.get("/listNoteInfo",{
     "createId":localStorage.getItem("uid"),"token":token
@@ -41,6 +49,7 @@ $("#form_data").submit(function(){
         url: "http://localhost:80/saveOrUpdateNote" ,
         dataType: "text",
         success: function () {
+            refreshToken()
             if(id == 0){
                 $('#form_data')[0].reset();
                 $('.card-block').html("")
@@ -87,6 +96,7 @@ function modify(data) {
             $('#title').val(date.title);
             $('#id').val(id)
             $('.card-block').html(date.content)
+            refreshToken()
         })
 
 }
@@ -98,6 +108,7 @@ function deleteNote(r) {
         var id = td.eq(0).attr('id')
 
         $.get("/deleteNote",{"id":id,"createId":createId,"token":token},function(){
+            refreshToken()
             flush()
         })
     });

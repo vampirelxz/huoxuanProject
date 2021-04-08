@@ -30,7 +30,13 @@
 //     }
 // });
 
-
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
 
 
 $('#user-name').html(localStorage.getItem('uname'));
@@ -60,6 +66,7 @@ $(function(){
             type: 'get',
             async: false,
             success:function(date){    //这里的json就是从后台获取的借口。
+                refreshToken()
                 localStorage.setItem('city',date)
             },
             error: function () {

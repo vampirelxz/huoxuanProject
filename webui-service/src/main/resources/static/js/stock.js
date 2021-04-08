@@ -1,8 +1,10 @@
-$.get("/getToken",{
-"token":localStorage.getItem("token")
-},function(date){
-
-})
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
 
 $('.toastsDefaultSuccess').click(function() {
     $(document.getElementById('selfStock')).Toasts('create', {
@@ -21,6 +23,7 @@ function findInfo() {
     $.get("/realtimeStock",{
         "code":code
     },function(date){
+        refreshToken()
         $("#timeStock").html(date);
     })
 }
@@ -34,6 +37,7 @@ var token=localStorage.getItem("token")
 $.get("/selfStock",{
     "createId":localStorage.getItem("uid"),"token":token
 },function(date){
+    refreshToken()
     $("#selfStock").html(date);
 })
 
@@ -41,6 +45,7 @@ function findInInfo(value) {
     $.get("/realtimeStock",{
         "code":value.innerText
     },function(date){
+        refreshToken()
         $("#timeStock").html(date);
     })
 
@@ -70,6 +75,7 @@ $("#form_data").submit(function(){
         url: "http://localhost:80/insertSelfStock" ,
         dataType: "text",
         success: function () {
+            refreshToken()
             flush()
         },
         error: function () {
@@ -91,6 +97,7 @@ function deleteStock(r) {
         $.post("/deleteSelfStock",{"createId":localStorage.getItem("uid"),
             "stockId":code,"token":token
         },function(){
+            refreshToken()
             var i=r.parentNode.parentNode.rowIndex;
             document.getElementById('self-table').deleteRow(i);
             // $("#self-table tr").remove();

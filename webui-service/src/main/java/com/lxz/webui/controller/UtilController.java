@@ -10,10 +10,14 @@ package com.lxz.webui.controller;/**********************************************
  *
  ********************************************************/
 
+import com.lxz.webui.consumer.api.feign.UpdateUserFeign;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * 包名称： com.lxz.lifetools.controller
@@ -25,6 +29,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UtilController {
+    @Autowired
+    UpdateUserFeign updateUserFeign;
+
     public String t=null;
 
     /*
@@ -35,6 +42,18 @@ public class UtilController {
         System.out.println(token);
         t=token;
         return t;
+    }
+
+    /**
+     * 刷新token
+     * @param refreshToken
+     * @return
+     */
+    @RequestMapping(value = "/refreshToken",method = RequestMethod.GET)
+    public String refreshToken(@RequestParam("refreshToken") String refreshToken){
+        Map<String, Object> stringObjectMap = updateUserFeign.refreshToken(refreshToken);
+        String data = stringObjectMap.get("data").toString();
+        return data;
     }
 
 

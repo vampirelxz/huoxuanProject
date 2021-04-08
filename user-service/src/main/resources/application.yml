@@ -66,14 +66,14 @@ jwt:
     key:
       format: JWT_BLACKLIST::%s
 
-#token过期时间：1min
+#token过期时间：30min
 token:
   expire:
-    time: 3600000
+    time: 1800000
 
-#refreshToken过期时间：2min
+#refreshToken过期时间：6h
 refresh:
   token:
     expire:
-      time: 120000
+      time: 21600000
 

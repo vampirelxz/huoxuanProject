@@ -5,15 +5,6 @@
  *      This is a demo file used only for the main dashboard (index.html)
  **/
 
-/* global moment:false, Chart:false, Sparkline:false */
-// $(document).ready(function () {
-//   $.ajax({
-//         url: "getUid/" + localStorage.getItem('uid'), //提价的路径
-//         type: "get",       //提交方式
-//         dataType: "JSON",       //规定请求成功后返回的数据
-//
-//     });
-// })
 //------------发送消息-------------
 
 $("#form_data1").submit(function(){
@@ -36,7 +27,7 @@ $("#form_data1").submit(function(){
       "                                <div id=\"addMessage\"></div>");
   var showContent = $(".direct-chat-messages");
   showContent[0].scrollTop = showContent[0].scrollHeight;
-
+  refreshToken()
   $.ajax({
     type: "GET",
     data: {question: message},
@@ -63,6 +54,14 @@ $("#form_data1").submit(function(){
   })
 })
 //________________________
+function refreshToken(){
+  $.get("/refreshToken",{
+    "refreshToken":localStorage.getItem("refreshToken")
+  },function(data){
+    localStorage.setItem("token",data);
+  })
+}
+
 
 $('.toastsDefaultSuccess').click(function() {
   $(document.getElementById('todo-list')).Toasts('create', {
@@ -308,6 +307,7 @@ function dayInfo() {
     },
 
     success : function (res) {
+      refreshToken();
       var data =res;
       var len = eval(data).length;
 
@@ -429,6 +429,7 @@ $("#form_data").submit(function(){
     url: "http://localhost:80/saveInfo" ,
     dataType: "text",
     success: function () {
+      refreshToken()
           // alert(data)
         flush()
         },

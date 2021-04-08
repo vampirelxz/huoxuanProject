@@ -37,6 +37,14 @@ $(function () {
     });
 });
 
+function refreshToken(){
+    $.get("/refreshToken",{
+        "refreshToken":localStorage.getItem("refreshToken")
+    },function(data){
+        localStorage.setItem("token",data);
+    })
+}
+
 $(function(){
     $.ajax({  //这里是用jquery自带的ajax发送请求。
         url:'http://localhost:80/listNewsInfo', //这个是后台提供的借口
@@ -44,7 +52,7 @@ $(function(){
         type: 'get',
         async: false,
         success:function(date){    //这里的json就是从后台获取的借口。
-
+            refreshToken()
             $("#toutiao-tab").html(date);
             $('#toutiaot').DataTable({
                 "paging": true,
@@ -70,6 +78,7 @@ function newInfo(id){
         type: 'get',
         async: false,
         success:function(date){    //这里的json就是从后台获取的借口。
+            refreshToken()
             $("#"+type+"-tab").html(date);
             $('#'+type+'t').DataTable({
                 "paging": true,
@@ -96,6 +105,7 @@ function newInfo2(id){
         type: 'get',
         async: false,
         success:function(date){    //这里的json就是从后台获取的借口。
+            refreshToken()
             $("#"+type+"-tab").html(date);
             $('#'+type+'t').DataTable({
                 "paging": true,
