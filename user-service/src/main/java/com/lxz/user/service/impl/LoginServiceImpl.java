@@ -13,6 +13,7 @@ package com.lxz.user.service.impl;/*********************************************
 import com.lxz.user.dao.UserMapper;
 import com.lxz.user.entity.User;
 import com.lxz.user.service.LoginService;
+import com.lxz.user.utils.Md5Utils;
 import com.lxz.user.vo.ResultVO;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class LoginServiceImpl implements LoginService {
         User user=userMapper.getUserByEmail(email);
         if (user == null||user.equals(null)) {
             return new ResultVO(false,"此邮箱未注册");
-        } else if (user.getPwd().equals(pwd)) {
+        } else if (user.getPwd().equals(Md5Utils.MD5Encode(pwd,"UTF-8",true))) {
             return new ResultVO(true,"http://localhost:80/huoxuan.html",user);
         }
         return new ResultVO(false,"输入密码错误");

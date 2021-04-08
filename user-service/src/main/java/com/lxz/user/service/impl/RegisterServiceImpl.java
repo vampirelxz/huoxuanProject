@@ -13,6 +13,7 @@ package com.lxz.user.service.impl;/*********************************************
 import com.lxz.user.dao.UserMapper;
 import com.lxz.user.entity.User;
 import com.lxz.user.service.RegisterService;
+import com.lxz.user.utils.Md5Utils;
 import com.lxz.user.utils.SendEmailUtil;
 import com.lxz.user.utils.VerifyCodeUtils;
 import com.lxz.user.vo.ResultVO;
@@ -62,7 +63,7 @@ public class RegisterServiceImpl implements RegisterService {
             resultVO.setMessage("该用户已经存在，请不要修改网页");
             return resultVO;
         }
-        userMapper.insertUser(email,name,pwd);
+        userMapper.insertUser(email,name, Md5Utils.MD5Encode(pwd,"UTF-8",true));
         resultVO.setMessage("添加成功");
         resultVO.setSuccess(true);
         return resultVO;

@@ -33,7 +33,7 @@ public class SendEmailUtil{
     //帐号
     private static String ACCOUNT = "736603914@qq.com";
     //密码
-    private static String PASSWORD = "echvwpaeltinbefb";
+    private static String PASSWORD = "xyzksqjkavxzbdgi";
 
     /**
      * @param toUser  发送邮件给谁

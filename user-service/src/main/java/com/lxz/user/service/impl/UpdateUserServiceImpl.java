@@ -13,6 +13,7 @@ package com.lxz.user.service.impl;/*********************************************
 import com.lxz.user.controller.AuthController;
 import com.lxz.user.dao.UserMapper;
 import com.lxz.user.service.UpdateUserService;
+import com.lxz.user.utils.Md5Utils;
 import com.lxz.user.utils.SendEmailUtil;
 import com.lxz.user.utils.VerifyCodeUtils;
 import com.lxz.user.vo.ResultVO;
@@ -69,7 +70,7 @@ public class UpdateUserServiceImpl implements UpdateUserService {
     @Override
     public void updatepwd(String email, String pwd) {
         if(!pwd.isEmpty() && pwd.length()>=5 && !email.isEmpty()) {
-            userMapper.updatePwd(email, pwd);
+            userMapper.updatePwd(email, Md5Utils.MD5Encode(pwd,"UTF-8",true));
         }
     }
 }
