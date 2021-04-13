@@ -16,6 +16,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.lxz.user.entity.User;
 import com.lxz.user.service.AuthService;
 import com.lxz.user.service.LoginService;
+import com.lxz.user.utils.UserDateUtils;
 import com.lxz.user.vo.ResultVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,14 +61,18 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private LoginService loginService;
 
+    @Autowired
+    private UserDateUtils userDateUtils;
+
     @Override
-    public ResultVO loginAuth(String email, String pwd) {
+    public ResultVO loginAuth(String email, String pwd) throws ParseException {
         Map<String,Object> resultMap = new HashMap<>();
         //账号密码校验
         ResultVO login = loginService.login(email, pwd);
         if(login.isSuccess()){
             //生成JWT
             String token = buildJWT(login.getUser());
+            userDateUtils.insertToken(token);
             //生成refreshToken
             String refreshToken = UUID.randomUUID().toString().replaceAll("-","");
             //保存refreshToken至redis，使用hash结构保存使用中的token以及用户标识
@@ -98,7 +104,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, Object> refreshToken(String refreshToken) {
+    public Map<String, Object> refreshToken(String refreshToken) throws ParseException {
         Map<String,Object> resultMap = new HashMap<>();
         String refreshTokenKey = String.format(jwtRefreshTokenKeyFormat, refreshToken);
         User user=JSON.parseObject(stringRedisTemplate.opsForHash().get(refreshTokenKey,
@@ -109,6 +115,7 @@ public class AuthServiceImpl implements AuthService {
             return resultMap;
         }
         String newToken = buildJWT(user);
+        userDateUtils.updateUseDate(newToken);
         //替换当前token，并将旧token添加到黑名单  不是refreshToken
         String oldToken = (String)stringRedisTemplate.opsForHash().get(refreshTokenKey,
                 "token");
@@ -132,6 +139,7 @@ public class AuthServiceImpl implements AuthService {
                 .withExpiresAt(new Date(now.getTime() + tokenExpireTime))
                 .withClaim("userId", user.getId())
                 .withClaim("userName",user.getName())
+                .withClaim("email",user.getEmail())
                 .sign(algo);
         return token;
     }

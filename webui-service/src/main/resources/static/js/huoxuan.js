@@ -11,3 +11,13 @@ function remove(){
 }
 window.onload = funcTest;
 
+function exit(){
+    localStorage.removeItem("token")
+    localStorage.removeItem("uid")
+    localStorage.removeItem("uname")
+    localStorage.removeItem("city")
+    if (top.location !== self.location) {
+        top.location.href = self.location.href;
+    }
+    window.location.href = "http://localhost/"
+}

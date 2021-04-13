@@ -4,6 +4,7 @@ import com.lxz.user.entity.User;
 import com.lxz.user.vo.ResultVO;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.ParseException;
 import java.util.Map;
 
 /****************************************************
@@ -24,14 +25,14 @@ public interface AuthService {
      * @param pwd
      * @return
      */
-    ResultVO loginAuth(String email, String pwd);
+    ResultVO loginAuth(String email, String pwd) throws ParseException;
 
     /**
      * 刷新JWT
      * @param refreshToken
      * @return
      */
-    Map<String,Object> refreshToken( String refreshToken);
+    Map<String,Object> refreshToken( String refreshToken) throws ParseException;
 
     String buildJWT(User user);
 

@@ -57,4 +57,10 @@ public interface UpdateUserFeign {
 
     @RequestMapping(value = "/token/refresh",method = RequestMethod.GET)
     Map<String,Object> refreshToken(@RequestParam("refreshToken") String refreshToken);
+
+    @RequestMapping(value = "/onlineUser",method = RequestMethod.GET)
+    int onlineUser(@RequestParam("token") String token);
+
+    @RequestMapping(value = "/visitUser",method = RequestMethod.GET)
+    int visitUser(@RequestParam("token") String token);
 }

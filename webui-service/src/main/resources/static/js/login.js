@@ -32,6 +32,7 @@ $("#apply_link_form").submit(function(){
                         localStorage.setItem("token",data.token);
                         localStorage.setItem("uname",data.user.name);
                         localStorage.setItem("uid",data.user.id);
+                        localStorage.setItem("email",$("#email").val())
                         localStorage.setItem("errorNum","0");
                         if($("input[type='checkbox']").prop('checked')){
                             localStorage.setItem(username,password)

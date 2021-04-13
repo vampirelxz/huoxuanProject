@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.Map;
 
 @RestController
@@ -23,7 +24,7 @@ public class AuthController {
      */
     @PostMapping("/auth")
     public ResultVO loginAuth(@RequestParam String email,
-                                    @RequestParam String pwd){
+                                    @RequestParam String pwd) throws ParseException {
         ResultVO resultVO = authService.loginAuth(email, pwd);
         return resultVO;
     }
@@ -34,7 +35,7 @@ public class AuthController {
      * @return
      */
     @GetMapping("/token/refresh")
-    public Map<String,Object> refreshToken(@RequestParam String refreshToken){
+    public Map<String,Object> refreshToken(@RequestParam String refreshToken) throws ParseException {
         Map<String, Object> stringObjectMap = authService.refreshToken(refreshToken);
         return stringObjectMap;
     }

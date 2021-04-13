@@ -304,4 +304,7 @@ public interface GatewayFeign {
     @RequestMapping(value = "/user/updatePwd",method = RequestMethod.POST)
     ResultVO updatePwd(@RequestParam("email") String email,@RequestParam("pwd") String pwd,
                     @RequestHeader("Authorization") String token);
+
+    @RequestMapping(value = "/user/userTime",method = RequestMethod.GET)
+    long userTime(@RequestParam("email") String email,@RequestHeader("Authorization") String token);
 }

@@ -53,7 +53,6 @@ public class SendEmailUtil{
         props.setProperty("mail.smtp.auth", "true");
 
         try {
-
             // 创建验证器
             Authenticator auth = new Authenticator() {
                 @Override

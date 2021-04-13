@@ -36,11 +36,9 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-
-
     <!-- Navbar -->
     <!--<nav th:replace="common::.main-header"></nav>-->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="display: none;">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -471,9 +469,9 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3  id="visitCount">150</h3>
 
-                                <p>New Orders</p>
+                                <p>今日访问人数</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -485,10 +483,10 @@
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <div class="inner" >
+                                <h3 id="timeUser">53<sup style="font-size: 20px">min</sup></h3>
 
-                                <p>Bounce Rate</p>
+                                <p>访问时长</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -500,10 +498,10 @@
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>44</h3>
+                            <div class="inner" >
+                                <h3 id="onlineCount">44</h3>
 
-                                <p>User Registrations</p>
+                                <p>在线人数</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -516,9 +514,9 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>65</h3>
+                                <h3>63<sup style="font-size: 20px">%</sup></h3>
 
-                                <p>Unique Visitors</p>
+                                <p>云盘使用比</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
@@ -531,31 +529,7 @@
                 <!-- /.row -->
                 <!-- Main row -->
 
-                <!-- Map card -->
-                <div class="card bg-gradient-primary">
-                    <!-- /.card-body-->
-                    <div class="card-footer bg-transparent" style="display: none;">
-                        <div class="row">
-                            <div class="col-4 text-center">
-                                <div id="sparkline-1"></div>
-                                <div class="text-white">Visitors</div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-4 text-center">
-                                <div id="sparkline-2"></div>
-                                <div class="text-white">Online</div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-4 text-center">
-                                <div id="sparkline-3"></div>
-                                <div class="text-white">Sales</div>
-                            </div>
-                            <!-- ./col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                </div>
-                <!-- /.card -->
+
 
                 <div class="row">
                     <!--&lt;!&ndash; Left col &ndash;&gt;-->
@@ -634,10 +608,10 @@
                             <!-- /.card-header -->
                             <div class="card-body" id="todo-list" th:fragment="todo-list" style="padding: 0.2rem">
 
-                                <ul class="todo-list" data-widget="todo-list" th:each="c, State : ${toDoList}">
+                                <ul class="todo-list" data-widget="todo-list" >
 
                                     <!--<ul th:each="c, State : ${toDoList}">-->
-                                        <li>
+                                        <li th:each="c, State : ${toDoList}" >
                                             <!-- drag handle -->
                                             <span class="handle">
                                                 <i class="fas fa-ellipsis-v"></i>
@@ -645,7 +619,7 @@
                                             </span>
                                             <!-- checkbox -->
                                             <div  class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value=""  th:name="ToDoName+${c.id}" id="todoCheck1" th:id="ToDoCheck+${c.id}">
+                                                <input type="checkbox" value=""  th:name="ToDoName+${c.id}" id="todoCheck1" th:id="ToDoCheck+${c.id}" onclick="toDone(this)">
                                                 <label th:for="ToDoCheck+${c.id}"></label>
                                             </div>
                                             <!-- todo text -->
@@ -908,7 +882,7 @@
 <!-- ChartJS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
+<!--<script src="plugins/sparklines/sparkline.js"></script>-->
 <!-- JQVMap -->
 <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
