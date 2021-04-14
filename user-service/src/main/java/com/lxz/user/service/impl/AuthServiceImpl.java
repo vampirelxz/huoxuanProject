@@ -72,7 +72,7 @@ public class AuthServiceImpl implements AuthService {
         if(login.isSuccess()){
             //生成JWT
             String token = buildJWT(login.getUser());
-            userDateUtils.insertToken(token);
+            UserDateUtils.countVisit++;
             //生成refreshToken
             String refreshToken = UUID.randomUUID().toString().replaceAll("-","");
             //保存refreshToken至redis，使用hash结构保存使用中的token以及用户标识
@@ -129,7 +129,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String buildJWT(User user) {
+    public String buildJWT(User user) throws ParseException {
         //生成jwt
         Date now = new Date();
         Algorithm algo = Algorithm.HMAC256(secretKey);
@@ -141,6 +141,7 @@ public class AuthServiceImpl implements AuthService {
                 .withClaim("userName",user.getName())
                 .withClaim("email",user.getEmail())
                 .sign(algo);
+        userDateUtils.insertToken(token);
         return token;
     }
 

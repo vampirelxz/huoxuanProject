@@ -34,7 +34,7 @@ public interface AuthService {
      */
     Map<String,Object> refreshToken( String refreshToken) throws ParseException;
 
-    String buildJWT(User user);
+    String buildJWT(User user) throws ParseException;
 
     String buildForgotJWT(String email);
 

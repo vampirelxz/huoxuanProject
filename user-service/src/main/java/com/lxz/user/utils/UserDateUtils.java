@@ -44,7 +44,7 @@ public class UserDateUtils {
 
     public void insertToken(String token) throws ParseException {
         //获得当前时间(毫秒)
-        countVisit++;
+//        countVisit++;
         Map map=null;
         try {
             //解析token，获得签发时间
